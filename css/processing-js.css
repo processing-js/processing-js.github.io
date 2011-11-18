@@ -1,0 +1,127 @@
+.container {
+  box-shadow: 0px 0px 30px #888;
+  margin-bottom: 4em;
+}
+
+.header {
+  background-color: #0077B5;
+  line-height: 0;
+}
+
+.tagline {
+  padding-left: 1em;
+  color: #0077B5;
+  font-family: "lucida console", verdana;
+  line-height: 2;
+}
+
+/* The amount of CSS needed for the navbar is terrifying. I am sorry. */
+.navbar {
+  background-color: #000000;
+  line-height: 0;
+  position: relative;
+  width: 940px;
+  height: 78px;
+}
+
+.navbar ul {
+  list-style: none outside none;
+  position: absolute;
+  bottom: -1.20em;
+}
+
+.navbar ul li {
+  display: inline;
+  position: relative;
+}
+
+.navbar ul li a span {
+  color: #909090;
+  background-color: white;
+  background-image:    -moz-linear-gradient(white, rgb(213, 213, 213));
+  background-image: -webkit-linear-gradient(white, rgb(213, 213, 213));
+  background-image:      -o-linear-gradient(white, rgb(213, 213, 213));
+  background-image:     -ms-linear-gradient(white, rgb(213, 213, 213));
+  background-image:         linear-gradient(white, rgb(213, 213, 213));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#d5d5d5');
+  padding: 0.25em 0.75em;
+  margin: 0 0.1em;
+  border-radius: 0.3em 0.3em 0 0;
+}
+
+.navbar ul li a:hover, .navbar ul li a:focus {
+  text-decoration: none;
+}
+
+.navbar ul li a:hover span, .navbar ul li a:focus span {
+  position: relative;
+  color:#00a7fd;
+  padding-bottom: 1.25em;
+  bottom:1em;
+}
+
+.navbar ul a.selected {
+  text-decoration: none;
+}
+
+.navbar ul a.selected span {
+  position: relative;
+  color:#00a7fd;
+  background-color: white;
+  background-image: none;
+  padding-bottom: 1.25em;
+  bottom:1em;
+}
+
+.navbar .viewsource {
+  color: white;
+  position: absolute;
+  bottom: 1em;
+  right: 0.5em;
+}
+
+.footer {
+  font-size: 0.85em;
+  color: #aaa;
+  padding-left: 1em;
+}
+
+a {
+  color: #0075B2;
+}
+
+a:hover, a:focus {
+  color: #00a7fd;
+}
+
+.page {
+  padding: 1em;
+}
+
+.home-exhibition {
+  float: left;
+  width: 190px;
+}
+
+.home-exhibition span a img {
+  border-radius: 0.5em;
+}
+
+.sidebar {
+  border-left: 1px dotted #0073AF;
+  padding: 0 1em;
+}
+
+.sidebar h3 a {
+  text-decoration: none;
+}
+
+.sidebar ul li {
+  list-style-type: circle;
+  color: #0075B2;
+}
+
+.sidebar ul li:hover {
+  list-style-type: disc;
+  color: #00a7fd;
+}

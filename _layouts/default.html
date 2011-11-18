@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Processing.js</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+    <link rel="stylesheet" href="/css/processing-js.css" type="text/css" />
+    <script src="/js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="/js/tabselector.js" type="text/javascript"></script>
+    <script src="/js/processing.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="/"><img src="/images/header.png" width="177" height="42"></a>
+      </div>
+      <span class="tagline">a port of the Processing Visualization Language</span>
+
+      <div class="navbar">
+        <canvas width="940px" height="78px" data-processing-sources="/sketches/bannerSketch.pde"></canvas>
+        <ul>
+          <li><a href="/"><span>home</span></a></li>
+          <li><a href="/exhibition/"><span>exhibition</span></a></li>
+          <li><a href="/reference/"><span>reference</span></a></li>
+          <li><a href="/learning/"><span>learning</span></a></li>
+          <li><a href="/download/"><span>download</span></a></li>
+          <li><a href="/community/"><span>community</span></a></li>
+          <li><a href="/blog/"><span>blog</span></a></li>
+        </ul>
+        <a class="viewsource" href="/sketches/bannerSketch.pde">view source</a>
+      </div>
+
+{{ content }}
+
+      <div class="footer">
+        Processing.js is an open visualization language originally ported to Javascript by
+        <a href="http://ejohn.org/blog/processingjs/">John Resig</a>, and originally developed by
+        <a href="http://benfry.com/">Ben Fry</a> &amp; <a href="http://reas.com/">Casey Reas</a>.
+      </div>
+    </div>
+  </body>
+</html>
