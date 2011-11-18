@@ -27,15 +27,19 @@
 .navbar ul {
   list-style: none outside none;
   position: absolute;
-  bottom: -1.20em;
+  bottom: 0;
+  left: 1em;
+  margin: 0;
 }
 
 .navbar ul li {
   display: inline;
   position: relative;
+  line-height: 1.2;
 }
 
 .navbar ul li a span {
+  position: relative;
   color: #909090;
   background-color: white;
   background-image:    -moz-linear-gradient(white, rgb(213, 213, 213));
@@ -45,6 +49,7 @@
   background-image:         linear-gradient(white, rgb(213, 213, 213));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#d5d5d5');
   padding: 0.25em 0.75em;
+  bottom: 0.25em;
   margin: 0 0.1em;
   border-radius: 0.3em 0.3em 0 0;
 }
@@ -55,9 +60,9 @@
 
 .navbar ul li a:hover span, .navbar ul li a:focus span {
   position: relative;
-  color:#00a7fd;
-  padding-bottom: 1.25em;
-  bottom:1em;
+  color: #00a7fd;
+  padding-bottom: 1em;
+  bottom: 1em;
 }
 
 .navbar ul a.selected {
@@ -66,11 +71,11 @@
 
 .navbar ul a.selected span {
   position: relative;
-  color:#00a7fd;
+  color: #00a7fd;
   background-color: white;
   background-image: none;
-  padding-bottom: 1.25em;
-  bottom:1em;
+  padding-bottom: 1em;
+  bottom: 1em;
 }
 
 .navbar .viewsource {
