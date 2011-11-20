@@ -1,0 +1,67 @@
+--- 
+layout: post
+title: Processing.js v1.3.5 released
+---
+<p>The Processing.js team is pleased to announce the release of Processing.js 1.3.5. This
+is a maintenance release, containing many compatibility fixes for the soon to be released
+Processing v 2.0, as well as fixes for issues reported by our users in 1.3.0. We've also
+included a number of updates for 3D, not the least of which is that 3D now renders crisp,
+and addressed several performance issues. As always, we encourage you to
+<a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/new">
+file bugs</a> when you spot something we missed, and thank those of you who filed bugs that
+we fixed in this release. Our community continues to grow, and the feedback, demos, and test
+cases are always welcome.</p>
+
+<p>You can download the full Processing.js 1.3.5 library
+(<a href="http://processingjs.org/content/download/processing-js-1.3.5/processing-1.3.5.min.js">production (recommended)</a>,
+<a href="http://processingjs.org/content/download/processing-js-1.3.5/processing-1.3.5.js">debug version</a>), get the
+<a href="http://processingjs.org/content/download/processing-js-1.3.5/processing-1.3.5-api.min.js">
+API-only version</a> (no Processing parser, for JavaScript developers), or grab a
+<a href="http://processingjs.org/content/download/processing-js-1.3.5.zip">zip file</a>
+containing everything, including many working examples.</p>
+
+<p>While you're downloading Processing.js 1.3.5, here are some demos we really liked:</p>
+
+<ul>
+	<li><a href="http://blog.blprnt.com/blog/blprnt/tutorial-processing-javascript-and-data-visualization">Processing.js and data visualization tutorial</a></li>
+	<li><a href="http://www.decoded-conference.com/2011/generator.php">Logo generator</a></li>
+	<li><a href="http://tests.web2py.com/physics2d/default/index">2D physics demo</a></li>
+	<li><a href="http://pcsedit.appspot.com/#edit/mbarkhau/example.coffee">Processing.js + CoffeeScript IDE</a></li>
+	<li><a href="http://nardove.com/">Fish pond simulation</a></li>
+	<li><a href="http://ghost-hack.com/cube/">ECCube - Winner of the Techcrunch Disrupt 2011 Hackathon</a></li>
+	<li><a href="http://play.lucasishuman.com/">Motion study</a></li>
+</ul>
+
+<h3><a name="Changelog"></a>Changelog</h3>
+
+<ul>
+	<li>Added check for canvas in Processing ctor <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1646">[#1646]</a></li>
+	<li>Added document.head compatibility for Firefox 3.6 <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1660">[#1660]</a></li>
+	<li>Added reference to p instance in onLoad() <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1643">[#1643]</a></li>
+	<li>Added text(string, x, y, z) ref tests <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1642">[#1642]</a></li>
+	<li>Disabled WebGL anti-aliasing <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1701">[#1701]</a></li>
+	<li>Fixed PImage.mask() when passed a PImage created from a PGraphics <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1623">[#1623]</a></li>
+	<li>Fixed PImage.toImageData not using cache <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1647">[#1647]</a></li>
+	<li>Fixed colorMode not working in 3D <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1670">[#1670]</a></li>
+	<li>Fixed copy() without a source argument <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1631">[#1631]</a></li>
+	<li>Fixed frustum() not throwing an error in 2D mode <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1693">[#1693]</a></li>
+	<li>Fixed get() not returning a copy of a PImage <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1622">[#1622]</a></li>
+	<li>Fixed get(x,y) when called on 3D PGraphics <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1630">[#1630]</a></li>
+	<li>Fixed getUniformLocation checking for null <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1650">[#1650]</a></li>
+	<li>Fixed lights not being applied to textures <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1503">[#1503]</a></li>
+	<li>Fixed modelX/Y/Z() failing if camera() was not called first <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1103">[#1103]</a></li>
+	<li>Fixed noFill()/noStroke() not working if called before size() <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1417">[#1417]</a></li>
+	<li>Fixed pixels not allowed as a variable name in classes <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1674">[#1674]</a></li>
+	<li>Fixed pmouseX/Y values during draw() <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1635">[#1635]</a></li>
+	<li>Fixed rectMode() not working in 3D <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1656">[#1656]</a></li>
+	<li>Fixed textWidth() returning a string instead of a number <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1624">[#1624]</a></li>
+	<li>Fixed texture UV coordinates not normalized and clamped with NPOT textures <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1669">[#1669]</a></li>
+	<li>Fixed texture() modifying a NPOT PImage passed to it <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1664">[#1664]</a></li>
+	<li>Fixed tint() ignoring alpha parameter <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1625">[#1625]</a></li>
+	<li>Fixed tint() not marking a PImage as dirty <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1707">[#1707]</a></li>
+	<li>Fixed using p as a class member identifier <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1618">[#1618]</a></li>
+	<li>Fixed vertical align in textAlign() <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1628">[#1628]</a></li>
+	<li>Optimized use of curRectMode and curEllipseMode <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1676">[#1676]</a></li>
+	<li>Removed p.Import <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1632">[#1632]</a></li>
+	<li>Removed unused inDraw variable <a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/1641">[#1641]</a></li>
+</ul>

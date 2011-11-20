@@ -100,7 +100,7 @@ a:hover, a:focus {
 }
 
 .page {
-  padding: 1em;
+  padding: 2em;
 }
 
 .home-exhibition {
@@ -114,7 +114,7 @@ a:hover, a:focus {
 
 .sidebar {
   border-left: 1px dotted #0073AF;
-  padding: 0 1em;
+  padding: 0 2em;
 }
 
 .sidebar h3 a {
@@ -129,4 +129,8 @@ a:hover, a:focus {
 .sidebar ul li:hover {
   list-style-type: disc;
   color: #00a7fd;
+}
+
+.blog-archives li abbr {
+  float: right;
 }
