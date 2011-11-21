@@ -1,0 +1,78 @@
+--- 
+layout: post
+title: Processing.js v1.1 Released
+---
+<p>Release 1.1 is <a href="http://processingjs.org/download/">now available
+for download</a> and contains a whole host of new features!</p>
+
+<p>Our mission this release was to focus on tightening up on as many bugs as possible but
+also to add a large set of new features to the library. Some of the highlights of the new
+features for this release are:</p>
+
+<ul>
+	<li>Support for touch events on iOS devices</li>
+	<li>mouseOver and mouseOut events were added to allow events to take place when the user
+	enters and leaves a canvas</li>
+	<li>A custom pjs packager has been created that can take a sketch and package it together
+	with the library, strip out unneeded code, minify it, and create a final .js file that is
+	much smaller in size and lightweight</li>
+	<li>An option was added to the makefile that allows you to create an API only version of
+	processing.js</li>
+	<li>Numerous website updates were done to the reference pages and documentation</li>
+</ul>
+
+<p>More than 60 other bugs were fixed this release including 3D fixes and a ton of fixes
+to our testing platforms making our bug detection process much more efficient.</p>
+
+<p>Our exhibition page has also been updated with some of the newest Processing.js works
+on the web. If you have some work, and would like us to showcase it all you have to do is
+<a href="http://processingjs.org/community" target="_blank">get in touch with us</a>. You
+can do so via IRC, twitter (<a href="http://twitter.com/annasob">@annasob</a>, or
+<a href="http://twitter.com/dhhodgin">@dhhodgin</a>), or the
+<a href="http://groups.google.com/group/processingjs?hl=en">processingjs google group</a>.
+We accept all exhibit requests as long as they are your own work.</p>
+
+<p><a href="http://processingjs.org/download">Download the new release</a>
+and experience a faster, more powerful Processing experience today!</p>
+
+<h3><a name="Changelog">Changelog</a></h3>
+
+<ul>
+	<li>Added mouseover, mouseout events</li>
+	<li>Added parseBoolean()</li>
+	<li>Added make file option to create an API only version of processing.js</li>
+	<li>Added webkit touch events natively in pjs</li>
+	<li>Added custom pjs packager for pre-parsed code</li>
+	<li>Added Java for each loop is now supported</li>
+	<li>Fixed PJS defaults not matching P5 where reasonable</li>
+	<li>Fixed 3D demos broken on systems running OSX 10.6 using nVidia cards</li>
+	<li>Fixed key event filtering per sketch (multi-sketch page setup)</li>
+	<li>Fixed xmlElementRemoveAttribute test failing</li>
+	<li>Fixed XMLElement.parseChildrenRecursive</li>
+	<li>Fixed XMLElement constructor returning this</li>
+	<li>Fixed OO bug with classes</li>
+	<li>Fixed Processing instances not always being added to Processing.instances</li>
+	<li>Fixed P3D not respecting noFill()</li>
+	<li>Fixed ref test runner broken on IE9</li>
+	<li>Fixed ajax() should be asynchronous</li>
+	<li>Fixed XMLElement.getChildren(path) not returning all the children</li>
+	<li>Fixed inheriting from ArrayList failing</li>
+	<li>Fixed toImageData() scope issue</li>
+	<li>Fixed ArrayList contains() not checking equality (1.0)</li>
+	<li>Fixed shaders being broken with new restrictions on non-constant loops</li>
+	<li>Fixed Ref test creation problem with WebGL</li>
+	<li>Fixed parsing problem with the ternary operator and the pixel array</li>
+	<li>Fixed box vertices and comments not being congruent</li>
+	<li>Fixed loop() going relatively mad after a noLoop() and more than 0 second wait</li>
+	<li>Fixed Minefield from reporting syntax error on first line</li>
+	<li>Fixed text() function width and height restrictions being unreliable</li>
+	<li>Fixed unexpected result when converting char() to str()</li>
+	<li>Fixed jsshell tests to use snarf() instead of munging strings</li>
+	<li>Fixed pollution of object prototypes</li>
+	<li>Fixed static methods not working</li>
+	<li>Updated the way document focus is checked at the start of every frame redraw (1.0)</li>
+	<li>Updated fake-dom.js to support xhr.overrideMimeType</li>
+	<li>Updated PShape to use prototypes</li>
+	<li>Updated numerous website reference pages</li>
+	<li>Removed pimagefilter.pde, and filter.pde files from unit tests</li>
+</ul>

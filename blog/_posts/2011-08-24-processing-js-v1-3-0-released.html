@@ -1,0 +1,164 @@
+--- 
+layout: post
+title: Processing.js v1.3.0 released
+---
+<p>Our Biggest Release Ever: Announcing Processing.js 1.3.0</p>
+
+<p>The Processing.js team is pleased to announce the release of Processing.js 1.3.0. This
+is our biggest release to date, and represents an enourmous amount of work from the team.
+This release focuses on a number of key issues: significant performance improvements,
+greatly improved text handling and font metrics, and general bug fixes and compatibility
+with Processing, including getting ready for Processing 2.0!</p>
+
+<p>1.3.0 is fast. We've put a ton of effort into making Processing.js run your sketches
+faster. Our performance test suite shows some incredible speed-ups using 1.3.0 over
+previous releases. All browsers on all platforms run faster. How much faster? Our tests
+show a 6% - 60% gain across the board:</p>
+
+<ul>
+	<li>Firefox: 10% - 25% increase</li>
+	<li>Chrome: 35% increase</li>
+	<li>Safari: 30% - 60% increase</li>
+	<li>Opera: 30% - 50% increase</li>
+	<li>Internet Explorer: 41% increase</li>
+	<li>Safari Mobile on iOS: 6% - 8% increase</li>
+</ul>
+
+<p>We're really proud of the gains we've made in this release, and we're not done yet.
+There are further performance gains to be had in 1.4 and beyond. Couple this with the
+tremendous improvements in JavaScript engines and browser graphics performance, and the
+future is looking better and better for doing Processing.js development. If you find
+something runs slowly in Processing.js, we want to know. Make sure you file a bug or talk
+to us on IRC. Chances are we can make it faster.</p>
+
+<p>1.3.0 is amazing at working with text and fonts. The release includes a total rewrite
+of our font and text handling code. We know that typography is important to many Processing
+and Processing.js users—it is to us as well. In order to get the amazing cross-platform,
+cross-browser compatibility we did in this release, we had to go to
+<a href="http://processingjs.nihongoresources.com/the_smallest_font/">some extreme lengths</a>
+. It wasn't easy, but the results are beautiful, and should make working with text in
+processing.js an enjoyable and beautiful experience.</p>
+
+<p>1.3.0 is more compatible with Processing than ever before. As Processing moves toward
+its 2.0 release, and with it new features and API changes, we're implementing the same
+things in Processing.js. The 1.3.0 release includes many compatibility fixes, which address
+differences between sketches written in Processing and Processing.js. "If it works in
+Processing, it should work in Processing.js." As Shaun McWhinnie (@himseelf)
+<a href="https://twitter.com/#!/himseelf/status/103742051551682560">wrote on Twitter</a>:</p>
+
+<blockquote>Sat down to *learn* processing.js last night, then found out it can parse my
+existing pde sketches #jobdone</blockquote>
+
+<p>Compatibility continues to be our goal, and with 1.3.0, it's more true than ever before.
+Have you found a Processing sketch that doesn't work in Processing.js? Let us know!</p>
+
+<p>This release also introduces an important change for functions like line(), point(),
+rect(). In the past we used anit-alised points/lines, due to limitations in HTML5 canvas.
+In the past we told our users to add the crisp pjs directive to their sketches, as a hint
+to Processing.js that you wanted points/lines without anti-aliasing. This was confusing to
+most people, and cumbersome to use. Our team has figured out a way to overcome this
+limitation, and we are now able to draw crisp points/lines by default, which matches the
+expected behaviour of the same sketches run in Processing.</p>
+
+<p>We hope you enjoy working with Processing.js 1.3.0, and let us know. Processing.js is
+a labour of love, and we appreciate your encouragement and hearing how you're using it in
+your data visualizations, art, teaching, game development, etc. The number of people using
+Processing.js around the world is humbling to us.</p>
+
+<p>While you're downloading Processing.js 1.3.0, here are some uses of Processing.js we
+found while we were creating this release:</p>
+
+<ul>
+	<li><a href="http://p5p.cecinestpasparis.net/index.html">P5P Generative Sketch collection/app</a></li>
+	<li><a href="http://bluethen.com/secretApplets/fabricInJS/">Fabric Simulation</a></li>
+	<li><a href="http://fathom.info/latest/1517">Typography game</a></li>
+	<li><a href="http://www.cs.plu.edu/~brink/KISA/KISATutorial.html">HTML5 Audio and Processing.js</a></li>
+	<li><a href="http://psychoproject.net/~greger/demo/solskogen/">WebGL demo</a></li>
+	<li><a href="http://anthonymattox.com/misc/pjs_fullscreen/">A fun fullscreen audio experiment</a></li>
+</ul>
+
+<h3><a name="ChangeLog-1.3.0"></a>Changelog</h3>
+
+<ul>
+	<li>Added a chart to the perf test suite</li>
+	<li>Added an error message to the ref test builder if 'exit()' is not found in the sketch</li>
+	<li>Added blendColor ref tests</li>
+	<li>Added codePointAt to the String object</li>
+	<li>Added documentation to toP5String function</li>
+	<li>Added equalsIgnoresCase to String object</li>
+	<li>Added error messages to beginCamera and endCamera when used in 2D mode</li>
+	<li>Added error messages to Processing file and I/O functions that are unsupported by Processing.js</li>
+	<li>Added printMatrix unit tests</li>
+	<li>Added resetMatrix unit tests</li>
+	<li>Added rounded rect</li>
+	<li>Added screenWidth and screenHeight variables to match Processing v2.0</li>
+	<li>Added script to build process to replace PConstants.* with their numerical values</li>
+	<li>Added startsWith and endsWith to the String object</li>
+	<li>Added support for external javascript code to add images to the imageCache</li>
+	<li>Added tint perf and ref tests</li>
+	<li>Added toArray() to the Array object</li>
+	<li>Added transparency perf test</li>
+	<li>Changed function(){} to the Processing local variable 'nop'</li>
+	<li>Changed obj.constructor type-checking to typeof(obj)</li>
+	<li>Changed perf tests to use exit()</li>
+	<li>Changed Processing.js errors to throw instead of print to tinylog</li>
+	<li>Converted animated test suite tests to ref tests</li>
+	<li>Converted XMLElement unit tests to use XMLElement.parse(string) instead of XMLElement(string)</li>
+	<li>Fixed crisp not working properly when any transformations were applied to the sketch</li>
+	<li>Fixed CSS font declaration when using SVG fonts</li>
+	<li>Fixed default vertical align in textMode(halign, valign) to BASELINE</li>
+	<li>Fixed equalsIgnoreCase to use toLowerCase rather than RegEx(//i)</li>
+	<li>Fixed fake-dom.js returning the same canvas every time createElement is called</li>
+	<li>Fixed font metrics (textAscent, textDescent, etc.)</li>
+	<li>Fixed font preloading not checking whether a @font-face rule already exists</li>
+	<li>Fixed font preloading to use tinyfont</li>
+	<li>Fixed font quoting bug in computeFontMetrics</li>
+	<li>Fixed HashMap.values() so that it returns an ArrayList</li>
+	<li>Fixed hex literal #FFFFFF not being converted to an int properly</li>
+	<li>Fixed HSB functions ignoring colorMode range in grayscale</li>
+	<li>Fixed httpd.py webserver to be multi-threaded and MSIE compatible</li>
+	<li>Fixed image() not working in 3D mode</li>
+	<li>Fixed lerpColor generating incorrect values in HSB color mode</li>
+	<li>Fixed make release-files creating the temporary file in the wrong directory</li>
+	<li>Fixed mandelbrot.pde and histogram.pde ref tests</li>
+	<li>Fixed MSIE crash when loading from a script element
+	<li>Fixed negative color and opacity values returning incorrect results
+	<li>Fixed performance loss when drawing images at fractional co-ordinates
+	<li>Fixed PImage.get not returning valid data
+	<li>Fixed rectMode() regressions caused by @pjs crisp removal
+	<li>Fixed runtests.py to use Unix paths only
+	<li>Fixed screenXYZ.pde unit test
+	<li>Fixed sketch starting before font preloading is done
+	<li>Fixed smooth() and noSmooth() to use new image-rendering modes
+	<li>Fixed SVG loading in Opera
+	<li>Fixed SVG path handling for 'z' and 'Z'
+	<li>Fixed text-width.pde ref test to use the correct font
+	<li>Fixed text$4 and text$6 font alignment
+	<li>Fixed textAlign and textMode not getting saved in pushStyle() and popStyle()
+	<li>Fixed textSize not caching textAscent, textDescent, and textLeading
+	<li>Fixed tint() to work with texture()
+	<li>Fixed vertex() not working with optional parameters
+	<li>Fixed vertical align behaviour
+	<li>Fixed XMLElement.parse when parsing a string with '.svg' or '.xml'
+	<li>Improved the performance of blend modes
+	<li>Improved the performance of blend()
+	<li>Improved the performance of images created with createImage()
+	<li>Improved the performance of PVector
+	<li>Reduced the number of canvas objects the ref test runner creates so that tests pass on Chrome in Windows
+	<li>Refactored forwardTransform and reverseTransform into modelView and modelViewInverse
+	<li>Refactored PFont
+	<li>Refactored point(), line(), and rect() to draw crisp lines
+	<li>Refactored Processing.js to have no else after return or throw
+	<li>Refactored unbinary()
+	<li>Removed @pjs crisp directive
+	<li>Removed color profiles from all images used in our ref test suite
+	<li>Removed comments from the release version of Processing.js
+	<li>Removed reliance on use3DContext variable
+	<li>Removed textMode(SCREEN)
+	<li>Removed unused 'Keys and Keystrokes' variables
+	<li>Removed unused function colorBlendWithAlpha
+	<li>Removed use of .apply(this, arguments)
+	<li>Removed use of parseFloat and parseInt as cast operators
+	<li>Replaced 'new Date().getTime()' with 'Date.now()'
+	<li>Switched back to YUI compressor for this release, as Google Closure was producing buggy code
+</ul>

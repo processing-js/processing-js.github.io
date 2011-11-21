@@ -1,0 +1,137 @@
+--- 
+layout: post
+title: Processing.js v1.2.3 released
+---
+<p>The Processing.js team is pleased to announce the release of <a href="http://processingjs.org/download">
+Processing.js 1.2.3</a>. This is a maintenance release, which focused primarily on tests,
+non-core Processing code, and other things we never have time to do--spring cleaning, if you will.</p>
+
+<p>While we mainly worked around the edges of the core Processing code, there are still
+some notable changes and updates for our users. Specifically:</p>
+
+<ol>
+	<li>We have removed init.js, and changed the way that inline Processing code gets loaded
+by Processing.js. In the past, inline sketches (e.g., those contained within &lt;script
+type="text/processing"&gt;...&lt;/script&gt;) were loaded by a helper script called
+"init.js". This was confusing for users. Starting with 1.2.3, inline Processing scripts
+need to specify the ID of the canvas in which they should be drawn, by specifying this ID
+as the value of an attribute called "data-processing-target". For example:
+<pre>&lt;script type="text/processing" data-processing-target="targetcanvas"&gt;
+  /* processing code here */
+&lt;/script&gt;
+...
+&lt;canvas id="targetcanvas"&gt;&lt;/canvas&gt;</pre>
+While the preferred way to load sketches is using the "data-processing-sources" attribute
+on the canvas element instead of doing inline sketches, sometimes using inline code is
+desirable, and that's now easier to use. The "example.html" file further demonstrates
+several ways of getting your Processing sketches shown on a page.</li>
+	<li>We have removed the @pjs "transparent" directive. In the past we used this in order
+to give a hint to the canvas that transparency would be happening. Not all browsers
+implement this hint, and we decided (after doing performance tests) that the confusion it
+caused for users isn't worth keeping it.</li>
+</ol>
+
+<p>Our next release will be focused on core Processing fixes again, as well as achieving
+parity with the upcoming
+<a href="http://wiki.processing.org/w/Changes#Upcoming_changes_in_Processing_2.0">Processing
+2.0</a> release of our sister project. If you are using Processing.js and notice
+compatibility, performance, or other issues, please let us know via
+<a href="irc://irc.mozilla.org/processing.js">IRC</a> (irc.mozilla.org #processing.js) or
+by filing a bug on our
+<a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/overview">bug
+tracker</a>.
+
+<p>In the mean time, <a href="http://processingjs.org/download">grab a copy of
+Processing.js 1.2.3</a> and go make something awesome! Here are some cool sketches to get
+you thinking:</p>
+
+<ul>
+	<li><a href="http://apps.facebook.com/viriongame/">Virion</a>, winner of Zynga's Hidden Agenda Facebook Game Competition</li>
+	<li><a href="http://matthewhealy.net/storage/processingjs/4sq/">Visualizing foursquare checkins with Processing.js</a></li>
+	<li><a href="http://basicwerk.com/works.html">Beautiful Processing.js experiments</a></li>
+	<li><a href="http://v3ga.net/processingjs/turmites3D/">Processing.js WebGL 3D demo</a></li>
+	<li><a href="http://v3ga.net/processingjs/speechBox2D/">Box2D + Chrome's HTML5 Speech API + Processing.js</a></li>
+	<li><a href="http://jmartinho.net/digitalArt-html5/index.php?art=tr-lines">Processing.js experiments</a> by Joao Martinho Moura (see his others, also featured on our front page with permission)</li>
+	<li><a href="http://js.do/processing/sombrero-3d/">Sombrero 3D</a> and <a href="http://processingjs.nihongoresources.com/bezierinfo/">bezier info</a> explore mathematical Processing.js visualizations.</li>
+	<li><a href="http://enja.org/2011/06/27/silenced/">Data Viz with Processing.js</a></li>
+	<li><a href="http://processingjs.nihongoresources.com/kanjicomposition/">CJK character compositing</a> with Processing.js</li>
+	<li>Philip Cunningham is <a href="http://philipcunningham.org/awesome/1/">making something cool with Processing.js every day in 15 minutes</a>. Here are some others: <a href="http://philipcunningham.org/awesome/2/">day 2</a>, <a href="http://philipcunningham.org/awesome/3/">day 3</a></li>
+</ul>
+
+<h3><a name="Changelog"></a>Changelog</h3>
+
+<ul>
+	<li>Added a note to the test suite about Opera failing Cursor</li>
+	<li>Added httpd.py to the distribution in order to run a local http server for testing</li>
+	<li>Added Shiffman's "Nature of Code" into parser test suite</li>
+	<li>Added support for hash/bookmark url from sketch loading</li>
+	<li>Added both inline and external loading samples to the example.html example</li>
+	<li>Add JavaScript event hooks to Sketch</li>
+	<li>Changed Processing.logger back to tinyLogLite</li>
+	<li>Changed the script attribute used to target a canvas from data-target to data-processing-target</li>
+	<li>Converted test suite #113 and #114 to ref tests</li>
+	<li>Converted README to README.md</li>
+	<li>Converted ref tests to have proper draw loops with exit() in them</li>
+	<li>Created SVG ref tests</li>
+	<li>Created curve* ref tests.</li>
+	<li>Created more background() ref tests</li>
+	<li>Created makefile documentation</li>
+	<li>Deleted dead code in processing.js</li>
+	<li>Deleted unused variables and functions</li>
+	<li>Expanded test suite configurations for more OS/browser combos</li>
+	<li>Expanded lerp unit test beyond r/g/b</li>
+	<li>Fixed ArrayList's copy constructor</li>
+	<li>Fixed processing.js header to include type of distribution</li>
+	<li>Fixed processing-helper to work when creating 3D tests after 2D tests</li>
+	<li>Fixed 3D points to take strokeWeight() into account</li>
+	<li>Fixed exit() to properly release events that are bound to sketches</li>
+	<li>Fixed split() so it doesn't scope-conflict with objects that implement their own split function</li>
+	<li>Fixed Test suite blur test to properly load second image</li>
+	<li>Fixed ref test runner so it can re-run without reloading the page</li>
+	<li>Fixed parser so that all classes in a deep class hierarchy get a $base</li>
+	<li>Fixed ref test runner to use epsilonOverride global value when higher than test-specified value</li>
+	<li>Fixed failing ref tests due to pixel diff errors</li>
+	<li>Fixed build system to run make check-lint as part of make check</li>
+	<li>Fixed test suite #56 alpha mask on IE9 and Opera</li>
+	<li>Fixed processing helper preloading in Firefox 4</li>
+	<li>Fixed ref tests that use text</li>
+	<li>Fixed event handler leaks processing.js</li>
+	<li>Fixed error messages when local files cannot be loaded</li>
+	<li>Fixed ref test runner to properly diff images</li>
+	<li>Fixed ref test runner to properly sort completed tests</li>
+	<li>Fixed test suite and ref test runner to use minified vs. full processing.js in test suite</li>
+	<li>Fixed Makefile to be Windows-friendly</li>
+	<li>Fixed @pjs directives to work when multiple directives are specified</li>
+	<li>Fixed build system to add version number and header to minified processing.js</li>
+	<li>Fixed build system so that release target triggers check-release automatically</li>
+	<li>Fixed example.html to use size() instead of canvas width/height</li>
+	<li>Fixed regression from #1363</li>
+	<li>Fixed SVG path "m" statement regression</li>
+	<li>Fixed loadImage() reference to not mention signing applets</li>
+	<li>Fixed SVG regression from failed merge</li>
+	<li>Fixed loadShape()</li>
+	<li>Fixed Makefile so that check-closure does not die mid-way</li>
+	<li>Fixed PVector.set to not set z to undefined (NaN)</li>
+	<li>Fixed is3D regex in ref tester</li>
+	<li>Fixed case-sensitivity in ref test SVG filenames and associated tests</li>
+	<li>Implemented fillStyle</li>
+	<li>Implemented __hashCode function via virtHashCode</li>
+	<li>Investigated the suitability of implementing the A3D Renderer</li>
+	<li>Moved the utility functions (extendClassChain, defineProperty, ...) to defaultScope</li>
+	<li>Refactored rotateZ into 2D and 3D methods</li>
+	<li>Refactored mag() to use function args</li>
+	<li>Refactored vertex() to use function args</li>
+	<li>Refactored line() to use function args</li>
+	<li>Removed fixOperaCreateImageData()</li>
+	<li>Removed fixOperaCreateImageData() in ref test runner</li>
+	<li>Removed delay() from Reference</li>
+	<li>Removed init and loadSketchFromSources from the api version of pjs</li>
+	<li>Removed init.js from repo and /download</li>
+	<li>Removed uses of eval("...")</li>
+	<li>Removed impossible parser tests</li>
+	<li>Removed duplicate loadSketchFromSources and disableInit</li>
+	<li>Removed nop and eval_ from the global closure arg list</li>
+	<li>Removed @pjs transparency directive</li>
+	<li>Restored feature to load inline sketches after accidental deletion</li>
+	<li>Rewrote beginDraw and endDraw comments to better explain their presence</li>
+</ul>
