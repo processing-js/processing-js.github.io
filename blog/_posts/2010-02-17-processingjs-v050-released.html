@@ -1,0 +1,89 @@
+--- 
+layout: post
+title: Processing.js v0.5.0 Released
+---
+<p><a href="http://processingjs.org/download">Download Processing.js 0.5</a></p>
+
+<p><b>We are very pleased to announce the release of Processing.js 0.5!</b></p>
+
+<p>The students at Seneca and the community at large, have been working hard to get some
+awesome code into the repository. Many smaller fixes and features have been added. However,
+the most exiting addition is the implementation of camera functions and a more complete 3D
+foundation that is now able to render and rotate a box.</p>
+
+<h3>Linting</h3>
+
+<p>From 0.4 onwards, release code is being linted, beautified and packed before release
+using some excellent script-fu from David Humprey and tested by fellow release controller
+(and GitHub master) <a href="http://github.com/corbanbrook/processing-js">Corban Brook.</a>
+This way we will be confident that new releases do not break old functionality, code will
+be lightweight, ready for deployment and be easier-on-the-eye for future developers.</p>
+
+<h3>Get involved!</h3>
+
+<p>If you would like to get involved with Processing.js development, or have general usage
+questions about Processing.js, we would love meet you on IRC:
+<a href="irc://irc.mozilla.org/processing.js">irc://irc.mozilla.org/processing.js</a></p>
+
+<h3><a name="Changelog">Changelog:</a></h3>
+
+<ul>
+<li>Added acos()</li>
+<li>Added asin()</li>
+<li>Added atan()</li>
+<li>Added automated tests for parser</li>
+<li>Added bezierTangent()</li>
+<li>Added binary()</li>
+<li>Added box()</li>
+<li>Added camera()</li>
+<li>Added constants MAX_FLOAT, MIN_FLOAT, MAX_INT, MIN_INT</li>
+<li>Added curve()</li>
+<li>Added exp()</li>
+<li>Added frustum()</li>
+<li>Added hex()</li>
+<li>Added join()</li>
+<li>Added log()</li>
+<li>Added ortho()</li>
+<li>Added perspective()</li>
+<li>Added PMatrix3D()</li>
+<li>Added printProjection()</li>
+<li>Added project packaging automation infrastructure</li>
+<li>Added nf()</li>
+<li>Added rotateX()</li>
+<li>Added rotateY()</li>
+<li>Added rotateZ()</li>
+<li>Added sort()</li>
+<li>Added support for Processing based unit tests</li>
+<li>Added tan()</li>
+<li>Added trim()</li>
+<li>Added uniformf()</li>
+<li>Added uniformi()</li>
+<li>Added uniformMatrix()</li>
+<li>Added vertexAttribPointer()</li>
+<li>Added 3D Matrix Stack Object</li>
+<li>Added "str1".equals("str2") function</li>
+<li>Fixed array handling of int()</li>
+<li>Fixed automated tests to work for large numbers of files</li>
+<li>Fixed buildImageObject()</li>
+<li>Fixed char c = '#;'</li>
+<li>Fixed context menu blocking to be explicitly requested</li>
+<li>Fixed curveVertex()</li>
+<li>Fixed data-src</li>
+<li>Fixed duplicate function errors and reserved keywords</li>
+<li>Fixed import()</li>
+<li>Fixed inconsistent mouse event semantics</li>
+<li>Fixed keyCode RIGHT</li>
+<li>Fixed last p.keyCode not to fire for every keyPress</li>
+<li>Fixed min() and max() functions to take more than two arguments</li>
+<li>Fixed noLoop() & loop()</li>
+<li>Fixed parser whitespace bug in variable names</li>
+<li>Fixed parsing of Java import statement</li>
+<li>Fixed parsing of String content</li>
+<li>Fixed rotate()</li>
+<li>Fixed size() for 3D</li>
+<li>Fixed Test harness _checkEqual to compare arrays</li>
+<li>Fixed Test harness _checkEqual to compare NaN</li>
+<li>Fixed test reporting for summary case</li>
+<li>Fixed text(); added cross browser support, added primitive datatypes support</li>
+<li>Tested parser for processing larger code samples</li>
+</ul>
