@@ -148,3 +148,24 @@ a:hover, a:focus {
 .exhibition span p {
   width: 180px;
 }
+
+.reference .category {
+  margin-bottom: 2em;
+}
+
+.reference .category a {
+  display: block;
+}
+
+.reference .category b {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.reference .category h5 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 0.9em;
+  line-height: 2em;
+  margin-top:0.5em;
+}
