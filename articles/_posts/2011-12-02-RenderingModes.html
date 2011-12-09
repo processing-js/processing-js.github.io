@@ -1,0 +1,257 @@
+---
+layout: default
+desc: The different rendering modes available in Processing.js
+title: Rendering Modes
+permalink: RenderingModes
+---
+<h3>
+    Understanding Rendering Modes in Processing.js</h3>
+<h4>
+    Introduction</h4>
+<p>
+    The Processing language enables complex 2D and 3D graphics programming without having
+    to understand the details of the underlying graphics system. It is designed to be
+    easily learned, yet allows one's skills to grow and evolve without ever feeling
+    limited.</p>
+<p>
+    Processing can be used to work with both 2D and 3D graphics. It achieves this through
+    a number of different rendering engines, which affect how it works. For example,
+    one might choose to render a 2D sketch using the JAVA2D and P2D renderers or create
+    3D sketches with the P3D and OPENGL renderers. There are also renderers for creating
+    PDFs. Processing allows developers to choose renderers based on tradeoffs of speed
+    and quality.</p>
+<p>
+    A renderer is chosen through the use of Processing's <a href="http://processingjs.org/reference/size_">
+        size()</a> function. For example, to create a 2D sketch that is 200 by 200 pixels
+    in size:
+    <pre name="code">size(200, 200, P2D);</pre>
+</p>
+<h4>
+    The 2D Rendering Context</h4>
+<p>
+    Processing.js uses the HTML canvas element to provide 2D and WebGL rendering contexts.
+    The canvas 2D API is used to implement Processing's JAVA2D and P2D renderers (see
+    the <a href="https://developer.mozilla.org/en/canvas_tutorial">canvas API</a> for
+    details on canvas). You can create a 2D Processing.js sketch using any of the following:
+    <ol>
+        <li>
+            <pre name="code">size(200, 200, P2D);</pre>
+        </li>
+        <li>
+            <pre name="code">size(200, 200, JAVA2D);</pre>
+        </li>
+        <li>
+            <pre name="code">size(200, 200); // default is 2D
+</pre>
+        </li>
+    </ol>
+</p>
+<p>
+    Here is a simple 2D Processing.js sketch:
+    <br />
+    <br />
+    <canvas data-processing-sources="../../content/reference/articles/2d1.pde" width="200"
+        height="200"></canvas>
+    <pre name="code" class="processing">
+int i = 0; 
+void setup() {
+    size(200, 200); 
+    background(255);
+    smooth();
+    strokeWeight(15);
+    frameRate(24);
+} 
+void draw() {
+    stroke(random(50), random(255), random(255), 100);
+    line(i, 0, random(0, width), height);
+    if (i &lt; width) {
+        i++;
+    } else {
+        i = 0; 
+    }
+}
+</pre>
+</p>
+<h4>
+    The WebGL (3D) Rendering Context</h4>
+<p>
+    Processing.js 3D renderers (P3D and OPENGL) are implemented using WebGL. The Web-based
+    Graphics Library (WebGL) is a canvas rendering context that provides a JavaScript
+    based 3D drawing API for the web (see <a href="https://developer.mozilla.org/en/WebGL">
+        https://developer.mozilla.org/en/WebGL</a>). WebGL is based on OpenGL ES 2.0,
+    a subset of OpenGL designed to be used in embedded devices. Many modern browsers
+    support WebGL, but not all. You can confirm that your browser and computer/operating
+    system support WebGL <a href="http://www.doesmybrowsersupportwebgl.com/">here</a>.
+    You can download a WebGL enabled browser <a href="https://www.mozilla.com/en-US/firefox/fx/?from=getfirefox">
+        here</a>.</p>
+<p>
+    Just as Processing relies on OpenGL for its 3D graphics (OPENGL renderer), Processing.js
+    uses OpenGL via WebGL, allowing Processing.js sketches to work just like their Processing
+    equivalent.</p>
+<p>
+    In order to create a 3D OpenGL sketch in Processing, two things are necessary. First,
+    the OpenGL library must be imported. Second, the OpenGL rendered must be specified:
+    <pre name="code" class="processing">
+import processing.opengl.*
+...
+size(200, 200, OPENGL);
+</pre>
+</p>
+<p>
+    Since Processing.js is actually JavaScript, it does not support importing Java-based
+    libraries. However, in order to enable sketches written in Processing to work in
+    Processing.js, the import line can be safely included—Processing.js will simply
+    ignore it. The following methods of creating a 3D Processing.js sketch are equivalent:
+    <ol>
+        <li>
+            <pre name="code">import processing.opengl.* ... size(200, 200, OPENGL);</pre>
+        </li>
+        <li>
+            <pre name="code">size(200, 200, P3D);</pre>
+        </li>
+    </ol>
+</p>
+<p>
+    Here is a simple Processing.js 3D sketch:<br />
+    <br />
+    <canvas data-processing-sources="../../content/reference/articles/webgl1.pde" width="200"
+        height="200"></canvas>
+    <pre name="code" class="processing">
+size(200, 200, OPENGL);
+noStroke();
+background(50);
+lights();
+translate(width/2+30, height/2, 0);
+rotateX(-PI/6);
+rotateY(PI/3 + 210/float(height) * PI);
+box(45);
+translate(0, 0, -50);
+box(30);
+</pre>
+</p>
+<p>
+    <br />
+    Here's another more complex one:<br />
+    <br />
+    <canvas data-processing-sources="../../content/reference/articles/webgl2.pde" width="200"
+        height="200"></canvas>
+    <pre name="code" class="processing">
+float ang = 0, ang2 = 0, ang3 = 0, ang4 = 0;
+float px = 0, py = 0, pz = 0;
+float flapSpeed = 0.2;
+void setup(){
+  size(200, 200, OPENGL);
+  frameRate(50);
+  noStroke();
+}
+void draw(){
+  background(0);
+  camera();
+  // Flight
+  px = sin(radians(ang3)) * 170;
+  py = cos(radians(ang3)) * 300;
+  pz = sin(radians(ang4)) * 500;
+  translate(width/2 + px, height/2 + py, -700+pz);
+  rotateX(sin(radians(ang2)) * 120);
+  rotateY(sin(radians(ang2)) * 50);
+  rotateZ(sin(radians(ang2)) * 65);
+  
+  // Body
+  fill(153);
+  box(20, 100, 20);
+  // Left wing
+  fill(204);
+  pushMatrix();
+  rotateY(sin(radians(ang)) * -20);
+  rect(-75, -50, 75, 100);
+  popMatrix();
+  // Right wing
+  pushMatrix();
+  rotateY(sin(radians(ang)) * 20);
+  rect(0, -50, 75, 100);
+  popMatrix();
+  // Wing flap
+  ang += flapSpeed;
+  if (ang &gt; 3) {
+    flapSpeed *= -1;
+  } 
+  if (ang &lt; -3) {
+    flapSpeed *= -1;
+  }
+  // Increment angles
+  ang2 += 0.01;
+  ang3 += 2.0;
+  ang4 += 0.75;
+}
+
+</pre>
+</p>
+<p><br />
+    Once you have a 3D enabled browser installed you can try out some example 2D and
+    3D sketches <a href="http://processingjs.org/content/learning/3D_ide/index.php">here</a>.
+</p>
+<h4>
+    Processing.js as a Simplified Web Drawing API</h4>
+<p>
+    Once a 3D sketch has been created, all of the normal Processing drawing operations
+    can be done. Most Processing functions have 2D and 3D versions (e.g., you provide
+    different arguments for points in 2D or 3D space). By learning the Processing syntax,
+    it's easy to create complex 2D and WebGL graphics without ever touching the underlying
+    graphics APIs. This is true of Processing and Java, and also of Processing.js and
+    canvas/WebGL. The Processing langauge provides a powerful and beginner friendly
+    on-ramp to canvas 2D and WebGL. Consult the <a href="http://processingjs.org/reference/">
+        Processing.js Langauge Reference</a> for specific details on how to use each
+    function.</p>
+<h4>
+    Using the Processing.js API in JavaScript</h4>
+<p>
+    In addition to running standard Processing sketches, Processing.js can also be used
+    in so-called API mode. This is the Processing language API which is accessbile to
+    JavaScript without any Processing code. The Processing.js API is available if you
+    download the complete Processing.js zip file instead of just the .js file from the
+    Downloads page (for example: processing.js-version.zip vs processing.min.js) (<a
+        href="http://processingjs.org/download">http://processingjs.org/download</a>).
+    It is essentially the same as Processing.js, but without the code parser (i.e.,
+    you can use the API either way, but the Processing.js API is a somewhat smaller
+    file). See <a href="http://processingjs.org/reference/articles/jsQuickStart#javascriptonlyprocessingcode">
+        Writing JavaScript-only Processing.js Code</a> for more details.</p>
+<h4>
+    Accessing the Raw Canvas Context - Advanced:</h4>
+<p>
+    It's also possible to work with the raw canvas context, both 2D and WebGL, from
+    Processing.js, JavaScript, or both. This is not a recommended method, since it will
+    make your Processing.js sketch harder to use in Processing; however, sometimes it's
+    useful to know how to control the canvas context from outside the sketch in JavaScript,
+    or to do something that Processing doesn't allow, which the canvas or WebGL APIs
+    do.</p>
+<p>
+    All Processing.js sketches have an externals property, accessible from within the
+    Processing code as a global variable. This object is meant to allow for accessing
+    and sharing external but related data between the sketch code and the web page.
+    The externals object has a number of useful properties, including:
+    <ul>
+        <li>sketch: the current sketch object</li>
+            <li>canvas: the canvas element associated with a sketch</li>
+                <li>
+        context: the canvas rendering context being used by the sketch</li>
+    </ul>
+</p>
+<p>
+    From JavaScript, these can be accessed via a Processing.js sketch's instance:
+    <pre name="code" class="processing">
+var p = Processing.instances[0];
+var context = p.externals.context;
+var p2 = Processing.getInstanceById('canvas-id');
+var p2Canvas = p2.externals.canvas;
+</pre>
+</p>
+<p>
+    The same thing can be done from within Processing code, where the externals object
+    is available as a global variable:
+    <pre name="code" class="processing">
+// Processing.js allows you to mix JavaScript, so using var is fine here:
+var currentContext = externals.context;
+</pre>
+</p>
+Once you have a reference to the context, you can use any valid canvas API call,
+including raw WebGL functions if using a 3D sketch. 
