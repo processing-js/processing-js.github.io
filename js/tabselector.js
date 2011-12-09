@@ -1,8 +1,16 @@
-$(function() {
+document.addEventListener("DOMContentLoaded", function(e) {
   var path = location.pathname.substring(0, location.pathname.indexOf('/', 1) + 1);
   if (path) {
-    $("div.navbar ul li a").filter("[href^='" + path + "']").addClass("selected");
+    var list = document.querySelectorAll("div.navbar ul li a");
+    for (var item in list) {
+      item = list[item];
+      if (item.href.indexOf(path) != -1) {
+        item.className += " selected ";
+        break;
+      }
+    }
   } else {
-    $("div.navbar ul li a:first").addClass("selected");
+    var item = document.querySelector("div.navbar ul li a");
+    item.className = item.className + " selected ";
   }
-});
+}, false);
