@@ -157,6 +157,10 @@ a:hover, a:focus {
   display: block;
 }
 
+.reference .category a.warning {
+  color: red;
+}
+
 .reference .category b {
   display: block;
   margin-bottom: 0.5em;
