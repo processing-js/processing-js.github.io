@@ -173,3 +173,37 @@ a:hover, a:focus {
   line-height: 2em;
   margin-top:0.5em;
 }
+
+.example200px {
+  float: right;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #999999;
+  box-shadow: 0px 0px 5px #999;
+  margin-left: 10px;
+}
+
+.demo-screens .section.wild > a {
+  margin-right: 0px;
+  margin-bottom: 1em;
+  height: auto;
+  float: none;
+}
+
+.demo-screens .section > a span {
+  display: block;
+}
+
+.demo-screens .section > a {
+  display: block;
+  float: left;
+  width: 200px;
+  height: 300px;
+  margin-right: 50px;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  line-height: 0;
+}
