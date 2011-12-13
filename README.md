@@ -18,7 +18,10 @@ if you make any changes.
 
 Updating the blog
 -----------------
-The blog index is `/blog/index.html`, and all of the individual blog posts are located in `/blog/_posts/`. I've created a template blog post in `/blog/_posts/template.html`, but for posterity, here it is:
+
+The blog index is `/blog/index.html`, and all of the individual blog posts are located in
+`/blog/_posts/`. I've created a template blog post in `/blog/_posts/template.html`, but for
+posterity, here it is:
 
     --- 
     layout: post
@@ -26,26 +29,77 @@ The blog index is `/blog/index.html`, and all of the individual blog posts are l
     ---
     <p>Write your blog post here</p>
 
-Once you've changed the title to something appropriate and written something useful for the blog post, you need to save the blog post with a specific filename within the _posts directory to have Jekyll pick it up as a blog post. The format is yyyy-mm-dd-title-with-dashes.ext, where ext can be html, md, or textile.
+Once you've changed the title to something appropriate and written something useful for the
+blog post, you need to save the blog post with a specific filename within the _posts
+directory to have Jekyll pick it up as a blog post. The format is `yyyy-mm-dd-title-with-dashes.ext`,
+where ext can be html, md, or textile.
 
 Updating the downloads
 ----------------------
-The downloads index is `/downloads/index.html`, and all of the files for download are located at [https://github.com/processing-js/processing-js/downloads](https://github.com/processing-js/processing-js/downloads). Everyone with the right access (see below) should upload the files to the Github Downloads page, then update the Processing.js Downloads page to point to the new files. It would also be a good idea to remove the oldest set of download links.
+
+The downloads index is `/downloads/index.html`, and all of the files for download are located
+at [https://github.com/processing-js/processing-js/downloads](https://github.com/processing-js/processing-js/downloads).
+Everyone with the right access (see below) should upload the files to the Github Downloads
+page, then update the Processing.js Downloads page to point to the new files. It would also
+be a good idea to remove the oldest set of download links.
 
 Updating the exhibitions
 ------------------------
-The exhibitions index is `/exhibition/index.html`, and all of the exhibition stuff is
+
+The exhibitions index is `/exhibition/index.html`, and all of the individual exhibitions are
+located in `/exhibition/_posts/`. I've create a template exhibition in
+`/exhibition/_posts/template.html`, but it's here too:
+
+    <span>
+      <a href="linktodemo">
+        <img src="/images/exhibition/linktoimage.png" width="180" height="75" />
+      </a>
+      <br /><a href="linktodemo">Demoname</a><br />by<br />
+      <p><a href="linktotwitter">Authors</a></p>
+      <p>Description</p>
+    </span>
+
+You'll need a make a 180x75 screenshot of the exhibition in question, and put that in
+`/images/exhibition/`. Once you done that, fill out the rest of the information in the
+template. Like blog posts, you'll need to name the exhibition  in a specific format so
+that it's picked up by Jekyll: `yyyy-mm-dd-title-with-dashes.ext`, where ext can be html,
+md, or textile. To preserve the order of exhibitions on the index page, I just incremented
+the date by one day for each exhibition.
 
 Updating the articles
 ---------------------
 
+The articles index is `/articles/index.html`, and all of the individual articles are located
+in `/articles/_posts/`. The template is at `/articles/_posts/template.html`, but lets look
+at it anyways:
+
+    ---
+    layout: default
+    desc: Jon's Guide to ASDF
+    title: ASDF Guide
+    permalink: /articles/ASDFGuide.html
+    ---
+    <p>This is my lovely article about ASDF</p>
+
+The desc is a short description of the article that's shown on the Articles index page. The
+title is the actual title of the article. The permalink is where the article should actually
+be placed when compiled; by default it gets a URL with the publish date, which is something
+we don't care about. Like blog posts and exhibitions, you'll need to name the exhibition in
+a specific format so that it's picked up by Jekyll: `yyyy-mm-dd-title-with-dashes.ext`, where
+ext can be html, md, or textile.
+
+If you want to update the list of articles that appears on the front page, you'll need to edit
+the default layout in `/_layouts/default.html`.
 
 Updating the front page
 -----------------------
-The front page index is `/index.html`. If you're editing the front page text or exhibitions, this is the place to do it.
+
+The front page index is `/index.html`. If you're editing the front page text or exhibitions,
+this is the place to do it.
 
 Updating anything else
 ----------------------
+
 Everything else is static content. Go to the exact file you're looking for, and make whatever
 changes you need to make!
 
@@ -58,7 +112,11 @@ On almost every single page you see, there's a few lines of text that looks like
     layout: default
     ---
 
-This tells Jekyll to use the layout in `_layouts` named `default`. In this case, `_layouts/default.html`. There's another layout for blog posts called `post` which inherits from `default`. Be careful about making changes to these layouts, as it affects pretty much every other page. Everything that you link to from this page must be linked in an absolute fashion, with a `/` at the front.
+This YAML front matter tells Jekyll to use the layout in `_layouts` named `default`. In this
+case, `_layouts/default.html`. There's another layout for blog posts called `post` which
+inherits from `default`. Be careful about making changes to these layouts, as it affects
+pretty much every other page. Everything that you link to from this page must be linked in
+an absolute fashion, with a `/` at the front.
 
 Access controls
 ---------------
