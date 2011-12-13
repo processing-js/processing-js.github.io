@@ -1,0 +1,111 @@
+---
+layout: default
+---
+<h3>SaveManyImages</h3>
+
+
+
+<p>The saveFrame() function allows you to save images from
+
+a program while it is running. This example saves the first
+
+50 frames of a program. These images can be imported into
+
+animation software or QuickTime and then saved as a movie.</p>
+
+
+
+<p><a href="http://processing.org/learning/topics/savemanyimages.html"><b>Original Processing.org Example:</b> SaveManyImages</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+float x = 33;
+
+float numFrames = 50;
+
+
+
+void setup() 
+
+{
+
+  size(200, 200);
+
+  smooth();
+
+  noStroke();
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(0);
+
+  x += random(-2, 2);
+
+  ellipse(x, 100, 80, 80);
+
+  if (frameCount <= numFrames) {
+
+    saveFrame("circles-####.tif");
+
+  }
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas and Ben Fry
+
+// unless otherwise stated.
+
+float x = 33;
+
+float numFrames = 50;
+
+
+
+void setup() 
+
+{
+
+  size(200, 200);
+
+  smooth();
+
+  noStroke();
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(0);
+
+  x += random(-2, 2);
+
+  ellipse(x, 100, 80, 80);
+
+  if (frameCount &lt;= numFrames) {
+
+    saveFrame("circles-####.tif");
+
+  }
+
+}</pre></div>
+
+
+
+
+

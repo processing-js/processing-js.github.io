@@ -1,0 +1,107 @@
+---
+layout: default
+---
+<h3>Linear</h3>
+
+
+
+<p>Changing a variable to create a moving line.  
+
+When the line moves off the edge of the window, 
+
+the variable is set to 0, which places the line
+
+back at the bottom of the screen.</p>
+
+
+
+<p><a href="http://processing.org/learning/topics/linear.html"><b>Original Processing.org Example:</b> Linear</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+float a = 100;
+
+
+
+void setup() 
+
+{
+
+  size(200, 200);
+
+  stroke(255);
+
+  frameRate(30);
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(51);
+
+  a = a - 1;
+
+  if (a < 0) { 
+
+    a = height; 
+
+  }
+
+  line(0, a, width, a);  
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas and Ben Fry
+
+// unless otherwise stated.
+
+float a = 100;
+
+
+
+void setup() 
+
+{
+
+  size(200, 200);
+
+  stroke(255);
+
+  frameRate(30);
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(51);
+
+  a = a - 1;
+
+  if (a &lt; 0) { 
+
+    a = height; 
+
+  }
+
+  line(0, a, width, a);  
+
+}</pre></div>
+
+
+
+
+

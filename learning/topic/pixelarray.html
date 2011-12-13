@@ -1,0 +1,185 @@
+---
+layout: default
+---
+<h3>PixelArray</h3>
+
+
+
+<p>Click and drag the mouse up and down to control the signal and 
+
+press and hold any key to see the current pixel being read. 
+
+This program sequentially reads the color of every pixel of an image
+
+and displays this color to fill the window.</p>
+
+
+
+<p><a href="http://processing.org/learning/topics/pixelarray.html"><b>Original Processing.org Example:</b> PixelArray</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+/* @pjs preload="data/ystone08.jpg"; crisp="true"; */
+
+PImage img;
+
+int direction = 1;
+
+float signal;
+
+
+
+void setup() {
+
+  size(200, 200);
+
+  noFill();
+
+  stroke(255);
+
+  frameRate(30);
+
+  img = loadImage("data/ystone08.jpg");
+
+}
+
+
+
+void draw() {
+
+  if (signal > img.width*img.height-1 || signal < 0) { 
+
+    direction = direction * -1; 
+
+  }
+
+
+
+  if (mousePressed) {
+
+    int mx = constrain(mouseX, 0, img.width-1);
+
+    int my = constrain(mouseY, 0, img.height-1);
+
+    signal = my*img.width + mx;
+
+  } else {
+
+    signal += 0.33*direction;
+
+  }
+
+
+
+  int sx = int(signal) % img.width;
+
+  int sy = int(signal) / img.width;
+
+
+
+  if (keyPressed) {
+
+    set(0, 0, img);  // fast way to draw an image
+
+    point(sx, sy);
+
+    rect(sx - 5, sy - 5, 10, 10);
+
+  } else {
+
+    color c = img.get(sx, sy);
+
+    background(c);
+
+  }
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas and Ben Fry
+
+// unless otherwise stated.
+
+/* @pjs preload="data/ystone08.jpg"; crisp="true"; */
+
+PImage img;
+
+int direction = 1;
+
+float signal;
+
+
+
+void setup() {
+
+  size(200, 200);
+
+  noFill();
+
+  stroke(255);
+
+  frameRate(30);
+
+  img = loadImage("data/ystone08.jpg");
+
+}
+
+
+
+void draw() {
+
+  if (signal > img.width*img.height-1 || signal < 0) { 
+
+    direction = direction * -1; 
+
+  }
+
+
+
+  if (mousePressed) {
+
+    int mx = constrain(mouseX, 0, img.width-1);
+
+    int my = constrain(mouseY, 0, img.height-1);
+
+    signal = my*img.width + mx;
+
+  } else {
+
+    signal += 0.33*direction;
+
+  }
+
+
+
+  int sx = int(signal) % img.width;
+
+  int sy = int(signal) / img.width;
+
+
+
+  if (keyPressed) {
+
+    set(0, 0, img);  // fast way to draw an image
+
+    point(sx, sy);
+
+    rect(sx - 5, sy - 5, 10, 10);
+
+  } else {
+
+    color c = img.get(sx, sy);
+
+    background(c);
+
+  }
+
+}</pre></div>
+
+
+
+
+

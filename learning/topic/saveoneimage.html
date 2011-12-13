@@ -1,0 +1,99 @@
+---
+layout: default
+---
+<h3>SaveOneImage</h3>
+
+
+
+<p>The save() function allows you to save an image from the 
+
+display window. In this example, save() is run when a mouse
+
+button is pressed. The image "line.tif" is saved to the 
+
+same folder as the sketch's program file.</p>
+
+
+
+<p><a href="http://processing.org/learning/topics/saveoneimage.html"><b>Original Processing.org Example:</b> SaveOneImage</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+void setup() 
+
+{
+
+  size(100, 100);
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(204);
+
+  line(0, 0, mouseX, height);
+
+  line(width, 0, 0, mouseY);
+
+}
+
+
+
+void mousePressed() 
+
+{
+
+  save("line.tif");
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas and Ben Fry
+
+// unless otherwise stated.
+
+void setup() 
+
+{
+
+  size(100, 100);
+
+}
+
+
+
+void draw() 
+
+{
+
+  background(204);
+
+  line(0, 0, mouseX, height);
+
+  line(width, 0, 0, mouseY);
+
+}
+
+
+
+void mousePressed() 
+
+{
+
+  save("line.tif");
+
+}</pre></div>
+
+
+
+
+
