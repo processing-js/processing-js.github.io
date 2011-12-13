@@ -1,0 +1,125 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>redraw()</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>float x = 0;
+
+
+
+void setup() {
+
+  size(200, 200);
+
+  noLoop();
+
+}
+
+
+
+void draw() {
+
+  background(204);
+
+  line(x, 0, x, height); 
+
+}
+
+
+
+void mousePressed() {
+
+  x += 1;
+
+  redraw();
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Executes the code within <b>draw()</b> one time. This functions allows the program to update the display window only when necessary, for example when an event registered by <b>mousePressed()</b> or <b>keyPressed()</b> occurs. 
+
+
+
+<br /><br />
+
+In structuring a program, it only makes sense to call redraw() within events such as <b>mousePressed()</b>. This is because <b>redraw()</b> does not run <b>draw()</b> immediately (it only sets a flag that indicates an update is needed). 
+
+<br /><br />
+
+Calling <b>redraw()</b> within <b>draw()</b> has no effect because <b>draw()</b> is continuously called anyway.</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>redraw()</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+
+
+
+		<td>None</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td><a href="../reference/noLoop_">noLoop()</a>
+
+        <br /><a href="../reference/loop_">loop()</a><br /></td>
+
+	</tr>
+
+</table>
+
+
+

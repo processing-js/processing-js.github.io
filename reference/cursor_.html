@@ -1,0 +1,82 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>cursor()</h3></td>
+	</tr>
+<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example">
+		<pre>// Move the mouse left and right across the image
+// to see the cursor change from a cross to a hand
+void draw() 
+{
+ if(mouseX < 50) {
+  cursor(CROSS);
+ } else {
+  cursor(HAND);
+ }
+}</pre></div></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Description</th>
+
+		<td>Sets the cursor to a predefined symbol, an image, or turns it on if already hidden. If you are trying to set an image as the cursor, 
+		it is recommended to make the size 16x16 or 32x32 pixels. It is not possible to load an image as the cursor if you are exporting your program for the Web. 
+		The values for parameters <b>x</b> and <b>y</b> must be less than the dimensions of the image.</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>cursor()</pre></td>
+	</tr>
+	<tr class="">
+		<th scope="row"></th>
+		<td><pre>cursor(<kbd>MODE</kbd>)</pre></td>
+	</tr>
+	<tr class="">
+		<th scope="row"></th>
+		<td><pre>cursor(<kbd>image</kbd>,<kbd>x</kbd>,<kbd>y</kbd>)</pre></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr class="">
+					<th scope="row">MODE</th>
+					<td>either ARROW, CROSS, HAND, MOVE, TEXT, WAIT</td>
+				</tr>
+				<tr class="">
+					<th scope="row">image</th>
+					<td>PImage: any variable of type PImage</td>
+				</tr>
+				<tr class="">
+					<th scope="row">x</th>
+					<td>int: the horizonal active spot of the cursor</td>
+				</tr>
+				<tr class="">
+					<th scope="row">y</th>
+					<td>int: the vertical active spot of the cursor</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+
+		<td>None</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="../reference/noCursor_">noCursor()</a><br /></td>
+	</tr>
+
+</table>

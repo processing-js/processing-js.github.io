@@ -1,0 +1,213 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>switch()</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>int num = 1;
+
+
+
+switch(num) {
+
+  case 0: 
+
+    println("Zero");  // Does not execute
+
+    break;
+
+  case 1: 
+
+    println("One");  // Prints "One"
+
+    break;
+
+}</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>char letter = 'N';
+
+
+
+switch(letter) {
+
+  case 'A': 
+
+    println("Alpha");  // Does not execute
+
+    break;
+
+  case 'B': 
+
+    println("Bravo");  // Does not execute
+
+    break;
+
+  default:             // Default executes if the case labels
+
+    println("None");   // don't match the switch parameter
+
+    break;
+
+}</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>// Removing a "break" enables testing
+
+// for more than one value at once
+
+
+
+char letter = 'b';
+
+
+
+switch(letter) {
+
+  case 'a':
+
+  case 'A': 
+
+    println("Alpha");  // Does not execute
+
+    break;
+
+  case 'b':
+
+  case 'B': 
+
+    println("Bravo");  // Prints "Bravo"
+
+    break;
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Works like an <b>if else</b> structure, but <b>switch()</b> is more convenient when you need to select between three or more alternatives. Program controls jumps to the case with the same value as the expression. All remaining statements in the switch are executed unless redirected by a <b>break</b>. Only primitive datatypes which can convert to an integer (byte, char, and int) may be used as the <b>expression</b> parameter. The default is optional.</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>switch(<kbd>expression</kbd>)
+
+{
+
+  case <kbd>label</kbd>: 
+
+     <kbd>statements</kbd>          
+
+  case <kbd>label</kbd>:          // Optional
+
+     <kbd>statements</kbd>        // "
+
+  default:             // "
+
+     <kbd>statements</kbd>        // "
+
+}</pre></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+		<th scope="row">expression</th>
+
+		<td>byte, char, or int</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">label</th>
+
+		<td>byte, char, or int</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">statements</th>
+
+
+
+		<td>one or more statements to be executed</td>
+
+	</tr>
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td><a href="../reference/case">case</a><br />
+
+    <a href="../reference/default">default</a><br />
+
+    <a href="../reference/break">break</a><br />
+
+    <a href="../reference/if_">if()</a><br />
+
+    <a href="../reference/else_">else()</a><br /></td>
+
+	</tr>
+
+
+
+</table>
+

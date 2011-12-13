@@ -1,0 +1,191 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>/* @pjs transparent */ directive</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>/* @pjs transparent="true"; */
+
+
+
+void setup()
+
+{
+
+  size(200,200);
+
+  frameRate(25);
+
+  stroke(100,100,200);
+
+  noFill();
+
+}
+
+
+
+float value = 0;
+
+boolean forward = true;
+
+
+
+/**
+
+ * This animation draws an amplitude-modulating sinewave
+
+ */
+
+void draw()
+
+{
+
+  value += forward ? 2*PI/25 : -2*PI/25;
+
+  if(forward && value&gt;=2*PI) { forward=false; }
+
+  else if(!forward && value&lt;=0) { forward=true; }
+
+
+
+  background(0,75);	// transparent grey background
+
+  float c = value - PI;
+
+  bezier(0,100, 33,100+(50*c*PI/6), 66,100+(50*c*PI/6), 100,100);
+
+  bezier(100,100, 133,100+(50*-c*PI/6), 166,100+(50*-c*PI/6), 200,100);
+
+}
+
+</pre></div></td>
+
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td><p>This directive allows you to specify whether or not the background of the canvas for your sketch should be transparent. By default, 
+
+    the canvas background is opaque, and any calls to background() will fill it with some color, with a CSS opacity of 1.0 (which is fully opaque). 
+
+    To make the background transparent, use this directive. Any calls to background() with arguments that include an alpha channel value will now result 
+
+    in a transparent background color with an opacity ranging from fully transparent (a=0) to full opaque (a=255).</p>
+
+    </td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td>
+
+      <pre>
+
+        <kbd> /* @pjs transparent="true"; */</kbd>
+
+      </pre>
+
+      To enable transparent backgrounds for a js-built sketch, you must set the sketch transparency property to true. Assuming you have bound your sketch to a var called mySketch:
+
+      <br />
+
+      <pre>
+
+        <kbd>mySketch.options.isTransparent = true;</kbd>
+
+      </pre>
+
+      If you have bound your processing instance to a variable called pi:
+
+      <br />
+
+      <pre>
+
+        <kbd>pi.externals.sketch.options.isTransparent = true;</kbd>
+
+      </pre>
+
+
+
+    </td>
+
+
+
+	</tr>
+
+   
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	
+
+  <tr class="">
+
+		<th scope="row">transparent </th>
+
+		<td>"true" (implicitly false for any other value)</td>
+
+	</tr>
+
+  
+
+</table></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application, Processing.js compatibility</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td>
+
+      <a href="../reference/pjs directive">@pjs directives</a> 
+
+    </td>
+
+	</tr>
+
+</table>
+

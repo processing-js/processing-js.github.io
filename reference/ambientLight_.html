@@ -1,0 +1,94 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>ambientLight()</h3></td>
+
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><img src="/content/reference/ambientLight_.gif" alt="example pic" /><pre class="margin">size(100, 100, P3D);
+background(0);
+noStroke();
+// The spheres are white by default so
+// the ambient light changes their color
+ambientLight(51, 102, 126);
+translate(20, 50, 0);
+sphere(30);
+translate(60, 0, 0);
+sphere(30);</pre></div><div class="example"><img src="/content/reference/directional_ambient_.jpg" alt="example pic" /><pre class="margin">size(100, 100, P3D);
+background(0);
+noStroke();
+directionalLight(126, 126, 126, 0, 0, -1);
+ambientLight(102, 102, 102);
+translate(32, 50, 0);
+rotateY(PI/5);
+box(40);
+translate(60, 0, 0);
+sphere(30);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>			
+
+		<td><p>Adds an ambient light. Ambient light doesn't come from a specific direction, the rays have light have bounced around so much that objects are 
+		evenly lit from all sides. Ambient lights are almost always used in combination with other types of lights. Lights need to be included in the <b>draw()</b> 
+		to remain persistent in a looping program. Placing them in the <b>setup()</b> of a looping program will cause them to only have an effect the first time through the loop. 
+		The effect of the parameters is determined by the current color mode.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>ambientLight(<kbd>v1</kbd>,<kbd>v2</kbd>,<kbd>v3</kbd>)</pre><br />
+		<pre>ambientLight<kbd>v1</kbd>,<kbd>v2</kbd>,<kbd>v3</kbd>,<kbd>x</kbd>,<kbd>y</kbd>,<kbd>z</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">v1</th>
+				<td>int or float: red or hue value</td>
+			</tr>
+			<tr class="">
+				<th scope="row">v2</th>
+				<td>int or float: green or hue value</td>
+			</tr>
+			<tr class="">
+				<th scope="row">v3</th>
+				<td>	int or float: green or hue value</td>
+			</tr>
+			<tr class="">
+				<th scope="row">x</th>
+				<td>int or float: x-coordinate of the light</td>
+			</tr>
+			<tr class="">
+				<th scope="row">y</th>
+				<td>int or float: y-coordinate of the light</td>
+			</tr>
+			<tr class="">
+				<th scope="row">z</th>
+				<td>int or float: z-coordinate of the light</td>
+			</tr>
+			
+</table></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="../reference/lights_">lights()</a><br />
+		<a href="../reference/directionalLight_">directionalLight()</a><br />
+		<a href="../reference/spotLight_">spotLight()</a><br /></td>
+	</tr>
+</table>

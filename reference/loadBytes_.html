@@ -1,0 +1,73 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>loadBytes()</h3></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre class="">// open a file and read its binary data 
+byte b[] = loadBytes("something.dat"); 
+ 
+// print each value, from 0 to 255 
+for (int i = 0; i < b.length; i++) { 
+  // every tenth number, start a new line 
+  if ((i % 10) == 0) { 
+    println(); 
+  } 
+ 
+  // bytes are from -128 to 127, this converts to 0 to 255 
+  int a = b[i] & 0xff; 
+  print(a + " "); 
+} 
+// print a blank line at the end 
+println();</pre>
+</div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+
+		<td><p>	Reads the contents of a file or url and places it in a byte array. If a file is specified, it must be located in the sketch's "data" directory/folder. </p>
+		<p>The filename parameter can also be a URL to a file found online. For security reasons, a 
+		Processing sketch found online can only download files from the same server from which it came.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>loadBytes(<kbd>filename</kbd>)</pre></td>
+	</tr>
+	<tr class="">
+			<th scope="row">Parameters</th>
+			<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">filename</th>
+				<td>String: name of file in the data folder or a URL</td>
+			</tr>
+			</table>
+			</td>
+	</tr>
+<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>byte[]</td>
+	</tr>
+	<tr class="">
+
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="../reference/loadStrings_">loadStrings()</a><br />
+		<a href="../reference/saveStrings_">saveStrings()</a><br />
+		<a href="http://processing.org/reference/saveBytes_" class="warning">saveBytes()</a><br /></td>
+
+	</tr>
+</table>

@@ -1,0 +1,77 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>hint()</h3></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre class="">void setup() {
+  size(400, 400, OPENGL);
+  // Enable 4x oversampling (if supported)
+  hint(ENABLE_OPENGL_4X_SMOOTH);
+}</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+
+		<td><p>Set various hints and hacks for the renderer. This is used to handle obscure rendering features that cannot be implemented 
+		in a consistent manner across renderers. Many options will often graduate to standard features instead of hints over time. </p>
+		<p>hint(ENABLE_OPENGL_4X_SMOOTH) - Enable 4x anti-aliasing for OpenGL. This can help force anti-aliasing if it has not been enabled by the user. 
+		On some graphics cards, this can also be set by the graphics driver's control panel, however not all cards make this available. 
+		This hint must be called immediately after the size() command because it resets the renderer, obliterating any settings and anything drawn (and like size(), 
+		re-running the code that came before it again).</p>
+		<p>hint(DISABLE_OPENGL_2X_SMOOTH) - In Processing 1.0, Processing always enables 2x smoothing when the OpenGL renderer is used. 
+		This hint disables the default 2x smoothing and returns the smoothing behavior found in earlier releases, where smooth() and noSmooth() 
+		could be used to enable and disable smoothing, though the quality was inferior. </p>
+		<p>hint(ENABLE_NATIVE_FONTS) - Use the native version fonts when they are installed, rather than the bitmapped version from a .vlw file. 
+		This is useful with the default (or JAVA2D) renderer setting, as it will improve font rendering speed. This is not enabled by default, 
+		because it can be misleading while testing because the type will look great on your machine (because you have the font installed) but lousy on others' 
+		machines if the identical font is unavailable. This option can only be set per-sketch, and must be called before any use of textFont().</p>
+		<p>hint(DISABLE_DEPTH_TEST) - Disable the zbuffer, allowing you to draw on top of everything at will. When depth testing is disabled, 
+		items will be drawn to the screen sequentially, like a painting. This hint is most often used to draw in 3D, then draw in 2D on top of it 
+		(for instance, to draw GUI controls in 2D on top of a 3D interface). Starting in release 0149, this will also clear the depth buffer. 
+		Restore the default with hint(ENABLE_DEPTH_TEST), but note that with the depth buffer cleared, any 3D drawing that happens later in draw() 
+		will ignore existing shapes on the screen. </p>
+		<p>hint(ENABLE_DEPTH_SORT) - Enable primitive z-sorting of triangles and lines in P3D and OPENGL. 
+		This can slow performance considerably, and the algorithm is not yet perfect. Restore the default with hint(DISABLE_DEPTH_SORT). </p>
+		<p>hint(DISABLE_OPENGL_ERROR_REPORT) - Speeds up the OPENGL renderer setting by not checking for errors while running. Undo with hint(ENABLE_OPENGL_ERROR_REPORT). </p>
+		<p>unhint() has been removed in favor of adding additional ENABLE/DISABLE constants to reset the default behavior. This prevents the double negatives, and also reinforces which hints can be enabled or disabled.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>hint(<kbd>item</kbd>)</pre></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr class="">
+					<th scope="row">item</th>
+					<td>constant: name of the hint to be enabled or disabled</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="../reference/PGraphics">PGraphics</a><br />
+		<a href="../reference/createGraphics_">createGraphics()</a><br />
+		<a href="../reference/size_">size()</a><br /></td>
+	</tr>
+</table>
+

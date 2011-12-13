@@ -1,0 +1,89 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>specular()</h3></td>
+
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><img src="/content/reference/specular_.jpg" alt="example pic" /><pre class="margin">size(100, 100, P3D);
+background(0);
+noStroke();
+background(0);
+fill(0, 51, 102);
+lightSpecular(255, 255, 255);
+directionalLight(204, 204, 204, 0, 0, -1);
+translate(20, 50, 0);
+specular(255, 255, 255);
+sphere(30);
+translate(60, 0, 0);
+specular(204, 102, 0);
+sphere(30);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>			
+
+		<td><p>Sets the specular color of the materials used for shapes drawn to the screen, which sets the color of hightlights. 
+		Specular refers to light which bounces off a surface in a perferred direction (rather than bouncing in all directions like a diffuse light). 
+		Used in combination with <b>emissive()</b>, <b>specular()</b>, and 
+		<b>shininess()</b> in setting the materal properties of shapes.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>specular(<kbd>gray</kbd>)</pre><br />
+		<pre>specular(<kbd>color</kbd>)</pre><br />
+		<pre>specular(<kbd>v1</kbd>,<kbd>v2</kbd>,<kbd>v3</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">gray</th>
+				<td>int or float: number specifying value between white and black</td>
+			</tr>
+			<tr class="">
+				<th scope="row">color</th>
+				<td>color: any value of the color datatype</td>
+			</tr>
+			<tr class="">
+				<th scope="row">v1</th>
+				<td>int or float: red or hue value</td>
+			</tr>
+			<tr class="">
+				<th scope="row">v2</th>
+				<td>int or float: green or saturation value</td>
+			</tr>
+			<tr class="">
+				<th scope="row">v3</th>
+				<td>	int or float: green or brightness value</td>
+			</tr>
+			
+			
+</table></td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>None</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="../reference/ambient_">ambient()</a><br />
+		<a href="../reference/emissive_">emissive()</a><br />
+		<a href="../reference/shininess_">shininess()</a></td>
+	</tr>
+</table>

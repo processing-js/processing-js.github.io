@@ -1,0 +1,185 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>return</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>int val = 30;
+
+ 
+
+void draw() {
+
+  int t = timestwo(val);
+
+  println(t);
+
+}
+
+
+
+int timestwo(int dVal) {
+
+  dVal = dVal * 2;
+
+  return dVal;
+
+}</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>int[] vals = {10, 20, 30}; 
+
+  
+
+void draw() { 
+
+  int[] t = timestwo(vals); 
+
+  println(t); 
+
+  noLoop();
+
+} 
+
+ 
+
+int[] timestwo(int[] dVals) { 
+
+  for(int i = 0; i  dVals.length; i++) { 
+
+    dVals[i] = dVals[i] * 2; 
+
+  } 
+
+  return dVals; 
+
+}</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>void draw() {
+
+  background(204);
+
+  line(0, 0, width, height);
+
+  if(mousePressed) {
+
+    return;
+
+  }
+
+  line(0, height, width, 0);
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Keyword used to indicate the value to return from a function. The value being returned must be the same datatype as defined in the function declaration. Functions declared with <b>void</b> can't return values and shouldn't include a return value. The keyword <b>return</b> may also be used to break out of a function thus not allowing the program to read the remaining statements (see the third example above).</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre><kbd>type</kbd>&nbsp;<kbd>function</kbd> {
+
+  <kbd>statements</kbd>
+
+  return <kbd>value</kbd>
+
+
+
+}</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+		<th scope="row">type</th>
+
+
+
+		<td>boolean, byte, char, int, float, String, boolean[], byte[], char[], int[], float[], String[]</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">function</th>
+
+		<td>a function that is being defined</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">statements</th>
+
+		<td>any valid statements</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">value</th>
+
+		<td>must be the same datatype as the type parameter</td>
+
+
+
+	</tr>
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+</table>
+
+
+

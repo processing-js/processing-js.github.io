@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>subset()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>String[] sa1 = { "OH ", "NY ", "CA ", "VA ", "CO ", "IL "};
+String[] sa2 = subset(sa1, 1);
+println(sa2);  // Prints NY, CA, VA, CO, IL
+println();
+String[] sa3 = subset(sa1, 2, 3);
+println(sa3);  // Prints CA, VA, CO</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td>
+		<p>Extracts an array of elements from an existing array. The array parameter defines the array from which the elements will 
+		be copied and the offset and length parameters determine which elements to extract. If no length is given, elements will be extracted from the offset to the end of the array. When specifying the offset remember the first array element is 0. 
+		This function does not change the source array.</p>
+		<p>When using an array of objects, the data returned from the function must be cast to the object array's data type. 
+		For example: SomeClass[] items = (SomeClass[]) subset(originalArray, 0, 4).</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>subset(<kbd>array</kbd>,<kbd>offset</kbd>)</pre><br />
+		<pre>subset(<kbd>array</kbd>,<kbd>offset</kbd>,<kbd>length</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">array</th>
+		<td>boolean[], byte[], char[], int[], float[], String[], or an array of objects</td>
+	</tr>
+	<tr class="">
+		<th scope="row">offset</th>
+		<td>int: position to gebin</td>
+	</tr>
+	<tr class="">
+		<th scope="row">length</th>
+		<td>int: number of values to extract</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>Array (the same datatype as the input)</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="../reference/splice_">splice()</a></td>
+
+	</tr>
+</table>

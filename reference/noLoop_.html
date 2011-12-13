@@ -1,0 +1,155 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>noLoop()</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>void setup() {
+
+  size(200, 200);
+
+  noLoop();
+
+}
+
+
+
+void draw() {
+
+  line(10, 10, 190, 190);
+
+}</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>void setup() {
+
+  size(200, 200);
+
+}
+
+
+
+float x = 0.0;
+
+
+
+void draw() {
+
+  background(204);
+
+  x = x + 0.1;
+
+  if (x > width) {
+
+    x = 0;
+
+  }
+
+  line(x, 0, x, height); 
+
+}
+
+
+
+void mousePressed() {
+
+  noLoop();
+
+}
+
+
+
+void mouseReleased() {
+
+  loop();
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Stops Processing from continuously executing the code within <b>draw()</b>. If <b>loop()</b> is called, the code in <b>draw()</b> begin to run continuously again. If using <b>noLoop()</b> in <b>setup()</b>, it should be the last line inside the block.
+
+
+
+<br /><br />
+
+When <b>noLoop()</b> is used, it's not possible to manipulate or access the screen inside event handling functions such as <b>mousePressed()</b> or <b>keyPressed()</b>. Instead, use those functions to call <b>redraw()</b> or <b>loop()</b>, which will run <b>draw()</b>, which can update the screen properly. This means that when noLoop() has been called, no drawing can happen, and functions like saveFrame() or loadPixels() may not be used.
+
+
+
+<br /><br />
+
+Note that if the sketch is resized, <b>redraw()</b> will be called to update the sketch, even after <b>noLoop()</b> has been specified. Otherwise, the sketch would enter an odd state until <b>loop()</b> was called.</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>noLoop()</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+
+		<td>None</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+
+
+		<th scope="row">Related</th>
+
+		<td><a href="../reference/loop_">loop()</a>
+
+        <br /><a href="../reference/redraw_">redraw()</a>
+
+        <br /><a href="../reference/draw_">draw()</a><br /></td>
+
+	</tr>
+
+</table>
+

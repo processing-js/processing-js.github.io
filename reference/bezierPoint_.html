@@ -1,0 +1,82 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>bezierPoint()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/content/reference/bezierPoint_.gif" alt="example pic" /><pre class="margin">noFill();
+bezier(85, 20, 10, 10, 90, 90, 15, 80);
+fill(255);
+int steps = 10;
+for (int i = 0; i <= steps; i++) {
+  float t = i / float(steps);
+  float x = bezierPoint(85, 10, 90, 15, t);
+  float y = bezierPoint(20, 10, 90, 80, t);
+  ellipse(x, y, 5, 5);
+}</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td>
+		<p>	Evaluates the Bezier at point t for points a, b, c, d. The parameter t varies between 0 and 1, a and d are points on the curve, and b and c are the control points. 
+		This can be done once with the x coordinates and a second time with the y coordinates to get the location of a bezier curve at t.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>bezierPoint(<kbd>a</kbd>,<kbd>b</kbd>,<kbd>c</kbd>,<kbd>d</kbd>,<kbd>t</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">a</th>
+		<td>int or float: coordinate of first point on the curve</td>
+	</tr>
+	<tr class="">
+		<th scope="row">b</th>
+		<td>int or float: coordinate of first control point</td>
+	</tr>
+	<tr class="">
+		<th scope="row">c</th>
+		<td>int or float: coordinate of second control point</td>
+	</tr>
+	<tr class="">
+		<th scope="row">d</th>
+		<td>int or float: coordinate of second point on the curve</td>
+	</tr>
+	<tr class="">
+		<th scope="row">t</th>
+		<td>float: value between 0 and 1</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>None</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="../reference/bezier_">bezier()</a><br />
+		<a href="../reference/bezierVertex_">bezierVertex()</a><br />
+		<a href="../reference/curvePoint_">curvePoint()</a></td>
+
+	</tr>
+</table>

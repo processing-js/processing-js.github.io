@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>shapeMode()</h3></td>
+
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><img src="/content/reference/shapeMode.jpg" alt="example pic" /><pre class="margin">PShape bot = loadShape("bot1.svg");
+smooth();
+shapeMode(CENTER);
+shape(bot, 35, 35, 50, 50);
+shapeMode(CORNER);
+fill(102);
+shape(bot, 35, 35, 50, 50);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>			
+
+		<td><p>Modifies the location from which shapes draw. The default mode is <b>shapeMode(CORNER)</b>, which specifies the location to be the upper 
+		left corner of the shape and uses the third and fourth parameters of <b>shape()</b> to specify the width and height. 
+		The syntax <b>shapeMode(CORNERS)</b> uses the first and second parameters of <b>shape()</b>
+		to set the location of one corner and uses the third and fourth parameters to set the opposite corner. The syntax <b>shapeMode(CENTER)</b> draws the shape from 
+		its center point and uses the third and forth parameters of <b>shape()</b> to specify the width and height. 
+		The parameter must be written in "ALL CAPS" because Processing is a case sensitive language.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>shapeMode(<kbd>MODE</kbd>)</pre><br /></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">MODE</th>
+				<td>	Either CORNER, CORNERS, CENTER</td>
+			</tr>
+			</table></td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>None</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="../reference/PShape">PShape</a><br />
+		<a href="../reference/loadShape_">loadShape()</a><br />
+		<a href="../reference/shapeMode_">shapeMode()</a><br /></td>
+	</tr>
+</table>

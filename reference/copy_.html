@@ -1,0 +1,95 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>copy()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/content/reference/copy_.jpg" alt="example pic" /><pre class="margin">// @pjs preload must be used to preload the image
+/* @pjs preload="eames.jpg"; */
+PImage img = loadImage("eames.jpg");
+image(img, 0, 0);
+copy(15, 25, 10, 10, 35, 25, 50, 50);
+noFill();
+// Rectangle shows area being copied
+rect(15, 25, 10, 10);</pre></div>
+</div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>Copies a region of pixels from the display window to another area of the display window and copies a region of pixels from an image used as the <b>srcImg</b> parameter into the display window. 
+		If the source and destination regions aren't the same size, it will automatically resize the source pixels to fit the specified target region. 
+		No alpha information is used in the process, however if the source image has an alpha channel set, it will be copied as well.  </p>
+		<p>This function ignores <b>imageMode()</b>.</p></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>copy(<kbd>x</kbd>,<kbd>y</kbd>,<kbd>width</kbd>,<kbd>height</kbd>,<kbd>dx</kbd>,<kbd>dy</kbd>,<kbd>dwidth</kbd>,<kbd>dheight</kbd>)</pre><br />
+		<pre>copy(<kbd>srcImg</kbd>,<kbd>x</kbd>,<kbd>y</kbd>,<kbd>width</kbd>,<kbd>height</kbd>,<kbd>dx</kbd>,<kbd>dy</kbd>,<kbd>dwidth</kbd>,<kbd>dheight</kbd>)</pre></td>
+	</tr>
+	
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">x</th>
+				<td>int: X coordinate of the source's upper left corner</td>
+			</tr>
+			<tr class="">
+				<th scope="row">y</th>
+				<td>int: Y coordinate of the source's upper left corner</td>
+			</tr>
+			<tr class="">
+				<th scope="row">width</th>
+				<td>int: source image width</td>
+			</tr>
+			<tr class="">
+				<th scope="row">height</th>
+				<td>int: source image height</td>
+			</tr>
+			<tr class="">
+				<th scope="row">dx</th>
+				<td>int: X coordinate of the destination's upper left corner</td>
+			</tr>
+			<tr class="">
+				<th scope="row">dy</th>
+				<td>int: Y coordinate of the destination's upper left corner</td>
+			</tr>
+			<tr class="">
+				<th scope="row">dwidth</th>
+				<td>int: destination image width</td>
+			</tr>
+			<tr class="">
+				<th scope="row">dheight</th>
+				<td>int: destination image height</td>
+			</tr>
+			<tr class="">
+				<th scope="row">srcImg</th>
+				<td>PImage:a image variable referring to the source image.</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>None</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="../reference/get_">get()</a><br />
+		<a href="../reference/blend_">blend()</a><br /></td>
+	</tr>
+</table>

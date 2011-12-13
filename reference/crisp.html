@@ -1,0 +1,144 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>/* @pjs crisp */ directive</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>/* @pjs crisp="true"; */
+
+void setup()
+
+{
+
+  size(200,200);
+
+  noLoop();
+
+}
+
+
+
+void draw()
+
+{
+
+  background(255);
+
+  line(width/4, height/2, width/2, height/4); 
+
+  line(width/2, height/4, 3*width/4, height/2); 
+
+  line(3*width/4, height/2, width/2, 3*height/4);
+
+  line(width/2, 3*height/4, width/4, height/2);
+
+  rect(width/2 - 25, height/2 - 25, 50, 50);
+
+}</pre></div></td>
+
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td><p>Depending on the browser's default settings, canvas elements may or may not apply anti-aliassing to draw instructions. This directive lets 
+
+    you force plain (not anti-aliassed) rendering of the "line", "triangle", and "rect" draw primitives. This results in crisp clean lines, 
+
+    although angled lines may look jagged.</p>
+
+    <p><b>NOTE:</b> the "arc", "ellipse" and "bezier" draw primitives are not effected by this directive.</p>
+
+    <p><b>NOTE:</b> this directive is very expensive, and will result in a significant drop in framerate, and increase in CPU use. </p>
+
+    </td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td>
+
+      <pre>
+
+        <kbd>/* @pjs crisp="true"; */</kbd><br />     
+
+    </td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	
+
+  <tr class="">
+
+		<th scope="row">crisp </th>
+
+		<td>"true" (implicitly false for any other value)</td>
+
+	</tr>
+
+  
+
+</table></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application, Processing.js compatibility</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td>
+
+      <a href="../reference/pjs directive">@pjs directives</a> 
+
+    </td>
+
+	</tr>
+
+</table>

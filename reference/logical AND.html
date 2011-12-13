@@ -1,0 +1,125 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>&& (logical AND)</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><img src="/content/reference/logicalAND.gif" alt="example pic" /><pre class="margin">for(int i=5; i&lt;=95; i+=5) {
+
+  if((i > 35) && (i < 60)) {
+
+    stroke(0);    //Set color to black
+
+  } else {
+
+    stroke(255);  //Set color to white
+
+  }
+
+  line(30, i, 80, i);
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Compares two expressions and returns <b>true</b> only if both evaluate to <b>true</b>. Returns <b>false</b> if one or both evaluate to <b>false</b>. The following list shows all possible combinations:<br /><br /><tt>true && false   // Evaluates false because the second is false <br />false && true   // Evaluates false because the first is false <br />true && true    // Evaluates true because both are true <br />false && false  // Evaluates false because both are false</tt></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre><kbd>expression1</kbd> && <kbd>expression2</kbd></pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+		<th scope="row">expression1</th>
+
+		<td>any valid expression</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">expression2</th>
+
+		<td>any valid expression</td>
+
+	</tr>
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td>
+
+    
+
+    <a href="../reference/logical OR">|| (logical OR)</a><br />
+
+    <a href="../reference/logical NOT">! (logical NOT)</a><br />    
+
+    <a href="../reference/if_">if()</a><br /></td>
+
+
+
+	</tr>
+
+</table>
+

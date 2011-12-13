@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr>
+		<th scope="row">Class</th>
+		<td>PImage</td>
+	</tr>
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>loadPixels()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/content/reference/loadPixels_.jpg" alt="example pic" /><pre class="margin">// @pjs preload must be used to preload the image
+/* @pjs preload="topanga.jpg"; */
+int halfImage = width*height/2;
+PImage myImage = loadImage("topanga.jpg");
+myImage.loadPixels();
+for (int i = 0; i < halfImage; i++) {
+  myImage.pixels[i+halfImage] = pixels[i];
+}
+myImage.updatePixels();
+image(myImage, 0, 0);</pre></div>
+	</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>Loads the pixel data for the image into its <b>pixels[]</b> array. This function must always be called before reading from or writing to <b>pixels[]</b>. </p>
+		<p>Certain renderers may or may not seem to require <b>loadPixels()</b> or <b>updatePixels()</b>. 
+		However, the rule is that any time you want to manipulate the <b>pixels[]</b> array, you must first call <b>loadPixels()</b>, and after changes have been made, 
+		call <b>updatePixels()</b>. Even if the renderer may not seem to use this function in the current Processing release, this will always be subject to change.</p></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre><kbd>img</kbd>.loadPixels()</pre></td>
+	</tr>
+	
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">img</th>
+				<td>PImage: any variable of type PImage</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>void</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+</table>

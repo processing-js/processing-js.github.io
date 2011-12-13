@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr>
+		<th scope="row">Class</th>
+		<td>PImage</td>
+	</tr>
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>mask()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/content/reference/mask_.jpg" alt="example pic" /><pre class="margin">// @pjs preload must be used to preload the image
+/* @pjs preload="tower.jpg"; */
+PImage img = loadImage("test.jpg");
+PImage maskImg = loadImage("mask.jpg");
+img.mask(maskImg);
+image(img, 0, 0);
+image(img, 25, 0);</pre></div>
+</div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>Masks part of an image from displaying by loading another image and using it as an alpha channel. 
+		This mask image should only contain grayscale data, but only the blue color channel is used. 
+		The mask image needs to be the same size as the image to which it is applied.</p>
+		<p>In addition to using a mask image, an integer array containing the alpha channel data can be specified directly. 
+		This method is useful for creating dynamically generated alpha masks. 
+		This array must be of the same length as the target image's pixels array and should contain only grayscale data of values between 0-255.</p></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre><kbd>img</kbd>.mask(<kbd>maskImg</kbd>)</pre><br />
+		<pre><kbd>img</kbd>.mask(<kbd>maskArray</kbd>)</pre></td>
+	</tr>
+	
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">img</th>
+				<td>PImage: any variable of type PImage</td>
+			</tr>
+			<tr class="">
+				<th scope="row">maskImg</th>
+				<td>PImage: any PImage object used as the alpha channel for "img", needs to be same size as "img"</td>
+			</tr>
+			<tr class="">
+				<th scope="row">maskArray</th>
+				<td>int[]: any array of Integer numbers used as the alpha channel, needs to be same length as the image's pixel array</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>None</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+
+</table>
