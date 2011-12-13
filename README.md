@@ -16,6 +16,56 @@ Jekyll will compile (yes, seriously) the website into the _site directory, and s
 localhost web server running on port 4000. Jekyll will automatically recompile the site
 if you make any changes.
 
+Updating the blog
+-----------------
+The blog index is `/blog/index.html`, and all of the individual blog posts are located in `/blog/_posts/`. I've created a template blog post in `/blog/_posts/template.html`, but for posterity, here it is:
+
+    --- 
+    layout: post
+    title: Template blog title
+    ---
+    <p>Write your blog post here</p>
+
+Once you've changed the title to something appropriate and written something useful for the blog post, you need to save the blog post with a specific filename within the _posts directory to have Jekyll pick it up as a blog post. The format is yyyy-mm-dd-title-with-dashes.ext, where ext can be html, md, or textile.
+
+Updating the downloads
+----------------------
+The downloads index is `/downloads/index.html`, and all of the files for download are located at [https://github.com/processing-js/processing-js/downloads](https://github.com/processing-js/processing-js/downloads). Everyone with the right access (see below) should upload the files to the Github Downloads page, then update the Processing.js Downloads page to point to the new files. It would also be a good idea to remove the oldest set of download links.
+
+Updating the exhibitions
+------------------------
+The exhibitions index is `/exhibition/index.html`, and all of the exhibition stuff is
+
+Updating the articles
+---------------------
+
+
+Updating the front page
+-----------------------
+The front page index is `/index.html`. If you're editing the front page text or exhibitions, this is the place to do it.
+
+Updating anything else
+----------------------
+Everything else is static content. Go to the exact file you're looking for, and make whatever
+changes you need to make!
+
+Layouts
+-------
+
+On almost every single page you see, there's a few lines of text that looks like this:
+
+    ---
+    layout: default
+    ---
+
+This tells Jekyll to use the layout in `_layouts` named `default`. In this case, `_layouts/default.html`. There's another layout for blog posts called `post` which inherits from `default`. Be careful about making changes to these layouts, as it affects pretty much every other page. Everything that you link to from this page must be linked in an absolute fashion, with a `/` at the front.
+
+Access controls
+---------------
+
+Who is allowed to update the git repository is controlled by the Processing.js
+[organization settings](https://github.com/organizations/processing-js/teams) on Github.
+
 Hosting considerations
 ----------------------
 
