@@ -1,0 +1,103 @@
+---
+layout: default
+---
+<h3>Milliseconds</h3>
+
+
+
+<p>A millisecond is 1/1000 of a second. 
+
+Processing keeps track of the number of milliseconds a program has run.
+
+By modifying this number with the modulo(%) operator, 
+
+different patterns in time are created.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/milliseconds.html">Original Processing.org Example: Milliseconds</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+float scale;
+
+
+
+void setup()
+
+{
+
+  size(200, 200);
+
+  noStroke();
+
+  scale = width/10;
+
+}
+
+
+
+void draw()
+
+{ 
+
+  for(int i=0; i<scale; i++) {
+
+    colorMode(RGB, (i+1) * scale * 10);
+
+    fill(millis()%((i+1) * scale * 10) );
+
+    rect(i*scale, 0, scale, height);
+
+  }
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas</a> and Ben Fry</a>
+
+// unless otherwise stated.
+
+float scale;
+
+
+
+void setup()
+
+{
+
+  size(200, 200);
+
+  noStroke();
+
+  scale = width/10;
+
+}
+
+
+
+void draw()
+
+{ 
+
+  for(int i=0; i&lt;scale; i++) {
+
+    colorMode(RGB, (i+1) * scale * 10);
+
+    fill(millis()%((i+1) * scale * 10) );
+
+    rect(i*scale, 0, scale, height);
+
+  }
+
+}</pre></div>
+
+
+
+
+

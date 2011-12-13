@@ -1,0 +1,91 @@
+---
+layout: default
+---
+<h3>MousePress</h3>
+
+
+
+<p>Move the mouse to position the shape. 
+
+Press the mouse button to invert the color.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/mousepress.html">Original Processing.org Example: MousePress</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+void setup() {
+
+  size(200, 200);
+
+  fill(126);
+
+  background(102);
+
+}
+
+
+
+void draw() {
+
+  if(mousePressed) {
+
+    stroke(255);
+
+  } else {
+
+    stroke(0);
+
+  }
+
+  line(mouseX-66, mouseY, mouseX+66, mouseY);
+
+  line(mouseX, mouseY-66, mouseX, mouseY+66); 
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas</a> and Ben Fry</a>
+
+// unless otherwise stated.
+
+void setup() {
+
+  size(200, 200);
+
+  fill(126);
+
+  background(102);
+
+}
+
+
+
+void draw() {
+
+  if(mousePressed) {
+
+    stroke(255);
+
+  } else {
+
+    stroke(0);
+
+  }
+
+  line(mouseX-66, mouseY, mouseX+66, mouseY);
+
+  line(mouseX, mouseY-66, mouseX, mouseY+66); 
+
+}</pre></div>
+
+
+
+
+

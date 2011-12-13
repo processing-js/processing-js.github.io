@@ -1,0 +1,129 @@
+---
+layout: default
+---
+<h3>Pointillism</h3>
+
+
+
+<p>by Daniel Shiffman. 
+
+
+
+Mouse horizontal location controls size of dots. 
+
+Creates a simple pointillist effect using ellipses colored
+
+according to pixels in an image.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/pointillism.html">Original Processing.org Example: Pointillism</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+// @pjs preload must be used to preload the image so that it will be available when used in the sketch  
+
+/* @pjs preload="data/eames.jpg"; */
+
+
+
+PImage a;
+
+
+
+void setup()
+
+{
+
+  a = loadImage("data/eames.jpg");
+
+  size(200,200);
+
+  noStroke();
+
+  background(255);
+
+  smooth();
+
+}
+
+
+
+void draw()
+
+{ 
+
+  float pointillize = map(mouseX, 0, width, 2, 18);
+
+  int x = int(random(a.width));
+
+  int y = int(random(a.height));
+
+  color pix = a.get(x, y);
+
+  fill(pix, 126);
+
+  ellipse(x, y, pointillize, pointillize);
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"><img src='data/eames.jpg' id='eames.jpg'/><img src='data/sunflower.jpg' id='sunflower.jpg'/></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas</a> and Ben Fry</a>
+
+// unless otherwise stated.
+
+// @pjs preload must be used to preload the image so that it will be available when used in the sketch  
+
+/* @pjs preload="data/eames.jpg"; */
+
+
+
+PImage a;
+
+
+
+void setup()
+
+{
+
+  a = loadImage("data/eames.jpg");
+
+  size(200,200);
+
+  noStroke();
+
+  background(255);
+
+  smooth();
+
+}
+
+
+
+void draw()
+
+{ 
+
+  float pointillize = map(mouseX, 0, width, 2, 18);
+
+  int x = int(random(a.width));
+
+  int y = int(random(a.height));
+
+  color pix = a.get(x, y);
+
+  fill(pix, 126);
+
+  ellipse(x, y, pointillize, pointillize);
+
+}</pre></div>
+
+
+
+
+

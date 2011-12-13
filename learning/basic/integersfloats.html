@@ -1,0 +1,141 @@
+---
+layout: default
+---
+<h3>IntegersFloats</h3>
+
+
+
+<p>Integers and floats are two different kinds of numerical data. 
+
+An integer (more commonly called an int) is a number without 
+
+a decimal point. A float is a floating-point number, which means 
+
+it is a number that has a decimal place. Floats are used when
+
+more precision is needed.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/integersfloats.html">Original Processing.org Example: IntegersFloats</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+int a = 0;      // Create a variable "a" of the datatype "int"
+
+float b = 0.0;  // Create a variable "b" of the datatype "float"
+
+
+
+void setup()
+
+{
+
+  size(200, 200);
+
+  stroke(255);
+
+  frameRate(30);
+
+}
+
+
+
+void draw()
+
+{
+
+  background(51);
+
+  
+
+  a = a + 1;
+
+  b = b + 0.2; 
+
+  line(a, 0, a, height/2);
+
+  line(b, height/2, b, height);
+
+  
+
+  if(a > width) {
+
+    a = 0;
+
+  }
+
+  if(b > width) {
+
+    b = 0;
+
+  }
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas</a> and Ben Fry</a>
+
+// unless otherwise stated.
+
+int a = 0;      // Create a variable "a" of the datatype "int"
+
+float b = 0.0;  // Create a variable "b" of the datatype "float"
+
+
+
+void setup()
+
+{
+
+  size(200, 200);
+
+  stroke(255);
+
+  frameRate(30);
+
+}
+
+
+
+void draw()
+
+{
+
+  background(51);
+
+  
+
+  a = a + 1;
+
+  b = b + 0.2; 
+
+  line(a, 0, a, height/2);
+
+  line(b, height/2, b, height);
+
+  
+
+  if(a &gt; width) {
+
+    a = 0;
+
+  }
+
+  if(b &gt; width) {
+
+    b = 0;
+
+  }
+
+}</pre></div>
+
+
+
+
+

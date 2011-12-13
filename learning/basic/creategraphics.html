@@ -1,0 +1,129 @@
+---
+layout: default
+---
+<h3>CreateGraphics</h3>
+
+
+
+<p>The createGraphics() function creates an object from the PGraphics class 
+
+(PGraphics is the main graphics and rendering context for Processing). 
+
+The beginDraw() method is necessary to prepare for drawing and endDraw() is
+
+necessary to finish. Use this class if you need to draw into an off-screen 
+
+graphics buffer or to maintain two contexts with different properties.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/creategraphics.html">Original Processing.org Example: CreateGraphics</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+PGraphics pg;
+
+
+
+void setup() {
+
+  size(200, 200);
+
+  pg = createGraphics(80, 80, P3D);
+
+}
+
+
+
+void draw() {
+
+  fill(0, 12);
+
+  rect(0, 0, width, height);
+
+  fill(255);
+
+  noStroke();
+
+  ellipse(mouseX, mouseY, 60, 60);
+
+  
+
+  pg.beginDraw();
+
+  pg.background(102);
+
+  pg.noFill();
+
+  pg.stroke(255);
+
+  pg.ellipse(mouseX-60, mouseY-60, 60, 60);
+
+  pg.endDraw();
+
+  
+
+  image(pg, 60, 60); 
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"><img src='data/mask.jpg' id='mask.jpg'/><img src='data/test.jpg' id='test.jpg'/></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas</a> and Ben Fry</a>
+
+// unless otherwise stated.
+
+PGraphics pg;
+
+
+
+void setup() {
+
+  size(200, 200);
+
+  pg = createGraphics(80, 80, P3D);
+
+}
+
+
+
+void draw() {
+
+  fill(0, 12);
+
+  rect(0, 0, width, height);
+
+  fill(255);
+
+  noStroke();
+
+  ellipse(mouseX, mouseY, 60, 60);
+
+  
+
+  pg.beginDraw();
+
+  pg.background(102);
+
+  pg.noFill();
+
+  pg.stroke(255);
+
+  pg.ellipse(mouseX-60, mouseY-60, 60, 60);
+
+  pg.endDraw();
+
+  
+
+  image(pg, 60, 60); 
+
+}</pre></div>
+
+
+
+
+

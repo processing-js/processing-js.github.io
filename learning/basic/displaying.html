@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<h3>Displaying</h3>
+
+
+
+<p>Images can be displayed to the screen at their actual size
+
+or any other size.</p>
+
+<p><b>NOTE: </b>DOM security will not allow you to load images file:/// URIs. This security can be overridden in Firefox in about:config, by changing security.fileuri.strict_origin_policy to false.</p>
+
+
+
+<p><a href="http://processing.org/learning/basics/displaying.html">Original Processing.org Example: Displaying</a><br>
+
+<div class="learning-demo"><script type="application/processing">
+
+// @pjs preload must be used to preload the image so that it will be available when used in the sketch
+
+/* @pjs preload="data/arch.jpg"; */
+
+PImage a;  // Declare variable "a" of type PImage
+
+void setup() {
+
+noLoop(); // rather than drawing as an animation, only call draw() once
+
+size(200, 200);
+
+a = loadImage("data/arch.jpg"); // Load the images for use in the sketch 
+
+} 
+
+void draw() {
+
+image(a, 0, 0); // Display the image at point (0,0) with natural width and height 
+
+image(a, width/2, 0, a.width/2, a.height/2); // Display the image again, this time starting at (width/2, 0), and scaled to 50% in both x and y direction 
+
+}
+
+</script><canvas width="200" height="200"></canvas></div></p>
+
+<div style="height:0px;width:0px;overflow:hidden;"><img src='data/arch.jpg' id='arch.jpg'/></div>
+
+
+
+<div class="code"><pre name="code" class="processing">// All Examples Written by Casey Reas and Ben Fry
+
+// unless otherwise stated.
+
+
+
+// @pjs preload must be used to preload the image so that it will be available when used in the sketch
+
+/* @pjs preload="data/arch.jpg"; */
+
+PImage a;  // Declare variable "a" of type PImage
+
+void setup() {
+
+ noLoop(); // rather than drawing as an animation, only call draw() once
+
+ size(200, 200);
+
+ a = loadImage("data/arch.jpg"); // Load the images for use in the sketch 
+
+} 
+
+void draw() {
+
+ image(a, 0, 0); // // Display the image at point (0,0) with natural width and height 
+
+ image(a, width/2, 0, a.width/2, a.height/2); // Display the image again, this time starting at (width/2, 0), and scaled to 50% in both x and y direction 
+
+}</pre></div>
+
+
+
+
+
