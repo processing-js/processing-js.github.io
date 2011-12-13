@@ -208,10 +208,9 @@ a:hover, a:focus {
   line-height: 0;
 }
 
-.px250 {
+.learning-demo canvas {
   border-radius: 5px;
   padding: 5px;
   border: 1px solid #999999;
   box-shadow: 0px 0px 5px #999;
-  margin-left: 10px;
 }
