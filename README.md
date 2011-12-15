@@ -39,9 +39,10 @@ Updating the downloads
 
 The downloads index is `/downloads/index.html`, and all of the files for download are located
 at [https://github.com/processing-js/processing-js/downloads](https://github.com/processing-js/processing-js/downloads).
+Each release of Processing.js gets a post in the `/downloads/_posts/` directory which contains
+links for each download.
 Everyone with the right access (see below) should upload the files to the Github Downloads
-page, then update the Processing.js Downloads page to point to the new files. It would also
-be a good idea to remove the oldest set of download links.
+page, then update the Processing.js Downloads page to point to the new files.
 
 Updating the exhibitions
 ------------------------
