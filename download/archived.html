@@ -7,8 +7,8 @@ layout: default
 
 {% for old in site.categories.download offset:1 %}
 
-<h3>{{ old.title }}</h2>
-
+<h3>{{ old.title }}</h3>
+<p>Released {{ old.date | date_to_long_string }}</p>
 {{ old.content }}
 
 {% endfor %}

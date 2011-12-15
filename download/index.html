@@ -5,7 +5,8 @@ layout: default
 <h2>Download {{ current.title }}</h2>
 
 <p>Download the latest Processing.js, including full and minified versions, examples,
-an API-only version without the Processing parser, or a complete zip file of everything.</p>
+an API-only version without the Processing parser, or a complete zip file of everything.
+Released {{ current.date | date_to_long_string }}</p>
 
 {{ current.content }}
 
