@@ -137,7 +137,7 @@ with the obvious substitutions in place to make it a legal email address.</p>
 Processing can be used for anything from drawing a few lines and circles on a screen, to full blown interactive animations. 
 In fact, a basic Processing program is two lines of code, and will already play an animation:</p>
 
-{% highlight java %}
+{% highlight java linenos %}
 void setup() { size(..., ...); }
 void draw() {}
 {% endhighlight %}
@@ -147,7 +147,7 @@ method as the size(...,...) instruction) and then calls draw() every few millise
 A more useful minimal program would be a "hello world" program, but I hate those because they only show a programming language can write text, and that's pretty much the 
 least interesting feature of any programming language. Instead let's look at a minimal program that makes sense for a data visualisation language:</p>
 
-{% highlight java %}
+{% highlight java linenos %}
 float frame = 0;      // we start at frame 0
 float framerate = 24; // our "sketch" will have a framerate of 24 frames per second.
 
@@ -227,46 +227,52 @@ Processing too: every variable is strongly typed. So you have to indicate what y
 
 <p>The Processing API is in fact quite expansive (See <a href="http://processing.org/reference">http://processing.org/reference</a> for the full list), but it can't cover everything. Luckily it supports object oriented programming, so that our previous example can also be written as an object oriented sketch:</p>
 
-<div class="code">
-<pre name="code" class="processing">
+{% highlight java linenos %}
 Bouncer bouncer;
+
 void setup() {
-size(200,200);
-frameRate(24);
-stroke(#003300);
-fill(#0000FF);
-bouncer = new Ball(width/2,20,20);
+  size(200,200);
+  frameRate(24);
+  stroke(#003300);
+  fill(#0000FF);
+  bouncer = new Ball(width/2,20,20);
 }
+
 void draw() {
-bouncer.computeNextStep(width, height, frameRate);
-background(#FFFFEE);
-bouncer.draw();
+  bouncer.computeNextStep(width, height, frameRate);
+  background(#FFFFEE);
+  bouncer.draw();
 }
 
 interface Bouncer {
-void computeNextStep(int width, int height, float framerate);
-void draw(); 
+  void computeNextStep(int width, int height, float framerate);
+  void draw();
 }
 
 class Ball implements Bouncer
 {
-int x,y,radius;
-int step=0;
+  int x,y,radius;
+  int step = 0;
 
-Ball(int x, int y, int r) {
-this.x = x;
-this.y = y;
-this.radius = r;  }
+  Ball(int x, int y, int r) {
+    this.x = x;
+    this.y = y;
+    this.radius = r;
+  }
 
-void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-step++;
-float sin_value = abs(sin(PI*step/(float)frame_rate));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + radius);
-y = (int) (ball_height); }
+  void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
+    step++;
+    float sin_value = abs(sin(PI*step/(float)frame_rate));
+    float bounce_height = sketch_height/2 * sin_value;
+    float ball_height = sketch_height - (bounce_height + radius);
+    y = (int) (ball_height);
+  }
 
-void draw() { ellipse(x,y,radius,radius); }
-}</pre></div>
+  void draw() {
+    ellipse(x,y,radius,radius);
+  }
+}
+{% endhighlight %}
 <canvas id="sketch2" data-processing-sources="/sketches/sketch2.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
@@ -278,34 +284,37 @@ void draw() { ellipse(x,y,radius,radius); }
 for what we consider a "Ball". To be good object oriented programmers, we've also said that things that are a Ball are also a Bouncer, and this lets us extend our 
 sketch very easily to instead of a bouncing ball, have a bouncing box by keeping almost everything the same, and adding a new class Box that's a Bouncer:</p>
 
-<div class="code">
-<pre name="code" class="processing">
-
+{% highlight java linenos %}
 void setup() {
-...
-bouncer = new Box(width/2,20,20,20);
+  ...
+  bouncer = new Box(width/2,20,20,20);
 }
+
 class Box implements Bouncer
 {
-int x,y,w,h;
-int step=0;
-
-Box(int x, int y, int w, int h) {
-this.x = x;
-this.y = y;
-this.w = w;
-this.h = h; }
+  int x,y,w,h;
+  int step=0;
+  
+  Box(int x, int y, int w, int h) {
+  this.x = x;
+  this.y = y;
+  this.w = w;
+  this.h = h;
+}
 
 void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-step++;
-float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + h);
-y = (int) (ball_height); }
-
-void draw() { rect(x,y,w,h); }
+  step++;
+  float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
+  float bounce_height = sketch_height/2 * sin_value;
+  float ball_height = sketch_height - (bounce_height + h);
+  y = (int) (ball_height);
 }
-</pre></div>
+
+void draw() {
+  rect(x,y,w,h);
+}
+
+{% endhighlight %}
 <canvas id="sketch3" data-processing-sources="/sketches/sketch3.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
@@ -316,27 +325,27 @@ void draw() { rect(x,y,w,h); }
 <p>All of a sudden we have a bouncing box, that starts from a falling position instead of from the ground, and we didn't have to modify the master draw() function for 
 it! In fact, let's just use a group of bouncing things:</p>
 
-
-<div class="code">
-<pre name="code" class="processing">
+{% highlight java linenos %}
 Bouncer[] bouncer = new Bouncer[3];
 
 void setup() {
-...
-bouncer[0] = new Ball(width/3-20,20,20);
-bouncer[1] = new Box(width/2-10,20,20,20);
-bouncer[2] = new Ball((2*width/3)+20,20,20);
+  ...
+  bouncer[0] = new Ball(width/3-20,20,20);
+  bouncer[1] = new Box(width/2-10,20,20,20);
+  bouncer[2] = new Ball((2*width/3)+20,20,20);
 }
 
 void draw() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].computeNextStep(width, height, frameRate); }
-background(#FFFFEE);
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].draw(); }
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].computeNextStep(width, height, frameRate);
+  }
+  background(#FFFFEE);
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].draw();
+  }
 }
 ...
-</pre></div>
+{% endhighlight %}
 <canvas id="sketch4" data-processing-sources="/sketches/sketch4.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
@@ -348,83 +357,87 @@ bouncer[b].draw(); }
 to bouncing things until we let go of them again. Processing allows interaction with the keyboard and mouse, using what are known as "event handlers", methods that Processing automatically calls for you when you use the keyboard or mouse. In this case we care about mouse interaction, so we'll look at mousePressed and mouseReleased events:</p>
 
 
-<div class="code">
-<pre name="code" class="processing">
-
+{% highlight java linenos %}
 void mousePressed() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-if(bouncer[b].mouseOver(mouseX, mouseY)) {
-bouncer[b].mousePressed(); 
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    if(bouncer[b].mouseOver(mouseX, mouseY)) {
+      bouncer[b].mousePressed(); 
+    }
+  }
 }
-}
-}	
+
 void mouseReleased() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].mouseReleased(); 
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].mouseReleased(); 
+  }
 }
-}	
+
 abstract class Bouncer
 {
-int x, y;
-boolean canmove = true;
-int step = 0;
-abstract void computeNextStep(int width, int height, float framerate);
-abstract void draw();
-abstract boolean mouseOver(int mx, int my);
-void mousePressed() { canmove = false; }
-void mouseReleased() { canmove = true; }
+  int x, y;
+  boolean canmove = true;
+  int step = 0;
+  abstract void computeNextStep(int width, int height, float framerate);
+  abstract void draw();
+  abstract boolean mouseOver(int mx, int my);
+  void mousePressed() { canmove = false; }
+  void mouseReleased() { canmove = true; }
 }
 
 class Ball extends Bouncer
 {
-int radius;
+  int radius;
+  
+  Ball(int x, int y, int r) {
+    this.x = x;
+    this.y = y;
+    this.radius = r;  
+  }
+  void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
+  if(canmove) {
+    step = (int)((step+1) % frame_rate);
+    float sin_value = abs(sin(PI*step/(float)frame_rate));
+    float bounce_height = sketch_height/2 * sin_value;
+    float ball_height = sketch_height - (bounce_height + radius);
+    y = (int) (ball_height); 
+  }
+}
 
-Ball(int x, int y, int r) {
-this.x = x;
-this.y = y;
-this.radius = r;  
-}
-void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-if(canmove) {
-step = (int)((step+1) % frame_rate);
-float sin_value = abs(sin(PI*step/(float)frame_rate));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + radius);
-y = (int) (ball_height); 
-}
-}
 void draw() { ellipse(x,y,radius,radius); }
 
 boolean mouseOver(int mx, int my) {
-return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius; 
+  return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius; 
 }
-}
+
 class Box extends Bouncer
 {
-int w,h;
-int step=0;
+  int w,h;
+  int step=0;
+  
+  Box(int x, int y, int w, int h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h; 
+  }
 
-Box(int x, int y, int w, int h) {
-this.x = x;
-this.y = y;
-this.w = w;
-this.h = h; 
+  void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
+    if(canmove) {
+      step = (int)((step+1) % frame_rate);
+      float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
+      float bounce_height = sketch_height/2 * sin_value;
+      float ball_height = sketch_height - (bounce_height + h);
+      y = (int) (ball_height); 
+    }
+  }
+
+  void draw() { rect(x,y-h/2,w,h); }
+
+  boolean mouseOver(int mx, int my) {
+    return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2); 
+  }
 }
-void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-if(canmove) {
-step = (int)((step+1) % frame_rate);
-float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + h);
-y = (int) (ball_height); 
-}
-}
-void draw() { rect(x,y-h/2,w,h); }
-boolean mouseOver(int mx, int my) {
-return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2); 
-}
-}
-</pre></div>
+{% endhighlight %}
 <canvas id="sketch5" data-processing-sources="/sketches/sketch5.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
@@ -436,132 +449,141 @@ return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2);
 the shared functionality. Now if you click on anything that's a Bouncer it'll stop moving until you let it go. Let's go one step further an just allow us to move the 
 bouncing things around, too.</p>
 
-<div class="code">
-<pre name="code" class="processing">
-Bouncer[] bouncer = new Bouncer[3];	
+{% highlight java linenos %}
+Bouncer[] bouncer = new Bouncer[3];
+
 void setup() {
-size(200,200);
-frameRate(24);
-stroke(#003300);
-fill(#0000FF);
-bouncer[0] = new Ball(width/3-20,20,20);
-bouncer[1] = new Box(width/2-10,20,20,20);
-bouncer[2] = new Ball((2*width/3)+20,20,20);
-}	
+  size(200,200);
+  frameRate(24);
+  stroke(#003300);
+  fill(#0000FF);
+  bouncer[0] = new Ball(width/3-20,20,20);
+  bouncer[1] = new Box(width/2-10,20,20,20);
+  bouncer[2] = new Ball((2*width/3)+20,20,20);
+}
+
 void draw() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].computeNextStep(width, height, frameRate); 
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].computeNextStep(width, height, frameRate); 
+  }
+  background(#FFFFEE);
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].draw(); 
+  }
 }
-background(#FFFFEE);
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].draw(); 
-}
-}	
+
 void mousePressed() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-if(bouncer[b].mouseOver(mouseX, mouseY)) {
-bouncer[b].mousePressed(); 
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    if(bouncer[b].mouseOver(mouseX, mouseY)) {
+      bouncer[b].mousePressed(); 
+    }
+  }
 }
-}
-}
+
 void mouseReleased() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].mouseReleased(); 
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].mouseReleased(); 
+  }
 }
-}
+
 void mouseDragged() {
-for(int b=0, end=bouncer.length; b&lt;end;b++) {
-bouncer[b].mouseDragged(mouseX, mouseY); 
-}
-}		
+  for(int b=0, end=bouncer.length; b&lt;end;b++) {
+    bouncer[b].mouseDragged(mouseX, mouseY); 
+  }
+}	
+	
 abstract class Bouncer
 {
-int x, y;
-boolean canmove = true;
-int step = 0;
-int xoffset = 0;
-int yoffset = 0;
+  int x, y;
+  boolean canmove = true;
+  int step = 0;
+  int xoffset = 0;
+  int yoffset = 0;
+  
+  void computeNextStep(int width, int height, float framerate) {
+    if(canmove) {
+      reallyComputeNextStep(width, height, framerate); 
+    }
+  }
 
-void computeNextStep(int width, int height, float framerate) {
-if(canmove) {
-reallyComputeNextStep(width, height, framerate); 
-}
-}
-abstract void reallyComputeNextStep(int width, int height, float framerate);
+  abstract void reallyComputeNextStep(int width, int height, float framerate);
+  
+  abstract void draw();
+  
+  abstract boolean mouseOver(int mx, int my);
+  
+  void mousePressed() {
+    canmove = false; 
+  }
+  
+  void mouseReleased() {
+    canmove = true;
+    x += xoffset;
+    y += yoffset;
+    xoffset = 0;
+    yoffset = 0;
+  }
 
-abstract void draw();
-
-abstract boolean mouseOver(int mx, int my);
-
-void mousePressed() {
-canmove = false; 
-}
-void mouseReleased() {
-canmove = true;
-x += xoffset;
-y += yoffset;
-xoffset = 0;
-yoffset = 0; 
-}
-void mouseDragged(int mx, int my) {
-if(!canmove) {
-xoffset = mx-x;
-yoffset = my-y;
-}           
-}
+  void mouseDragged(int mx, int my) {
+    if(!canmove) {
+      xoffset = mx-x;
+      yoffset = my-y;
+    }           
+  }
 }
 
 class Ball extends Bouncer
 {
-int radius;
-
-Ball(int x, int y, int r) {
-this.x = x;
-this.y = y;
-this.radius = r;  
+  int radius;
+  
+  Ball(int x, int y, int r) {
+    this.x = x;
+    this.y = y;
+    this.radius = r;
+  }
+  
+  void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
+    step = (int)((step+1) % frame_rate);
+    float sin_value = abs(sin(PI*step/(float)frame_rate));
+    float bounce_height = sketch_height/2 * sin_value;
+    float ball_height = sketch_height - (bounce_height + radius);
+    y = (int) (ball_height); 
+  }
+  
+  void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); }
+  
+  boolean mouseOver(int mx, int my) {
+    return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius; 
+  }
 }
 
-void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-step = (int)((step+1) % frame_rate);
-float sin_value = abs(sin(PI*step/(float)frame_rate));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + radius);
-y = (int) (ball_height); 
-}
-
-void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); }
-
-boolean mouseOver(int mx, int my) {
-return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) &lt;= radius; 
-}
-}	
 class Box extends Bouncer
 {
-int w,h;
-int step=0;
+  int w,h;
+  int step=0;
+  
+  Box(int x, int y, int w, int h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h; 
+  }
+  
+  void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
+    step = (int)((step+1) % frame_rate);
+    float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
+    float bounce_height = sketch_height/2 * sin_value;
+    float ball_height = sketch_height - (bounce_height + h);
+    y = (int) (ball_height);
+  }
 
-Box(int x, int y, int w, int h) {
-this.x = x;
-this.y = y;
-this.w = w;
-this.h = h; 
-}
+  void draw() { rect(x+xoffset,(y-h/2)+yoffset,w,h); }
 
-void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
-step = (int)((step+1) % frame_rate);
-float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
-float bounce_height = sketch_height/2 * sin_value;
-float ball_height = sketch_height - (bounce_height + h);
-y = (int) (ball_height);
+  boolean mouseOver(int mx, int my) {
+    return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2); 
+  }
 }
-
-void draw() { rect(x+xoffset,(y-h/2)+yoffset,w,h); }
-
-boolean mouseOver(int mx, int my) {
-return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2); 
-}
-}
-</pre></div>
+{% endhighlight %}
 <canvas id="sketch6" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
@@ -579,8 +601,7 @@ return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2);
 
 <p>Let's say we save the previous sketch, with the bouncing and the mouse interaction, as "mysketch.pde", and we want to show this on a webpage. Using processing.js, this is a trivially simple trick:</p>
 
-<div class="code">
-<pre name="code" class="processing">
+{% highlight html linenos %}
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
 
@@ -593,7 +614,8 @@ return x&lt;=mx && mx&lt;=x+w && (y-h/2)&lt;=my && my&lt;=(y+h/2);
 &lt;body&gt;
 &lt;canvas id="mysketch" data-processing-sources="mysketch.pde"&gt;&lt;/canvas&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre></div>
+&lt;/html&gt;
+{% endhighlight %}
 
 <canvas id="mysketch1" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 <div>
