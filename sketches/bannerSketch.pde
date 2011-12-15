@@ -55,8 +55,8 @@ void setup() {
     e[j][0]=random(width); // X 
     e[j][1]=random(height); // Y
     e[j][2]=random(minSize, maxSize); // Radius        
-    e[j][3]=random(-.5, .5); // X Speed
-    e[j][4]=random(-.5, .5); // Y Speed
+    e[j][3]=random(-.12, .12); // X Speed
+    e[j][4]=random(-.12, .12); // Y Speed
   }
 }
 
@@ -71,16 +71,14 @@ void draw() {
     // Cache diameter and radius of current circle
     float radi=e[j][2];
     float diam=radi/2;
-    if (lockedCircle == j && dragging) {
-      // Change fill color to green.
-      fill(64, 187, 128, 100);
+    if (sq(e[j][0] - mouseX) + sq(e[j][1] - mouseY) < sq(e[j][2]/2))
+      fill(64, 187, 128, 100); // green if mouseover
+    else
+      fill(64, 128, 187, 100); // regular
+    if ((lockedCircle == j && dragging)) {
       // Move the particle's coordinates to the mouse's position, minus its original offset
       e[j][0]=mouseX-lockedOffsetX;
       e[j][1]=mouseY-lockedOffsetY;
-    }
-    else {
-      // Keep fill color blue
-      fill(64, 128, 187, 100);
     }
     // Draw circle
     ellipse(e[j][0], e[j][1], radi, radi);
@@ -105,7 +103,7 @@ void draw() {
     }
 
     // If current circle is selected...
-    if (lockedCircle == j && dragging) {
+    if ((lockedCircle == j && dragging)) {
       // Set fill color of center dot to white..
       fill(255, 255, 255, 255);
       // ..and set stroke color of line to green.
