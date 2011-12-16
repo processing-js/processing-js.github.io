@@ -219,7 +219,7 @@ a:hover, a:focus {
   border-radius: 0.5em;
   margin: 0;
   overflow-y: hidden;
-  background-color: #DFDFDF;
+  background-color: #E0E0E0;
 }
 
 ul.tweet_list li,ul.tweet_list li:hover {
