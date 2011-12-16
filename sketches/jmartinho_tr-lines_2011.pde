@@ -25,7 +25,7 @@ int tempoBrancoPreto = 0;
 int tempoApaga = 0;
 int tempo = 0;
 
-int tamanhoWIDTH = 640;
+int tamanhoWIDTH = 575;
 int tamanhoHEIGHT = 480;
 
 int numeroPontos = 30;
