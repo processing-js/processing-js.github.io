@@ -100,7 +100,7 @@ a:hover, a:focus {
 }
 
 .page {
-  padding: 2em;
+  padding: 2em 0 2em 2em;
 }
 
 .home-exhibition {
@@ -114,7 +114,7 @@ a:hover, a:focus {
 
 .sidebar {
   border-left: 1px dotted #0073AF;
-  padding: 0 0 0 3.8em;
+  padding-left: 1.3em;
 }
 
 .sidebar h3 a {
@@ -136,7 +136,7 @@ a:hover, a:focus {
 }
 
 .exhibition span {
-  width: 190px;
+  width: 220px;
   height: 250px;
   float: left;
 }
