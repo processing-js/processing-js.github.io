@@ -123,28 +123,35 @@ permalink: /articles/PomaxGuide.html
   2010, and processing.js becomes more and more complete, so it is possible that the
   information on this page changes over time. Should you spot any incompletenesses
   or blatant mistakes, please contact me at
+
   <!-- ah, the wonder of making a scrape-proof email address -->
-  <a href="http://www.nihongoresources.com/general/contact.html">pomax<i> at </i>nihongoresources.<i>com,</i></a>
+  <a href="http://www.nihongoresources.com/general/contact.html">pomax<i> at
+  </i>nihongoresources.<i>com,</i></a>
 
   with the obvious substitutions in place to make it a legal email address.</p>
 
   <h3 id="faq" onclick="toggleContent('faq')">What is Processing?</h3>
 
-  <p>The "Processing" language (also referred to as "P5") is a programming language with a focus on data visualisation. Of course, "data" is a loose concept, and
-  Processing can be used for anything from drawing a few lines and circles on a screen, to full blown interactive animations.
-  In fact, a basic Processing program is two lines of code, and will already play an animation:</p>
+  <p>The "Processing" language (also referred to as "P5") is a programming language
+  with a focus on data visualisation. Of course, "data" is a loose concept, and
+  Processing can be used for anything from drawing a few lines and circles on a
+  screen, to full blown interactive animations. In fact, a basic Processing program
+  is two lines of code, and will already play an animation:</p>
 
   {% highlight java linenos %}
   void setup() { size(..., ...); }
   void draw() {}{% endhighlight %}
 
-  <p>Of course this program doesn't show you anything, because all it does is set up the visual context to have a certain width and height (indicated in the setup
-  method as the size(...,...) instruction) and then calls draw() every few milliseconds. Of course, draw() is empty, so it won't actually show you anything.
-  A more useful minimal program would be a "hello world" program, but I hate those because they only show a programming language can write text, and that's pretty much the
-  least interesting feature of any programming language. Instead let's look at a minimal program that makes sense for a data visualisation language:</p>
+  <p>Of course this program doesn't show you anything, because all it does is set up
+  the visual context to have a certain width and height (indicated in the setup
+  method as the size(...,...) instruction) and then calls draw() every few milliseconds.
+  Of course, draw() is empty, so it won't actually show you anything. A more useful
+  minimal program would be a "hello world" program, but I hate those because they only
+  show a programming language can write text, and that's pretty much the least interesting
+  feature of any programming language. Instead let's look at a minimal program that makes
+  sense for a data visualisation language:</p>
 
   {% highlight java linenos %}
-  float frame = 0;      // we start at frame 0
   float framerate = 24; // our "sketch" will have a framerate of 24 frames per second.
 
   int ball_x;           // ball administration: x coordinate
@@ -161,12 +168,16 @@ permalink: /articles/PomaxGuide.html
   }
 
   void draw() {
-    frame++;              // note that we're one frame further than last time
-    float bounce_height = height/2 * abs(sin(PI*frame/framerate));	// compute the ball height for this frame
-    float ball_height = height - (bounce_height+ball_radius);		// because the top of the screen is 0, and the bottom is "height",
-    background(#FFFFEE);								// clear the drawing area
-    ball_y = (int) (ball_height);								// set the new ball y position
-    ellipse(ball_x,ball_y,ball_radius,ball_radius); 				// draw the ball
+    // compute the ball height for this frame
+    float bounce_height = height/2 * abs(sin(PI*frameCount/framerate));
+    // because the top of the screen is 0, and the bottom is "height",
+    float ball_height = height - (bounce_height+ball_radius);
+    // clear the drawing area
+    background(#FFFFEE);
+    // set the new ball y position
+    ball_y = (int) (ball_height);
+    // draw the ball
+    ellipse(ball_x,ball_y,ball_radius,ball_radius);
   }{% endhighlight %}
 
   <canvas id="sketch1" data-processing-sources="/sketches/sketch1.pde" style="border: 1px solid blue;"></canvas>
@@ -177,8 +188,10 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="play('sketch1')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>This looks a bit long for a minimal program, but then again, this actually <em>does</em> something: it shows us a ball that bounces up and down, taking one second for each bounce. It shows a few aspects of
-  Processing too: every variable is strongly typed. So you have to indicate what you'll be using a variable for, and you can choose from:</p>
+  <p>This looks a bit long for a minimal program, but then again, this actually <em>does</em>
+  something: it shows us a ball that bounces up and down, taking one second for each
+  bounce. It shows a few aspects of Processing too: every variable is strongly typed.
+  So you have to indicate what you'll be using a variable for, and you can choose from:</p>
 
   <ul>
     <li>boolean, a binary value that can be either true or false</li>
@@ -203,7 +216,9 @@ permalink: /articles/PomaxGuide.html
 
   <p>You'll see why this last one turns out to be really useful later on.</p>
 
-  <p>Coming back to the minimally functional example of a Processing program, or "sketch", there are also some examples of Processing' own API at work. The following methods are native Processing calls:</p>
+  <p>Coming back to the minimally functional example of a Processing program, or "sketch",
+  there are also some examples of Processing' own API at work. The following methods are
+  native Processing calls:</p>
 
   <ul>
     <li>size(int, int), sets the drawing area dimensions, and the global "width" and "height" values.</li>
@@ -216,7 +231,10 @@ permalink: /articles/PomaxGuide.html
     <li>ellipse(int, int, int, int), draws an ellipse on the drawing area.</li>
   </ul>
 
-  <p>The Processing API is in fact quite expansive (See <a href="http://processing.org/reference">http://processing.org/reference</a> for the full list), but it can't cover everything. Luckily it supports object oriented programming, so that our previous example can also be written as an object oriented sketch:</p>
+  <p>The Processing API is in fact quite expansive (See
+  <a href="http://processing.org/reference">http://processing.org/reference</a> for the full
+  list), but it can't cover everything. Luckily it supports object oriented programming, so
+  that our previous example can also be written as an object oriented sketch:</p>
 
   {% highlight java linenos %}
   Bouncer bouncer;
@@ -272,9 +290,12 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="play('sketch2')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>Instead of doing everything in the draw() function, the object oriented approach tucks all the code that relates to computing the ball's position in the definition
-  for what we consider a "Ball". To be good object oriented programmers, we've also said that things that are a Ball are also a Bouncer, and this lets us extend our
-  sketch very easily to instead of a bouncing ball, have a bouncing box by keeping almost everything the same, and adding a new class Box that's a Bouncer:</p>
+  <p>Instead of doing everything in the draw() function, the object oriented approach
+  tucks all the code that relates to computing the ball's position in the definition
+  for what we consider a "Ball". To be good object oriented programmers, we've also said
+  that things that are a Ball are also a Bouncer, and this lets us extend our sketch very
+  easily to instead of a bouncing ball, have a bouncing box by keeping almost everything
+  the same, and adding a new class Box that's a Bouncer:</p>
 
   {% highlight java linenos %}
   void setup() {
@@ -314,8 +335,9 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="play('sketch3')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>All of a sudden we have a bouncing box, that starts from a falling position instead of from the ground, and we didn't have to modify the master draw() function for
-  it! In fact, let's just use a group of bouncing things:</p>
+  <p>All of a sudden we have a bouncing box, that starts from a falling position instead
+  of from the ground, and we didn't have to modify the master draw() function for it!
+  In fact, let's just use a group of bouncing things:</p>
 
   {% highlight java linenos %}
   Bouncer[] bouncer = new Bouncer[3];
@@ -346,8 +368,12 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="play('sketch4')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>Fantastic, two bouncing balls and a bouncing box, bouncing counter-point to each other. But it's not very interactive yet. Let's change it so that we can "hang on"
-  to bouncing things until we let go of them again. Processing allows interaction with the keyboard and mouse, using what are known as "event handlers", methods that Processing automatically calls for you when you use the keyboard or mouse. In this case we care about mouse interaction, so we'll look at mousePressed and mouseReleased events:</p>
+  <p>Fantastic, two bouncing balls and a bouncing box, bouncing counter-point to each
+  other. But it's not very interactive yet. Let's change it so that we can "hang on"
+  to bouncing things until we let go of them again. Processing allows interaction with
+  the keyboard and mouse, using what are known as "event handlers", methods that Processing
+  automatically calls for you when you use the keyboard or mouse. In this case we care
+  about mouse interaction, so we'll look at mousePressed and mouseReleased events:</p>
 
   {% highlight java linenos %}
   void mousePressed() {
@@ -435,11 +461,13 @@ permalink: /articles/PomaxGuide.html
   <div>
     <span style="font-size:80%">play controls:</span>
     <button type="button" onclick="stop('sketch5')" class="Pomax">&#9632;</button>
-    <button type="button" onclick="play('sketch5')" class="Pomax">&#9654;</button>\
+    <button type="button" onclick="play('sketch5')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>Because the Ball and Box classes will do the same thing on mouse interaction, the interface Bouncer has been changed to an actual class too, to take care of some of
-  the shared functionality. Now if you click on anything that's a Bouncer it'll stop moving until you let it go. Let's go one step further an just allow us to move the
+  <p>Because the Ball and Box classes will do the same thing on mouse interaction,
+  the interface Bouncer has been changed to an actual class too, to take care of some of
+  the shared functionality. Now if you click on anything that's a Bouncer it'll stop
+  moving until you let it go. Let's go one step further an just allow us to move the
   bouncing things around, too.</p>
 
   {% highlight java linenos %}
@@ -589,9 +617,15 @@ permalink: /articles/PomaxGuide.html
 
   <h3 id="onpage" onclick="toggleContent('onpage')">Putting a sketch on the page</h3>
 
-  <p>The great thing about Processing is that it can be used on webpages. Traditionally, you would convert your sketch to a java applet, and embed that on a page, but the processing.js project has changed this: you can now use your sketches directly without turning it into an applet at all. In the same way that you include a javascript file, or a CSS stylesheet, you can simply link to your sketch and magic happens.</p>
+  <p>The great thing about Processing is that it can be used on webpages. Traditionally,
+  you would convert your sketch to a java applet, and embed that on a page, but the
+  processing.js project has changed this: you can now use your sketches directly without
+  turning it into an applet at all. In the same way that you include a javascript file,
+  or a CSS stylesheet, you can simply link to your sketch and magic happens.</p>
 
-  <p>Let's say we save the previous sketch, with the bouncing and the mouse interaction, as "mysketch.pde", and we want to show this on a webpage. Using processing.js, this is a trivially simple trick:</p>
+  <p>Let's say we save the previous sketch, with the bouncing and the mouse interaction,
+  as "mysketch.pde", and we want to show this on a webpage. Using processing.js, this is
+  a trivially simple trick:</p>
 
   {% highlight html linenos %}
   <!DOCTYPE html>
@@ -614,11 +648,17 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="play('mysketch1')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>And we're done. In fact, I went ahead and made sure this page already uses processing.js, and that there is a mysketch.pde to load. If you click on the play control for the sketch above, it will start running, and do exactly what you would expect it to do based on what it does when you run it from the Processing environment.</p>
+  <p>And we're done. In fact, I went ahead and made sure this page already uses processing.js,
+  and that there is a mysketch.pde to load. If you click on the play control for the sketch
+  above, it will start running, and do exactly what you would expect it to do based on what
+  it does when you run it from the Processing environment.</p>
 
   <h3 id="inpage" onclick="toggleContent('inpage')">Putting a sketch inline on the page</h3>
 
-  <p>While not recommended, you can also put your sketch directly on a page, much like how you can put javascript or CSS styles directly on a page. However, in order for processing.js to properly load your code, you'll need some extra help in the form of the "init.js" file that is included with the processing.js examples archive from the processing.js downloads page</p>
+  <p>While not recommended, you can also put your sketch directly on a page, much like how
+  you can put javascript or CSS styles directly on a page. However, in order for processing.js
+  to properly load your code, you'll need some extra help in the form of the "init.js" file
+  that is included with the processing.js examples archive from the processing.js downloads page</p>
 
   {% highlight html linenos %}
   <!DOCTYPE html>
@@ -640,17 +680,34 @@ permalink: /articles/PomaxGuide.html
     </body>
   </html>{% endhighlight %}
 
-  <p>There are several reasons for why this is not a very good practice, but the most important one is that this way you can't be sure whether or not you've written a bug-free sketch. By writing it directly on the page, you might in fact have written some buggy code, which you will then find is terribly hard to debug because the browser is not equiped with a debugger for Processing code. In fact, processing.js rewrites your sketch into pure javascript (using some terribly clever tricks that we won't go into), so even if when it tells you where the error is in a javascript debugger, it will tell you where it went wrong in the converted javascript object, not the actual place in your source code. So keep it as a separate file, and make sure to test your code in the Processing IDE!</p>
+  <p>There are several reasons for why this is not a very good practice, but the most important
+  one is that this way you can't be sure whether or not you've written a bug-free sketch. By
+  writing it directly on the page, you might in fact have written some buggy code, which you
+  will then find is terribly hard to debug because the browser is not equiped with a debugger
+  for Processing code. In fact, processing.js rewrites your sketch into pure javascript (using
+  some terribly clever tricks that we won't go into), so even if when it tells you where the
+  error is in a javascript debugger, it will tell you where it went wrong in the converted
+  javascript object, not the actual place in your source code. So keep it as a separate file,
+  and make sure to test your code in the Processing IDE!</p>
 
   <h3 id="interface" onclick="toggleContent('interface')">Making your sketch and your page see each other</h3>
 
-  <p>Just running a sketch on a page is fine, but the benefit of a webpage is that it offers the kind of user interaction that you can't get from within the sketch itself. Pretty buttons, text areas that fold away, pop up, etc. make it very attractive to have your sketch do all the animation graphicsy work, but have all the information about the sketch, as well as controls for it, on the webpage. This is entirely possible - in fact, the "stop" and "play" buttons for the sketch above are examples of javascript telling the sketch what to do. Because a webpage offers more than a plain sketch can, processing.js has a few special tricks up its sleeve, so that you can get the most out of your creative work. Arguably the most important of these is the "get the sketch" function:</p>
+  <p>Just running a sketch on a page is fine, but the benefit of a webpage is that it offers
+  the kind of user interaction that you can't get from within the sketch itself. Pretty buttons,
+  text areas that fold away, pop up, etc. make it very attractive to have your sketch do all
+  the animation graphicsy work, but have all the information about the sketch, as well as
+  controls for it, on the webpage. This is entirely possible - in fact, the "stop" and "play"
+  buttons for the sketch above are examples of javascript telling the sketch what to do. Because
+  a webpage offers more than a plain sketch can, processing.js has a few special tricks up its
+  sleeve, so that you can get the most out of your creative work. Arguably the most important of
+  these is the "get the sketch" function:</p>
 
   {% highlight javascript linenos %}
   var mysketch = Processing.getInstanceById('mysketchid');{% endhighlight %}
 
-  <p>This is the pivotal function on the javascript side of things. It gives you a direct reference to your sketch, and everything in it, so that you can call any function and examine and modify any
-  variable that is in the sketch.</p>
+  <p>This is the pivotal function on the javascript side of things. It gives you a direct reference
+  to your sketch, and everything in it, so that you can call any function and examine and modify
+  any variable that is in the sketch.</p>
 
   <h3 id="jstosketch" onclick="toggleContent('jstosketch')">Making javascript see your sketch</h3>
 
@@ -678,10 +735,11 @@ permalink: /articles/PomaxGuide.html
     text(t, (width - twidth)/2, height/2);
   }{% endhighlight %}
 
-  <p>We can make this sketch draw a different text based on some text we have on our webpage, using javascript. This is in fact really easy: first,
-  let's save this processing code as mysketch2.pde, and load it onto a page in the same way as earlier in the article.
-  Then, we use javascript to ask for our sketch instance, after which we call the "drawText" function with some text that we get from the web page
-  that the sketch is running on:</p>
+  <p>We can make this sketch draw a different text based on some text we have on our webpage,
+  using javascript. This is in fact really easy: first, let's save this processing code as
+  mysketch2.pde, and load it onto a page in the same way as earlier in the article. Then, we
+  use javascript to ask for our sketch instance, after which we call the "drawText" function
+  with some text that we get from the web page that the sketch is running on:</p>
 
   {% highlight html linenos %}
   <!DOCTYPE html>
@@ -704,7 +762,8 @@ permalink: /articles/PomaxGuide.html
     </body>
   </html>{% endhighlight %}
 
-  <p>This has the same effect as the sketch that's running below. Simply fill in a bit of text, and hit the &#9654; button to see the sketch render it on the drawing area.</p>
+  <p>This has the same effect as the sketch that's running below. Simply fill in a bit
+  of text, and hit the &#9654; button to see the sketch render it on the drawing area.</p>
 
   <canvas id="mysketch2" data-processing-sources="/sketches/mysketch2.pde" style="border: 1px solid blue;"></canvas>
 
@@ -714,11 +773,16 @@ permalink: /articles/PomaxGuide.html
     <button type="button" onclick="drawText('mysketch2')" class="Pomax">&#9654;</button>
   </div>
 
-  <p>So far so good, but what if we also want to make Processing code call javascript? In order for us to so, while making sure the sketch keeps running both on your page an in the Processing environment, we have to do a bit more work</p>
+  <p>So far so good, but what if we also want to make Processing code call javascript?
+  In order for us to so, while making sure the sketch keeps running both on your page an
+  in the Processing environment, we have to do a bit more work</p>
 
   <h3 id="sketchtojs" onclick="toggleContent('sketchtojs')">Making your sketch "see" javascript</h3>
 
-  <p>You can't just stick plain javascript in your sketch and hope everything goes well because it's "on a web page". A better approach is to neatly separate your sketch and your on-page javascript, and ensure that whatever you want to do on your page runs through a javascript function. How do we do that? Let's say we have the following page:</p>
+  <p>You can't just stick plain javascript in your sketch and hope everything goes well
+  because it's "on a web page". A better approach is to neatly separate your sketch and
+  your on-page javascript, and ensure that whatever you want to do on your page runs
+  through a javascript function. How do we do that? Let's say we have the following page:</p>
 
   {% highlight html linenos %}
   <!DOCTYPE html>
@@ -756,7 +820,8 @@ permalink: /articles/PomaxGuide.html
     redraw();
   }{% endhighlight %}
 
-  <p>As an exercise, let's try to get the mouse coordinates from that mouseMoved event onto the page. This means we'll need to define a javascript function that will do this for us:</p>
+  <p>As an exercise, let's try to get the mouse coordinates from that mouseMoved event
+  onto the page. This means we'll need to define a javascript function that will do this for us:</p>
 
   {% highlight javascript linenos %}
   function showXYCoordinates(x, y) {
@@ -764,7 +829,8 @@ permalink: /articles/PomaxGuide.html
     document.getElementById('ycoord').value = x;
   }{% endhighlight %}
 
-  <p>And we'll need to make the sketch know that there is such a thing as javascript, and that it has this function:</p>
+  <p>And we'll need to make the sketch know that there is such a thing as javascript,
+  and that it has this function:</p>
 
   {% highlight java linenos %}
   interface JavaScript {
@@ -786,11 +852,15 @@ permalink: /articles/PomaxGuide.html
     }
   }{% endhighlight %}
 
-  <p>What we've done is we've told Processing: <i>"There are things that follow the JavaScript interface. This means that whatever else they can do, they'll have a function called "showXYCoordinates" and that function takes two arguments, both of type int."</i>
-  - of course, the sketch will not magically know our on-page javascript, so we also define a function that lets us tell the sketch what actually counts as javascript,
+  <p>What we've done is we've told Processing: <i>"There are things that follow the
+  JavaScript interface. This means that whatever else they can do, they'll have a
+  function called "showXYCoordinates" and that function takes two arguments, both of type int."</i>
+  - of course, the sketch will not magically know our on-page javascript, so we also
+  define a function that lets us tell the sketch what actually counts as javascript,
   which is what the bindJavascript(...) function is for.</p>
 
-  <p>This leaves us with needing to make sure that we really do tell the sketch what javascript is, which we'll do as follows on the page:</p>
+  <p>This leaves us with needing to make sure that we really do tell the sketch what
+  Javascript is, which we'll do as follows on the page:</p>
 
   {% highlight javascript linenos %}
   var bound = false;
@@ -806,12 +876,16 @@ permalink: /articles/PomaxGuide.html
 
   bindJavascript();{% endhighlight %}
 
-  <p>This defines a function that checks whether processing.js has loaded our sketch yet. If not, it tries again 250ms later. If the sketch is loaded, the reference to
-  the sketch is used to tell it what "javascript" should be. This is achieved by virtue of processing.js trusting that you wrote valid code. As such, as long as you're on
-  the javascript side of things, you can pass the sketch whatever you like, and the sketch will trust that it conforms to what the method says the type should be. In this
-  case we pass the javascript "this" value (which refers to the global javascript environment for the current window), and tell processing <i>"this thing conforms to your
-  JavaScript interface, so it has loads of things but the only thing you need to be concerned about is whether or not it has a showXYCoordinates(int, int) function, which
-  it does."</i></p>
+  <p>This defines a function that checks whether processing.js has loaded our sketch yet.
+  If not, it tries again 250ms later. If the sketch is loaded, the reference to the sketch
+  is used to tell it what "javascript" should be. This is achieved by virtue of processing.js
+  trusting that you wrote valid code. As such, as long as you're on the javascript side of
+  things, you can pass the sketch whatever you like, and the sketch will trust that it conforms
+  to what the method says the type should be. In this case we pass the javascript "this" value
+  (which refers to the global javascript environment for the current window), and tell processing
+  <i>"this thing conforms to your JavaScript interface, so it has loads of things but the only
+  thing you need to be concerned about is whether or not it has a showXYCoordinates(int, int)
+  function, which it does."</i></p>
 
   <p>So, our final sketch behaves like the sketch below, and our final page source looks like the following:</p>
 
@@ -856,12 +930,15 @@ permalink: /articles/PomaxGuide.html
 
   <h3 name="jsobj" onclick="toggleContent('jsobj')">Passing complex objects from javascript to your sketch</h3>
 
-  <p>This leaves us with one last topic that we need to cover, simply because it's so common: using an AJAX approach to get some data, and then passing that data, properly formatted, to your sketch.</p>
+  <p>This leaves us with one last topic that we need to cover, simply because it's so common:
+  using an AJAX approach to get some data, and then passing that data, properly formatted, to your sketch.</p>
 
   <h3 id="pobj" onclick="toggleContent('pobj')">Actually using Processing objects</h3>
 
-  <p>One interesting thing that processing.js allows us to do is to create objects as we defined them in our sketch, in javascript,
-  and then hand them over to the sketch to deal with. To give an example, let's use the following sketch, which lets you draw points by clicking with the mouse, and links up all the points with lines:</p>
+  <p>One interesting thing that processing.js allows us to do is to create objects as we defined them in
+  our sketch, in javascript, and then hand them over to the sketch to deal with. To give an example, let's
+  use the following sketch, which lets you draw points by clicking with the mouse, and links up all the
+  points with lines:</p>
 
   {% highlight java linenos %}
   ArrayList points;
@@ -918,11 +995,15 @@ permalink: /articles/PomaxGuide.html
 
   <div>load points: <button type="button" id="loadPoints" onclick="loadPointsJS('mysketch5', this)">load</button></div>
 
-  <p>Because processing.js turns the sketch into actual javascript, every class we defined in it can be created using <em>new pjs.ClassName(arguments,...)</em>.</p>
+  <p>Because processing.js turns the sketch into actual javascript, every class we defined in it
+  can be created using <em>new pjs.ClassName(arguments,...)</em>.</p>
 
   <h3 id="json" onclick="toggleContent('json')">JSON</h3>
 
-  <p>Another way to get data from javascript into a sketch is by way of a JSON description. JSON is particulary interesting because javascript can read a JSON text string and immediately turn it into a full-fledged javascript object. Let's look at our point-drawing sketch again, this time with a dedicated "addPoint" method:<p>
+  <p>Another way to get data from javascript into a sketch is by way of a JSON description. JSON
+  is particulary interesting because javascript can read a JSON text string and immediately turn
+  it into a full-fledged javascript object. Let's look at our point-drawing sketch again, this
+  time with a dedicated "addPoint" method:<p>
 
   {% highlight java linenos %}
   ArrayList points;
@@ -962,8 +1043,9 @@ permalink: /articles/PomaxGuide.html
     }
   }{% endhighlight %}
 
-  <p>Now what if -- instead of using mouse clicks, or predetermined javascript -- we want to load points based on some data on a remote server? We change our web page so
-  that it can deal with JSON data from a remote server, and then make our javascript tell the sketch what to do:</p>
+  <p>Now what if -- instead of using mouse clicks, or predetermined javascript -- we want to
+  load points based on some data on a remote server? We change our web page so that it can deal
+  with JSON data from a remote server, and then make our javascript tell the sketch what to do:</p>
 
   {% highlight html linenos %}
   <!DOCTYPE html>
@@ -1007,7 +1089,9 @@ permalink: /articles/PomaxGuide.html
 
   <h3 id="xml" onclick="toggleContent('xml')">XML</h3>
 
-  <p>Another favourite is the XML document. This is where the Processing data type "XMLElement" comes into play. Rather than trying to use javascript to parse the XML, we pass the xml data straight on to our sketch, which will know exactly what to do with it:</p>
+  <p>Another favourite is the XML document. This is where the Processing data type "XMLElement"
+  comes into play. Rather than trying to use javascript to parse the XML, we pass the xml data
+  straight on to our sketch, which will know exactly what to do with it:</p>
 
   <canvas id="mysketch7" data-processing-sources="/sketches/mysketch7.pde" style="border: 1px solid black;"></canvas>
 
@@ -1036,7 +1120,8 @@ permalink: /articles/PomaxGuide.html
     redraw();
   }{% endhighlight %}
 
-  <p>If the xml thus loaded looks like the following snippet, the sketch will behave in the way the sketch below does:</p>
+  <p>If the xml thus loaded looks like the following snippet, the sketch will behave in
+  the way the sketch below does:</p>
 
   {% highlight xml linenos %}
   <xml>
@@ -1049,7 +1134,9 @@ permalink: /articles/PomaxGuide.html
 
   <h3 id="svg" onclick="toggleContent('svg')">SVG</h3>
 
-  <p>A special kind of XML document is the SVG Scalable Vector Graphics document. What's special about it is that it already represents visual data, and Processing can load SVG XML natively.</p>
+  <p>A special kind of XML document is the SVG Scalable Vector Graphics document. What's
+  special about it is that it already represents visual data, and Processing can load SVG
+  XML natively.</p>
 
   <canvas id="mysketch8" data-processing-sources="/sketches/mysketch8.pde"></canvas>
 
@@ -1123,7 +1210,8 @@ permalink: /articles/PomaxGuide.html
     redraw();
   }{% endhighlight %}
 
-  <p>This sketch will load the following SVG code, and allows you to click on the shape to change its color, or click-drag it to move it around:</p>
+  <p>This sketch will load the following SVG code, and allows you to click on the shape to
+  change its color, or click-drag it to move it around:</p>
 
   {% highlight svg linenos %}
   <svg width='200' height='200'>
@@ -1132,11 +1220,14 @@ permalink: /articles/PomaxGuide.html
 
   <h3 id="jobjs" onclick="toggleContent('jobjs')">Javascript Objects</h3>
 
-  <p>One last thing you may want to pass to a sketch is a real javascript object. Say we have a physics library that we want to take advantage of in our
-  sketch, and for Processing it's a .jar file, but there's a javascript version too. This thing lets us create a javascript "Physics" object that we can
-  call functions on for computing momentum and force transfer when we make two things hit each other. Since processing.js does not support .jar libraries
-  (because it's precompiled binary java class code, and pjs cannot unpack a jar file, reverse engineer the .java source, transform it to Processing API
-  calls, then confirm all calls are supported) we'll use this convenient javascript library. But how to do this cleanly? </p>
+  <p>One last thing you may want to pass to a sketch is a real javascript object. Say we have
+  a physics library that we want to take advantage of in our sketch, and for Processing it's a
+  .jar file, but there's a javascript version too. This thing lets us create a javascript "Physics"
+  object that we can call functions on for computing momentum and force transfer when we make
+  two things hit each other. Since processing.js does not support .jar libraries (because it's
+  precompiled binary java class code, and pjs cannot unpack a jar file, reverse engineer the
+  .java source, transform it to Processing API calls, then confirm all calls are supported) we'll
+  use this convenient javascript library. But how to do this cleanly? </p>
 
   <p>We have to do three things:</p>
 
@@ -1146,10 +1237,13 @@ permalink: /articles/PomaxGuide.html
     <li>write a javascript function to make these objects for us.</li>
   </ol>
 
-  <p>So let's get cracking! First we determine which functions in the javascript Physics object we actually make use of. We could write an interface that
-  has correct method signatures for every function in the library, but this would be overkill. After reviewing our code we see that we actually only
-  make use of three of the objects functions: collide_objects(forcevector1, forcevector2, collisionangle), get_force_vector(startpoint, distancevector,
-  accelleration) and get_trajectory(startpoint, objectmass, initialvector, gravityvector, gravitystrength). Let's build our interface:</p>
+  <p>So let's get cracking! First we determine which functions in the javascript Physics object
+  we actually make use of. We could write an interface that has correct method signatures for
+  every function in the library, but this would be overkill. After reviewing our code we see
+  that we actually only make use of three of the objects functions: collide_objects(forcevector1,
+  forcevector2, collisionangle), get_force_vector(startpoint, distancevector, accelleration) and
+  get_trajectory(startpoint, objectmass, initialvector, gravityvector, gravitystrength).
+  Let's build our interface:</p>
 
   {% highlight java linenos %}
   interface Physics
@@ -1164,8 +1258,9 @@ permalink: /articles/PomaxGuide.html
     float[][] get_trajectory(float[] startpoint, float objectmass, float[] initialvector, float[] gravityvector, float gravitystrength);
   }{% endhighlight %}
 
-  <p>First job done. Now to bind javascript. We've already looked at how to do this, so just follow the standard procedure and job's a good'n.
-  In addition to whatever javascript functions you want to expose, however, we must add one more:</p>
+  <p>First job done. Now to bind javascript. We've already looked at how to do this, so just follow
+  the standard procedure and job's a good'n. In addition to whatever javascript functions you want
+  to expose, however, we must add one more:</p>
 
   {% highlight java linenos %}
   interface JavaScript {
@@ -1182,12 +1277,15 @@ permalink: /articles/PomaxGuide.html
     return new Physics(x,y,someothervar);
   }{% endhighlight %}
 
-  <p>This last step seems silly, but we have to delegate the task of building a javascript object to javascript. If we tried to do this inside our sketch,
-  processing.js will not complain, but Processing will. To make matters worse, it also obscures the point of failure: if something goes wrong in the sketch,
-  did it go wrong because processing.js has a bug, or because you were sloppy with javascript inside a Processing sketch? Golden rule: keep the different
-  languages separated as much as possible.</p>
+  <p>This last step seems silly, but we have to delegate the task of building a javascript object
+  to javascript. If we tried to do this inside our sketch, processing.js will not complain, but
+  Processing will. To make matters worse, it also obscures the point of failure: if something
+  goes wrong in the sketch, did it go wrong because processing.js has a bug, or because you were
+  sloppy with javascript inside a Processing sketch? Golden rule: keep the different languages
+  separated as much as possible.</p>
 
-  <p>We're almost set to use our javascript library for Processing purposes now. The only thing left is to create these objects and then use them in our sketch:</p>
+  <p>We're almost set to use our javascript library for Processing purposes now. The only thing
+  left is to create these objects and then use them in our sketch:</p>
 
   {% highlight java linenos %}
   class MassBody
@@ -1242,10 +1340,11 @@ permalink: /articles/PomaxGuide.html
 
   <h3 id="graphic" onclick="toggleContent('graphic')">Processing.js as javascript graphics library</h3>
 
-  <p>As last point of business, you can of course also use Processing.js as a pure graphics library, by invoking it for some canvas and then calling
-  Processing API calls directly. Let's jump right in! The following code is what you would write on-page, although of course as ever it's far better
-  practice to link to your source files, so you should really place what's in the script tags in a file myPjsSketch.js and link to it using src="..."
-  instead.</p>
+  <p>As last point of business, you can of course also use Processing.js as a pure graphics
+  library, by invoking it for some canvas and then calling Processing API calls directly. Let's
+  jump right in! The following code is what you would write on-page, although of course as ever
+  it's far better practice to link to your source files, so you should really place what's in
+  the script tags in a file myPjsSketch.js and link to it using src="..." instead.</p>
 
   <p>The following code is split up into multiple (numbered) sections.</p>
 
@@ -1262,7 +1361,8 @@ permalink: /articles/PomaxGuide.html
     </li>
 
     <li>
-      <p>The setup() function defines the entry point for our sketch. It sizes the canvas, and tells it not to animate by default.</p>
+      <p>The setup() function defines the entry point for our sketch. It sizes the canvas, and
+      tells it not to animate by default.</p>
 
       {% highlight javascript linenos %}
         // let's write a sketch
@@ -1277,8 +1377,8 @@ permalink: /articles/PomaxGuide.html
     </li>
 
     <li>
-      <p>The draw() function defines the main draw function, which is called whenever a frame update is requested (either because the sketch is looping, or
-      because redraw() is called manually)</p>
+      <p>The draw() function defines the main draw function, which is called whenever a frame
+      update is requested (either because the sketch is looping, or because redraw() is called manually)</p>
 
       {% highlight javascript linenos %}
         // Draw a "sine wave" using two bezier curves, with an undulating amplitude.
@@ -1297,7 +1397,8 @@ permalink: /articles/PomaxGuide.html
     </li>
 
     <li>
-      <p>The mouseMoved() function is a Processing event handler that is triggered by the mouse moving around over the canvas. It is far more convenient to
+      <p>The mouseMoved() function is a Processing event handler that is triggered by the
+      mouse moving around over the canvas. It is far more convenient to
       use the built-in event handler than to write our own.</p>
 
       {% highlight javascript linenos %}
@@ -1318,8 +1419,9 @@ permalink: /articles/PomaxGuide.html
     </li>
   </ol>
 
-  <p>So let's see that in action - the code that we just ran through is supposed to draw a sinewave,
-  with an amplitude that depends on where the mouse is on the canvas. If all went well, it will look like this:</p>
+  <p>So let's see that in action - the code that we just ran through is supposed to draw
+  a sinewave, with an amplitude that depends on where the mouse is on the canvas. If all
+  went well, it will look like this:</p>
 
   <canvas id="glibcanvas" style="border: 1px solid black;"></canvas>
 
@@ -1372,7 +1474,8 @@ permalink: /articles/PomaxGuide.html
 
   <p> This guide was brought to you by Mike "Pomax" Kamermans.</b>
 
-  <p>For more information, you can visit the following websites, or visit us in the #processing.js IRC channel on irc.mozilla.org.</p>
+  <p>For more information, you can visit the following websites, or visit us in the
+  #processing.js IRC channel on irc.mozilla.org.</p>
 
   <ul>
     <li><a href="/learning/">learning</li>
