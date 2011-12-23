@@ -35,16 +35,14 @@ permalink: /articles/p5QuickStart.html
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
-                <li style="margin-bottom: 0px;"><a href="#colorrange">Calling color() with out-of-range values produces unpredictable colors</a></li>  
+                <li style="margin-bottom: 0px;"><a href="#colorrange">Calling color() with out-of-range values produces unpredictable colors</a></li>
             </ol>
         </li>
         <li style="margin-bottom: 0px;"><a href="#processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></li>
         <li style="margin-bottom: 0px;"><a href="#whateveryoucandowiththeweb">Whatever you can do with the web, you can do with Processing.js</a></li>
     </ol>
-    <h4>
-        <a name="quickstart">For the Impatient</a></h4>
-    <p>
-        If you're in a rush, here's what you need to know:</p>
+    <h4 id="quickstart">For the Impatient</h4>
+    <p>If you're in a rush, here's what you need to know:</p>
     <ol>
         <li>Processing.js is written in JavaScript, and uses HTML5's &lt;canvas&gt; element.
             It converts your Processing code to JavaScript and runs it.</li>
@@ -63,10 +61,8 @@ permalink: /articles/p5QuickStart.html
     </div>
     <p>
         Load your web page, and it will parse, translate, and run your sketch in the browser.</p>
-    <h3>
-        <a name="whyprocessingjs">Why Processing.js?</a></h3>
-    <h4>
-        <b><a name="javatojavascript">The Web: from Java to JavaScript</a></b></h4>
+    <h3 id="whyprocessingjs">Why Processing.js?</h3>
+    <h4 id="javatojavascript"><b>The Web: from Java to JavaScript</b></h4>
     <p>
         Processing is built using Java. It was created at much the same time that the web
         was starting. At this time the choice of the Java language, and Java Runtime, as
@@ -91,8 +87,7 @@ permalink: /articles/p5QuickStart.html
         <a href="http://www.scribd.com/doc/30964170/Scribd-in-HTML5">Scribd-in-HTML5</a>)
         have shown that HTML, CSS, and JavaScript alone are enough to build fast, full featured
         web applications.</p>
-    <h4>
-        <b><a name="modernwebstandards">Processing.js uses Modern Web Standards</a></b></h4>
+    <h4 id="modernwebstandards"><b>Processing.js uses Modern Web Standards</b></h4>
     <p>
         Processing.js is built using JavaScript and HTML5. Processing.js is really two things:
         a Processing-to-JavaScript translator; and an implementation of the Processing API
@@ -116,8 +111,7 @@ permalink: /articles/p5QuickStart.html
         it working, your browser supports everything you need already, and you can move
         on to instructions below.</p>
     <canvas data-src="/sketches/basic-example.pde"></canvas>
-    <h3>
-        <a name="writingsketches">Writing a Processing.js Sketch</a></h3>
+    <h3 id="writingsketches">Writing a Processing.js Sketch</h3>
     <p>
         There's nothing you should do differently to write sketches for Processing.js: you
         write your Processing.js code exactly like Processing. For most people, this will
@@ -149,8 +143,7 @@ void setup() {
     <p>
         I'll assume below that you saved this to a file called hello-web.pde
     </p>
-    <h3>
-        <a name="obtainingpjs">Obtaining Processing.js</a></h3>
+    <h3 id="obtainingpjs">Obtaining Processing.js</h3>
     <p>
         Processing.js is a JavaScript library that is meant to be included in a web page.
         You don't have to compile it, tell your web server about it, etc. It simply has
@@ -170,8 +163,7 @@ void setup() {
         like removing whitespace and renaming long variable names to single letters). File
         sizes, and download times, matter on the web in a way they don't with normal Processing
         sketches.</p>
-    <h3>
-        <a name="creatingpjswebpage">Creating a Processing.js Web Page</a></h3>
+    <h3 id="creatingpjswebpage">Creating a Processing.js Web Page</h3>
     <p>
         It's easy to get overwhelmed with the amount there is to learn about modern web
         technologies. But there's a secret: you can ignore 95% of it as you start, and add
@@ -229,44 +221,38 @@ void setup() {
     <p>
         Both ways work, and you shouldn't let yourself get burdened by HTML and other web
         syntax until you feel you want to do other things with your web pages.</p>
-    <h3>
-        <a name="runningpjswebpage">Running your Processing.js Web Page</a></h3>
+    <h3 id="runningpjswebpage">Running your Processing.js Web Page</h3>
     <p>
         In case it isn't obvious, you run your <b>hello-web.pde</b> sketch by loading your
         <b>hello-web.html</b> web page in a compatible browser. Web browsers will provide
         you a way to load a local file, usually using the File menu and then <i>Open File....</i>
         If you've saved the files above on a web server, you can use the remote URL instead.</p>
-    <h3>
-        <a name="thingstoknowusingpjs">Things to Know as a Processing Developer using Processing.js</a></h3>
+    <h3 id="thingstoknowusingpjs">Things to Know as a Processing Developer using Processing.js</h3>
     <p>
         While Processing.js is compatible with Processing, Java is not JavaScript, and canvas
         has some differences from Java's graphics classes. Here are some tricks and tips
         as you start working on more complex sketches in Processing.js.</p>
-    <h4>
-        <b><a name="nodatadirectory">Processing.js has no data directory</a></b></h4>
+    <h4 id="nodatadirectory"><b>Processing.js has no data directory</b></h4>
     <p>
         Processing uses the concept of a <b>data</b> directory, where images and other resources
         are located. Processing.js does not include this. As a result, you should always
         provide file pages (e.g., images) that are relative to your web page, which is the
         norm on the web.</p>
-    <h4>
-        <b><a name="implementationofjava">Processing.js implements Processing, but not all of Java</a></b></h4>
+    <h4 id="implementationofjava"><b>Processing.js implements Processing, but not all of Java</b></h4>
     <p>
         Processing.js is compatible with Processing, but is not, and will never be, fully
         compatible with Java. If your sketch uses functions or classes not defined as part
         of Processing, they are unlikely to work with Processing.js. Similarly, libraries
         that are written for Processing, which are written in Java instead of Processing,
         will most likely not work.</p>
-    <h4>
-        <b><a name="renderingmodes">Processing.js only has two rendering modes</a></b></h4>
+    <h4 id="renderingmodes"><b>Processing.js only has two rendering modes</b></h4>
     <p>
         Processing has many rendering modes to choose from, depending on the desired quality
         and speed for graphics (e.g., OPENGL, P3D, JAVA2D, etc.). Processing.js uses &lt;canvas&gt;
         which provides either a 2D drawing context or a 3D context based on WebGL (a version
         of OpenGL for the web). Therefore, whatever you choose, you will end-up with either
         the 2D or 3D context.</p>
-    <h4>
-        <b><a name="explicitcasting">Division which is expected to produce an integer might need explicit casting</a></b></h4>
+    <h4 id="explicitcasting"><b>Division which is expected to produce an integer might need explicit casting</b></h4>
     <p>
         There are a class of bugs that arise when converting Processing code to Processing.js
         that involve integer vs. floating point division. What was straight-up integer division
@@ -285,8 +271,7 @@ int g = (int)(mouseX / i);
     <p>
         See <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/532-drawing-artifacts-in-processingjs-not-in-processing-with-this-code">
             lighthouse bug</a></p>
-    <h4>
-        <b><a name="synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></b></h4>
+    <h4 id="synchronousIO"><b>Processing.js has to cheat to simulate Processing's synchronous I/O</b></h4>
     <p>
         Processing uses a synchronous I/O model, which means that functions like <b>loadImage()</b>
         take time to execute, and while they are running, nothing else happens: the program
@@ -339,8 +324,7 @@ void setup() {
 /* @pjs preload="picture.jpg,picture2.jpg,picture3.png"; */
 </pre>
     </div>
-    <h4>
-        <b><a name="variablenamingcare">Processing.js requires more care with variable naming than Processing</a></b></h4>
+    <h4 id="variablenamingcare"><b>Processing.js requires more care with variable naming than Processing</b></h4>
     <p>
         One of the powerful features of JavaScript is its dynamic, typeless nature. Where
         typed languages like Java, and therefore Processing, can reuse names without fear
@@ -349,8 +333,17 @@ void setup() {
         not use function/class/etc. names from Processing as variable names. For example,
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
         the similarly named <b>line()</b> function built-into Processing and Processing.js.</p>
-    <h4><b><a name="colorrange">Calling color() with out-of-range values produces unpredictable colors</a></b></h4>
-    <p>Also in the class of integer vs. floating point issues, color(number) and color(number, number) may not behave quite as expected. In native Processing, color(int) and color(float) behave differently in that the first is used for full color integers. Calling color(#FF0000) and color(16711680) are the same call, so they produce a red color. However, when using float values the color()/1 function treats the input as gray values, between 0 and the max indicated value (255, by default). Any value lower than 0 or higher than max is simply capped. Because of the integer vs. floating point issues with JavaScript, Processing.js does not perform any capping, and so even though the following code will show a black and a white line in Processing, it will show a yellow line, and an "invisible" line in Processing.js instead.</p>
+    <h4 id="colorrange"><b>Calling color() with out-of-range values produces unpredictable colors</b></h4>
+    <p>
+        Also in the class of integer vs. floating point issues, color(number) and color(number, number)
+        may not behave quite as expected. In native Processing, color(int) and color(float) behave
+        differently in that the first is used for full color integers. Calling color(#FF0000) and
+        color(16711680) are the same call, so they produce a red color. However, when using float
+        values the color()/1 function treats the input as gray values, between 0 and the max indicated
+        value (255, by default). Any value lower than 0 or higher than max is simply capped. Because of
+        the integer vs. floating point issues with JavaScript, Processing.js does not perform any capping,
+        and so even though the following code will show a black and a white line in Processing, it will
+        show a yellow line, and an "invisible" line in Processing.js instead.</p>
     <div class="code"><pre name="code" class="processing">
 void setup()
 {
@@ -368,8 +361,7 @@ void draw()
 }
     </pre></div>
     <p>We recommend you always sanitize your inputs for color if you need colors to be "in range", and only use hex colors, using color(#RRGGBB), or rgb/rgba colors, using color(r,g,b) and color(r,g,b,a)</p>
-    <h3>
-        <b><a name="processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></b></h3>
+    <h3 id="processingcodeinwebpage"><b>It is possible to put Processing code directly in your web page</b></h3>
     <p>
         Using the data-processing-sources attribute on the canvas, and having Processing.js
         load an external file is the preferred and recommended way to include scripts in
@@ -408,12 +400,12 @@ if (window.addEventListener) {
               }
             }
           }
-        } else {    
+        } else {
           if (canvasArray.length >= j) {
-            new Processing(canvasArray[j], scripts[i].text);          
+            new Processing(canvasArray[j], scripts[i].text);
           }
           j++;
-        }       
+        }
       }
     }
   }, false);
@@ -443,8 +435,7 @@ void setup() {
         see <a href="http://github.com/annasob/processing-js/blob/0.9.8/examples/init.js">the
             file on git</a>. This file will likely be going away in the future, and happen
         automatically as part of Processing.js initialization.</p>
-    <h3>
-        <b><a name="whateveryoucandowiththeweb">Whatever you can do with the web, you can do with Processing.js</a></b></h3>
+    <h3 id="whateveryoucandowiththeweb"><b>Whatever you can do with the web, you can do with Processing.js</b></h3>
     <p>
         Now that your sketch is working, and you have a basic web page, you'll probably
         start getting ideas about how to make this look more beautiful, how to better integrate
