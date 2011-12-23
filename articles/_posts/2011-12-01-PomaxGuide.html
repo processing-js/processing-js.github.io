@@ -136,8 +136,7 @@ permalink: /articles/PomaxGuide.html
 
   {% highlight java linenos %}
   void setup() { size(..., ...); }
-  void draw() {}
-  {% endhighlight %}
+  void draw() {}{% endhighlight %}
 
   <p>Of course this program doesn't show you anything, because all it does is set up the visual context to have a certain width and height (indicated in the setup
   method as the size(...,...) instruction) and then calls draw() every few milliseconds. Of course, draw() is empty, so it won't actually show you anything.
@@ -168,8 +167,7 @@ permalink: /articles/PomaxGuide.html
     background(#FFFFEE);								// clear the drawing area
     ball_y = (int) (ball_height);								// set the new ball y position
     ellipse(ball_x,ball_y,ball_radius,ball_radius); 				// draw the ball
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="sketch1" data-processing-sources="/sketches/sketch1.pde" style="border: 1px solid blue;"></canvas>
 
@@ -264,8 +262,7 @@ permalink: /articles/PomaxGuide.html
     void draw() {
       ellipse(x,y,radius,radius);
     }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="sketch2" data-processing-sources="/sketches/sketch2.pde" style="border: 1px solid blue;"></canvas>
 
@@ -307,9 +304,7 @@ permalink: /articles/PomaxGuide.html
 
   void draw() {
     rect(x,y,w,h);
-  }
-
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="sketch3" data-processing-sources="/sketches/sketch3.pde" style="border: 1px solid blue;"></canvas>
 
@@ -341,8 +336,7 @@ permalink: /articles/PomaxGuide.html
       bouncer[b].draw();
     }
   }
-  ...
-  {% endhighlight %}
+  ...{% endhighlight %}
 
   <canvas id="sketch4" data-processing-sources="/sketches/sketch4.pde" style="border: 1px solid blue;"></canvas>
 
@@ -434,8 +428,7 @@ permalink: /articles/PomaxGuide.html
     boolean mouseOver(int mx, int my) {
       return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2);
     }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="sketch5" data-processing-sources="/sketches/sketch5.pde" style="border: 1px solid blue;"></canvas>
 
@@ -582,8 +575,7 @@ permalink: /articles/PomaxGuide.html
     boolean mouseOver(int mx, int my) {
       return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2);
     }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="sketch6" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 
@@ -612,8 +604,7 @@ permalink: /articles/PomaxGuide.html
     <body>
       <canvas id="mysketch" data-processing-sources="mysketch.pde"></canvas>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <canvas id="mysketch1" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 
@@ -647,8 +638,7 @@ permalink: /articles/PomaxGuide.html
       </script>
       <canvas id="mysketch"></canvas>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <p>There are several reasons for why this is not a very good practice, but the most important one is that this way you can't be sure whether or not you've written a bug-free sketch. By writing it directly on the page, you might in fact have written some buggy code, which you will then find is terribly hard to debug because the browser is not equiped with a debugger for Processing code. In fact, processing.js rewrites your sketch into pure javascript (using some terribly clever tricks that we won't go into), so even if when it tells you where the error is in a javascript debugger, it will tell you where it went wrong in the converted javascript object, not the actual place in your source code. So keep it as a separate file, and make sure to test your code in the Processing IDE!</p>
 
@@ -657,8 +647,7 @@ permalink: /articles/PomaxGuide.html
   <p>Just running a sketch on a page is fine, but the benefit of a webpage is that it offers the kind of user interaction that you can't get from within the sketch itself. Pretty buttons, text areas that fold away, pop up, etc. make it very attractive to have your sketch do all the animation graphicsy work, but have all the information about the sketch, as well as controls for it, on the webpage. This is entirely possible - in fact, the "stop" and "play" buttons for the sketch above are examples of javascript telling the sketch what to do. Because a webpage offers more than a plain sketch can, processing.js has a few special tricks up its sleeve, so that you can get the most out of your creative work. Arguably the most important of these is the "get the sketch" function:</p>
 
   {% highlight javascript linenos %}
-  var mysketch = Processing.getInstanceById('mysketchid');
-  {% endhighlight %}
+  var mysketch = Processing.getInstanceById('mysketchid');{% endhighlight %}
 
   <p>This is the pivotal function on the javascript side of things. It gives you a direct reference to your sketch, and everything in it, so that you can call any function and examine and modify any
   variable that is in the sketch.</p>
@@ -687,8 +676,7 @@ permalink: /articles/PomaxGuide.html
     float twidth = textWidth(t);
     // place the text centered on the drawing area
     text(t, (width - twidth)/2, height/2);
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>We can make this sketch draw a different text based on some text we have on our webpage, using javascript. This is in fact really easy: first,
   let's save this processing code as mysketch2.pde, and load it onto a page in the same way as earlier in the article.
@@ -714,8 +702,7 @@ permalink: /articles/PomaxGuide.html
       <input type="textfield" value="my text" id="inputtext">
       <button type="button" onclick="drawSomeText('mysketch2')">place</button>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <p>This has the same effect as the sketch that's running below. Simply fill in a bit of text, and hit the &#9654; button to see the sketch render it on the drawing area.</p>
 
@@ -747,8 +734,7 @@ permalink: /articles/PomaxGuide.html
         x/y: <input type="textfield" id="xcoord">/<input type="textfield" id="ycoord">
       </div>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <p>And say we have the following sketch, which we'll save as mysketch3.pde:</p>
 
@@ -768,8 +754,7 @@ permalink: /articles/PomaxGuide.html
     line(mouseX,0,mouseX,height);
     line(0,mouseY,width,mouseY);
     redraw();
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>As an exercise, let's try to get the mouse coordinates from that mouseMoved event onto the page. This means we'll need to define a javascript function that will do this for us:</p>
 
@@ -777,8 +762,7 @@ permalink: /articles/PomaxGuide.html
   function showXYCoordinates(x, y) {
     document.getElementById('xcoord').value = x;
     document.getElementById('ycoord').value = x;
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>And we'll need to make the sketch know that there is such a thing as javascript, and that it has this function:</p>
 
@@ -800,8 +784,7 @@ permalink: /articles/PomaxGuide.html
     if(javascript!=null){
       javascript.showXYCoordinates(mouseX, mouseY);
     }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>What we've done is we've told Processing: <i>"There are things that follow the JavaScript interface. This means that whatever else they can do, they'll have a function called "showXYCoordinates" and that function takes two arguments, both of type int."</i>
   - of course, the sketch will not magically know our on-page javascript, so we also define a function that lets us tell the sketch what actually counts as javascript,
@@ -821,8 +804,7 @@ permalink: /articles/PomaxGuide.html
     if(!bound) setTimeout(bindJavascript, 250);
   }
 
-  bindJavascript();
-  {% endhighlight %}
+  bindJavascript();{% endhighlight %}
 
   <p>This defines a function that checks whether processing.js has loaded our sketch yet. If not, it tries again 250ms later. If the sketch is loaded, the reference to
   the sketch is used to tell it what "javascript" should be. This is achieved by virtue of processing.js trusting that you wrote valid code. As such, as long as you're on
@@ -864,8 +846,7 @@ permalink: /articles/PomaxGuide.html
         x/y: <input type="textfield" id="xcoord">/<input type="textfield" id="ycoord">
       </div>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <canvas id="mysketch3" data-processing-sources="/sketches/mysketch3.pde"></canvas>
 
@@ -914,8 +895,7 @@ permalink: /articles/PomaxGuide.html
     int x,y;
     Point(int x, int y) { this.x=x; this.y=y; }
     void draw() { ellipse(x,y,10,10); }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="mysketch4" data-processing-sources="/sketches/mysketch4.pde" style="border: 1px solid black;"></canvas>
 
@@ -932,8 +912,7 @@ permalink: /articles/PomaxGuide.html
     points.add(new pjs.Point(190,190));
     points.add(new pjs.Point(190,10));
     pjs.draw();
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <canvas id="mysketch5" data-processing-sources="/sketches/mysketch5.pde" style="border: 1px solid black;"></canvas>
 
@@ -947,10 +926,12 @@ permalink: /articles/PomaxGuide.html
 
   {% highlight java linenos %}
   ArrayList points;
+
   void setup() {
     size(200,200);
     points = new ArrayList();
   }
+
   void draw() {
     background(200,200,255);
     for(int p=0, end=points.size(); p<end; p++) {
@@ -979,8 +960,7 @@ permalink: /articles/PomaxGuide.html
       fill(255);
       ellipse(x,y,10,10);
     }
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>Now what if -- instead of using mouse clicks, or predetermined javascript -- we want to load points based on some data on a remote server? We change our web page so
   that it can deal with JSON data from a remote server, and then make our javascript tell the sketch what to do:</p>
@@ -1012,8 +992,7 @@ permalink: /articles/PomaxGuide.html
       <canvas id="mysketch5" data-processing-sources="mysketch5.pde"></canvas>
       <div id="controller"><button type="button" id="loadPoints" onclick="loadPoints('mysketch5')"></div>
     </body>
-  </html>
-  {% endhighlight %}
+  </html>{% endhighlight %}
 
   <canvas id="mysketch6" data-processing-sources="/sketches/mysketch6.pde" style="border: 1px solid black;"></canvas>
 
@@ -1040,8 +1019,7 @@ permalink: /articles/PomaxGuide.html
     var pjs = Processing.getInstanceById(id);
     var xml = $.get("http://thatfunkysite.com/serving/getxml.php");
     pjs.buildFromXML(xml);
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>And the handling in our sketch will look like this:</p>
 
@@ -1056,8 +1034,7 @@ permalink: /articles/PomaxGuide.html
       points.add(new Point(x, y));
     }
     redraw();
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>If the xml thus loaded looks like the following snippet, the sketch will behave in the way the sketch below does:</p>
 
@@ -1068,8 +1045,7 @@ permalink: /articles/PomaxGuide.html
     <point x='10' y='90'/>
     <point x='190' y='140'/>
     <point x='10' y='190'/>
-  </xml>
-  {% endhighlight %}
+  </xml>{% endhighlight %}
 
   <h3 id="svg" onclick="toggleContent('svg')">SVG</h3>
 
@@ -1145,16 +1121,14 @@ permalink: /articles/PomaxGuide.html
   void bindSVG(XMLElement svg) {
     ps = new PShapeSVG(svgxml);
     redraw();
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>This sketch will load the following SVG code, and allows you to click on the shape to change its color, or click-drag it to move it around:</p>
 
   {% highlight svg linenos %}
   <svg width='200' height='200'>
     <path d='M 10 10 L 190 10 L 140 100 L 190 190 L 10 190 L 50 100 L 10 10 M 100 80 L 140 30 L 50 30 L 100 80 M 100 120 L 50 170 L 140 170 Z'/>
-  </svg>
-  {% endhighlight %}
+  </svg>{% endhighlight %}
 
   <h3 id="jobjs" onclick="toggleContent('jobjs')">Javascript Objects</h3>
 
@@ -1188,8 +1162,7 @@ permalink: /articles/PomaxGuide.html
 
     // trajectory calculation returns a curve, represented as a lest of 2D coordinates
     float[][] get_trajectory(float[] startpoint, float objectmass, float[] initialvector, float[] gravityvector, float gravitystrength);
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>First job done. Now to bind javascript. We've already looked at how to do this, so just follow the standard procedure and job's a good'n.
   In addition to whatever javascript functions you want to expose, however, we must add one more:</p>
@@ -1199,8 +1172,7 @@ permalink: /articles/PomaxGuide.html
     ...
     Physics buildPhysicsObject([properly typed variables to match the javascript constructor]);
     ...
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>Finally, we now make use of our purely javascript library in our js file(s):</p>
 
@@ -1208,8 +1180,7 @@ permalink: /articles/PomaxGuide.html
   function buildPhysicsObject(x, y, someothervar)
   {
     return new Physics(x,y,someothervar);
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>This last step seems silly, but we have to delegate the task of building a javascript object to javascript. If we tried to do this inside our sketch,
   processing.js will not complain, but Processing will. To make matters worse, it also obscures the point of failure: if something goes wrong in the sketch,
@@ -1265,8 +1236,7 @@ permalink: /articles/PomaxGuide.html
     }
     body1.draw();
     body2.draw();
-  }
-  {% endhighlight %}
+  }{% endhighlight %}
 
   <p>And we're done! </p>
 
@@ -1288,14 +1258,13 @@ permalink: /articles/PomaxGuide.html
       <script type="text/javascript">
       (function() {
         var canvas = document.getElementById('glibcanvas');
-        var pjs = new Processing(canvas);
-      {% endhighlight %}
+        var pjs = new Processing(canvas);{% endhighlight %}
     </li>
 
     <li>
       <p>The setup() function defines the entry point for our sketch. It sizes the canvas, and tells it not to animate by default.</p>
 
-      {% highlight javascript linenos %}
+      {% highlight javascript linenos linenostart 6%}
         // let's write a sketch
         var value = 0;
         // Definition for the initial entry point
@@ -1304,15 +1273,14 @@ permalink: /articles/PomaxGuide.html
           // we want to turn off animation, because this is a demo page and it
           // would use cpu while not being looked at. Only draw on mousemoves
           pjs.noLoop();
-        }
-      {% endhighlight %}
+        }{% endhighlight %}
     </li>
 
     <li>
       <p>The draw() function defines the main draw function, which is called whenever a frame update is requested (either because the sketch is looping, or
       because redraw() is called manually)</p>
 
-      {% highlight javascript linenos %}
+      {% highlight javascript linenos linenostart %}
         // Draw a "sine wave" using two bezier curves, with an undulating amplitude.
         pjs.draw = function() {
           // partially clear, by overlaying a semi-transparent rect
@@ -1325,8 +1293,7 @@ permalink: /articles/PomaxGuide.html
           pjs.noFill();
           pjs.bezier(0,100, 33,100+value, 66,100+value, 100,100);
           pjs.bezier(100,100, 133,100+-value, 166,100+-value, 200,100);
-        }
-      {% endhighlight %}
+        }{% endhighlight %}
     </li>
 
     <li>
@@ -1337,8 +1304,7 @@ permalink: /articles/PomaxGuide.html
         pjs.mouseMoved = function() {
           value = ( pjs.mouseY-100);
           pjs.redraw();
-        }
-      {% endhighlight %}
+        }{% endhighlight %}
     </li>
 
     <li>
@@ -1348,8 +1314,7 @@ permalink: /articles/PomaxGuide.html
         // Finally, calling setup() will kickstart the sketch
         pjs.setup();
       }());
-      </script>
-      {% endhighlight %}
+      </script>{% endhighlight %}
     </li>
   </ol>
 
