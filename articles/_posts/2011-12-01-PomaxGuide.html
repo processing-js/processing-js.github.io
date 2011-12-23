@@ -11,7 +11,7 @@ function toggleContent(id) {
     e.style.display = "block";
   } else {
     e.style.display = "none";
-  }  
+  }
 }
 
 // sketch 1
@@ -22,7 +22,7 @@ function stop(id) {
 
 function play(id) {
   var pjs = Processing.getInstanceById(id);
-  pjs.playSketch(); 
+  pjs.playSketch();
 }
 
 // sketch 2
@@ -133,8 +133,8 @@ with the obvious substitutions in place to make it a legal email address.</p>
 <a name="faq"></a>
 <h3 onclick="toggleContent('faq')">What is Processing?</h3>
 
-<p>The "Processing" language (also referred to as "P5") is a programming language with a focus on data visualisation. Of course, "data" is a loose concept, and 
-Processing can be used for anything from drawing a few lines and circles on a screen, to full blown interactive animations. 
+<p>The "Processing" language (also referred to as "P5") is a programming language with a focus on data visualisation. Of course, "data" is a loose concept, and
+Processing can be used for anything from drawing a few lines and circles on a screen, to full blown interactive animations.
 In fact, a basic Processing program is two lines of code, and will already play an animation:</p>
 
 {% highlight java linenos %}
@@ -142,9 +142,9 @@ void setup() { size(..., ...); }
 void draw() {}
 {% endhighlight %}
 
-<p>Of course this program doesn't show you anything, because all it does is set up the visual context to have a certain width and height (indicated in the setup 
-method as the size(...,...) instruction) and then calls draw() every few milliseconds. Of course, draw() is empty, so it won't actually show you anything. 
-A more useful minimal program would be a "hello world" program, but I hate those because they only show a programming language can write text, and that's pretty much the 
+<p>Of course this program doesn't show you anything, because all it does is set up the visual context to have a certain width and height (indicated in the setup
+method as the size(...,...) instruction) and then calls draw() every few milliseconds. Of course, draw() is empty, so it won't actually show you anything.
+A more useful minimal program would be a "hello world" program, but I hate those because they only show a programming language can write text, and that's pretty much the
 least interesting feature of any programming language. Instead let's look at a minimal program that makes sense for a data visualisation language:</p>
 
 {% highlight java linenos %}
@@ -177,11 +177,11 @@ void draw() {
 <canvas id="sketch1" data-processing-sources="/sketches/sketch1.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch1')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch1')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch1')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch1')" class="Pomax">&#9654;</button>
 </div>
-<br />
-<p>This looks a bit long for a minimal program, but then again, this actually <em>does</em> something: it shows us a ball that bounces up and down, taking one second for each bounce. It shows a few aspects of 
+<br>
+<p>This looks a bit long for a minimal program, but then again, this actually <em>does</em> something: it shows us a ball that bounces up and down, taking one second for each bounce. It shows a few aspects of
 Processing too: every variable is strongly typed. So you have to indicate what you'll be using a variable for, and you can choose from:</p>
 
 <ul>
@@ -276,12 +276,12 @@ class Ball implements Bouncer
 <canvas id="sketch2" data-processing-sources="/sketches/sketch2.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch2')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch2')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch2')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch2')" class="Pomax">&#9654;</button>
 </div>
-<br />
-<p>Instead of doing everything in the draw() function, the object oriented approach tucks all the code that relates to computing the ball's position in the definition 
-for what we consider a "Ball". To be good object oriented programmers, we've also said that things that are a Ball are also a Bouncer, and this lets us extend our 
+<br>
+<p>Instead of doing everything in the draw() function, the object oriented approach tucks all the code that relates to computing the ball's position in the definition
+for what we consider a "Ball". To be good object oriented programmers, we've also said that things that are a Ball are also a Bouncer, and this lets us extend our
 sketch very easily to instead of a bouncing ball, have a bouncing box by keeping almost everything the same, and adding a new class Box that's a Bouncer:</p>
 
 {% highlight java linenos %}
@@ -294,7 +294,7 @@ class Box implements Bouncer
 {
   int x,y,w,h;
   int step=0;
-  
+
   Box(int x, int y, int w, int h) {
   this.x = x;
   this.y = y;
@@ -318,11 +318,11 @@ void draw() {
 <canvas id="sketch3" data-processing-sources="/sketches/sketch3.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch3')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch3')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch3')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch3')" class="Pomax">&#9654;</button>
 </div>
-<br />
-<p>All of a sudden we have a bouncing box, that starts from a falling position instead of from the ground, and we didn't have to modify the master draw() function for 
+<br>
+<p>All of a sudden we have a bouncing box, that starts from a falling position instead of from the ground, and we didn't have to modify the master draw() function for
 it! In fact, let's just use a group of bouncing things:</p>
 
 {% highlight java linenos %}
@@ -349,11 +349,11 @@ void draw() {
 <canvas id="sketch4" data-processing-sources="/sketches/sketch4.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch4')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch4')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch4')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch4')" class="Pomax">&#9654;</button>
 </div>
-<br />
-<p>Fantastic, two bouncing balls and a bouncing box, bouncing counter-point to each other. But it's not very interactive yet. Let's change it so that we can "hang on" 
+<br>
+<p>Fantastic, two bouncing balls and a bouncing box, bouncing counter-point to each other. But it's not very interactive yet. Let's change it so that we can "hang on"
 to bouncing things until we let go of them again. Processing allows interaction with the keyboard and mouse, using what are known as "event handlers", methods that Processing automatically calls for you when you use the keyboard or mouse. In this case we care about mouse interaction, so we'll look at mousePressed and mouseReleased events:</p>
 
 
@@ -361,14 +361,14 @@ to bouncing things until we let go of them again. Processing allows interaction 
 void mousePressed() {
   for(int b=0, end=bouncer.length; b<end;b++) {
     if(bouncer[b].mouseOver(mouseX, mouseY)) {
-      bouncer[b].mousePressed(); 
+      bouncer[b].mousePressed();
     }
   }
 }
 
 void mouseReleased() {
   for(int b=0, end=bouncer.length; b<end;b++) {
-    bouncer[b].mouseReleased(); 
+    bouncer[b].mouseReleased();
   }
 }
 
@@ -387,11 +387,11 @@ abstract class Bouncer
 class Ball extends Bouncer
 {
   int radius;
-  
+
   Ball(int x, int y, int r) {
     this.x = x;
     this.y = y;
-    this.radius = r;  
+    this.radius = r;
   }
   void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
   if(canmove) {
@@ -399,26 +399,26 @@ class Ball extends Bouncer
     float sin_value = abs(sin(PI*step/(float)frame_rate));
     float bounce_height = sketch_height/2 * sin_value;
     float ball_height = sketch_height - (bounce_height + radius);
-    y = (int) (ball_height); 
+    y = (int) (ball_height);
   }
 }
 
 void draw() { ellipse(x,y,radius,radius); }
 
 boolean mouseOver(int mx, int my) {
-  return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) <= radius; 
+  return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) <= radius;
 }
 
 class Box extends Bouncer
 {
   int w,h;
   int step=0;
-  
+
   Box(int x, int y, int w, int h) {
     this.x = x;
     this.y = y;
     this.w = w;
-    this.h = h; 
+    this.h = h;
   }
 
   void computeNextStep(int sketch_width, int sketch_height, float frame_rate) {
@@ -427,26 +427,26 @@ class Box extends Bouncer
       float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
       float bounce_height = sketch_height/2 * sin_value;
       float ball_height = sketch_height - (bounce_height + h);
-      y = (int) (ball_height); 
+      y = (int) (ball_height);
     }
   }
 
   void draw() { rect(x,y-h/2,w,h); }
 
   boolean mouseOver(int mx, int my) {
-    return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2); 
+    return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2);
   }
 }
 {% endhighlight %}
 <canvas id="sketch5" data-processing-sources="/sketches/sketch5.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch5')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch5')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch5')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch5')" class="Pomax">&#9654;</button>
 </div>
-<br />
-<p>Because the Ball and Box classes will do the same thing on mouse interaction, the interface Bouncer has been changed to an actual class too, to take care of some of 
-the shared functionality. Now if you click on anything that's a Bouncer it'll stop moving until you let it go. Let's go one step further an just allow us to move the 
+<br>
+<p>Because the Ball and Box classes will do the same thing on mouse interaction, the interface Bouncer has been changed to an actual class too, to take care of some of
+the shared functionality. Now if you click on anything that's a Bouncer it'll stop moving until you let it go. Let's go one step further an just allow us to move the
 bouncing things around, too.</p>
 
 {% highlight java linenos %}
@@ -464,34 +464,34 @@ void setup() {
 
 void draw() {
   for(int b=0, end=bouncer.length; b<end;b++) {
-    bouncer[b].computeNextStep(width, height, frameRate); 
+    bouncer[b].computeNextStep(width, height, frameRate);
   }
   background(#FFFFEE);
   for(int b=0, end=bouncer.length; b<end;b++) {
-    bouncer[b].draw(); 
+    bouncer[b].draw();
   }
 }
 
 void mousePressed() {
   for(int b=0, end=bouncer.length; b<end;b++) {
     if(bouncer[b].mouseOver(mouseX, mouseY)) {
-      bouncer[b].mousePressed(); 
+      bouncer[b].mousePressed();
     }
   }
 }
 
 void mouseReleased() {
   for(int b=0, end=bouncer.length; b<end;b++) {
-    bouncer[b].mouseReleased(); 
+    bouncer[b].mouseReleased();
   }
 }
 
 void mouseDragged() {
   for(int b=0, end=bouncer.length; b<end;b++) {
-    bouncer[b].mouseDragged(mouseX, mouseY); 
+    bouncer[b].mouseDragged(mouseX, mouseY);
   }
-}	
-	
+}
+
 abstract class Bouncer
 {
   int x, y;
@@ -499,23 +499,23 @@ abstract class Bouncer
   int step = 0;
   int xoffset = 0;
   int yoffset = 0;
-  
+
   void computeNextStep(int width, int height, float framerate) {
     if(canmove) {
-      reallyComputeNextStep(width, height, framerate); 
+      reallyComputeNextStep(width, height, framerate);
     }
   }
 
   abstract void reallyComputeNextStep(int width, int height, float framerate);
-  
+
   abstract void draw();
-  
+
   abstract boolean mouseOver(int mx, int my);
-  
+
   void mousePressed() {
-    canmove = false; 
+    canmove = false;
   }
-  
+
   void mouseReleased() {
     canmove = true;
     x += xoffset;
@@ -528,32 +528,32 @@ abstract class Bouncer
     if(!canmove) {
       xoffset = mx-x;
       yoffset = my-y;
-    }           
+    }
   }
 }
 
 class Ball extends Bouncer
 {
   int radius;
-  
+
   Ball(int x, int y, int r) {
     this.x = x;
     this.y = y;
     this.radius = r;
   }
-  
+
   void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
     step = (int)((step+1) % frame_rate);
     float sin_value = abs(sin(PI*step/(float)frame_rate));
     float bounce_height = sketch_height/2 * sin_value;
     float ball_height = sketch_height - (bounce_height + radius);
-    y = (int) (ball_height); 
+    y = (int) (ball_height);
   }
-  
+
   void draw() { ellipse(x+xoffset,y+yoffset,radius,radius); }
-  
+
   boolean mouseOver(int mx, int my) {
-    return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) <= radius; 
+    return sqrt((x-mx)*(x-mx) + (y-my)*(y-my)) <= radius;
   }
 }
 
@@ -561,14 +561,14 @@ class Box extends Bouncer
 {
   int w,h;
   int step=0;
-  
+
   Box(int x, int y, int w, int h) {
     this.x = x;
     this.y = y;
     this.w = w;
-    this.h = h; 
+    this.h = h;
   }
-  
+
   void reallyComputeNextStep(int sketch_width, int sketch_height, float frame_rate) {
     step = (int)((step+1) % frame_rate);
     float sin_value = abs(sin(PI/2.0 + (PI*step/(float)frame_rate)));
@@ -580,17 +580,17 @@ class Box extends Bouncer
   void draw() { rect(x+xoffset,(y-h/2)+yoffset,w,h); }
 
   boolean mouseOver(int mx, int my) {
-    return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2); 
+    return x<=mx && mx<=x+w && (y-h/2)<=my && my<=(y+h/2);
   }
 }
 {% endhighlight %}
 <canvas id="sketch6" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('sketch6')" class="Pomax">&#9632;</button>
-<button onclick="play('sketch6')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('sketch6')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('sketch6')" class="Pomax">&#9654;</button>
 </div>
-<br />
+<br>
 <p>And with that, on to the original topic of this article: using Processing on web pages</p>
 
 
@@ -602,11 +602,11 @@ class Box extends Bouncer
 <p>Let's say we save the previous sketch, with the bouncing and the mouse interaction, as "mysketch.pde", and we want to show this on a webpage. Using processing.js, this is a trivially simple trick:</p>
 
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 <script type="text/javascript" src="processing.js"></script>
 </head>
@@ -620,10 +620,10 @@ class Box extends Bouncer
 <canvas id="mysketch1" data-processing-sources="/sketches/mysketch.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">play controls:</span>
-<button onclick="stop('mysketch1')" class="Pomax">&#9632;</button>
-<button onclick="play('mysketch1')" class="Pomax">&#9654;</button>
+<button type="button" onclick="stop('mysketch1')" class="Pomax">&#9632;</button>
+<button type="button" onclick="play('mysketch1')" class="Pomax">&#9654;</button>
 </div>
-<br />
+<br>
 <p>And we're done. In fact, I went ahead and made sure this page already uses processing.js, and that there is a mysketch.pde to load. If you click on the play control for the sketch above, it will start running, and do exactly what you would expect it to do based on what it does when you run it from the Processing environment.</p>
 
 
@@ -634,11 +634,10 @@ class Box extends Bouncer
 <p>While not recommended, you can also put your sketch directly on a page, much like how you can put javascript or CSS styles directly on a page. However, in order for processing.js to properly load your code, you'll need some extra help in the form of the "init.js" file that is included with the processing.js examples archive from the processing.js downloads page</p>
 
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 <script type="text/javascript" src="processing.js"></script>
 </head>
@@ -651,7 +650,7 @@ class SomeClass {
 }
 </script>
 
-<canvas id="mysketch"/></canvas>
+<canvas id="mysketch"></canvas>
 </body>
 </html>
 {% endhighlight %}
@@ -696,23 +695,22 @@ void drawText(String t)
 {
   background(#000033);
   // get the width for the text
-  float twidth = textWidth(t);			
+  float twidth = textWidth(t);
   // place the text centered on the drawing area
-  text(t, (width - twidth)/2, height/2);	
+  text(t, (width - twidth)/2, height/2);
 }
 {% endhighlight %}
 
-<p>We can make this sketch draw a different text based on some text we have on our webpage, using javascript. This is in fact really easy: first, 
-let's save this processing code as mysketch2.pde, and load it onto a page in the same way as earlier in the article. 
-Then, we use javascript to ask for our sketch instance, after which we call the "drawText" function with some text that we get from the web page 
+<p>We can make this sketch draw a different text based on some text we have on our webpage, using javascript. This is in fact really easy: first,
+let's save this processing code as mysketch2.pde, and load it onto a page in the same way as earlier in the article.
+Then, we use javascript to ask for our sketch instance, after which we call the "drawText" function with some text that we get from the web page
 that the sketch is running on:</p>
 
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 <script type="text/javascript" src="processing.js"></script>
 
@@ -724,10 +722,10 @@ pjs.drawText(text); }
 </script>
 </head>
 <body>
-<canvas id="mysketch2" data-processing-sources="mysketch2.pde"/></canvas>
+<canvas id="mysketch2" data-processing-sources="mysketch2.pde"></canvas>
 
-<input type="textfield" value="my text" id="inputtext"/>
-<button onclick="drawSomeText('mysketch2')"/>
+<input type="textfield" value="my text" id="inputtext">
+<button type="button" onclick="drawSomeText('mysketch2')">place</button>
 </body>
 </html>
 {% endhighlight %}
@@ -736,10 +734,10 @@ pjs.drawText(text); }
 <canvas id="mysketch2" data-processing-sources="/sketches/mysketch2.pde" style="border: 1px solid blue;"></canvas>
 <div>
 <span style="font-size:80%">set text:</span>
-<input type="textfield" style="width: 6em;" value="My Text Here" id="ms2text"/>
-<button onclick="drawText('mysketch2')" class="Pomax">&#9654;</button>
+<input type="textfield" style="width: 6em;" value="My Text Here" id="ms2text">
+<button type="button" onclick="drawText('mysketch2')" class="Pomax">&#9654;</button>
 </div>
-<br />
+<br>
 <p>So far so good, but what if we also want to make Processing code call javascript? In order for us to so, while making sure the sketch keeps running both on your page an in the Processing environment, we have to do a bit more work</p>
 
 
@@ -749,19 +747,19 @@ pjs.drawText(text); }
 <p>You can't just stick plain javascript in your sketch and hope everything goes well because it's "on a web page". A better approach is to neatly separate your sketch and your on-page javascript, and ensure that whatever you want to do on your page runs through a javascript function. How do we do that? Let's say we have the following page:</p>
 
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 
 <script type="text/javascript" src="processing.js"></script>
 </head>
 <body>
-<canvas id="mysketch3" data-processing-sources="mysketch3.pde"/></canvas>
+<canvas id="mysketch3" data-processing-sources="mysketch3.pde"></canvas>
 <div id="coordinates">
 
-x/y: <input type="textfield" id="xcoord"/>/<input type="textfield" id="ycoord"/>
+x/y: <input type="textfield" id="xcoord">/<input type="textfield" id="ycoord">
 </div>
 </body>
 </html>
@@ -774,12 +772,12 @@ void setup() {
   size(200,200);
   stroke(255);
   background(0);
-  noLoop(); 
+  noLoop();
 }
 
 void draw() {
   fill(0,0,0,40);
-  rect(-1,-1,width+2,height+2); 
+  rect(-1,-1,width+2,height+2);
 }
 void mouseMoved() {
   line(mouseX,0,mouseX,height);
@@ -793,7 +791,7 @@ void mouseMoved() {
 {% highlight javascript linenos %}
 function showXYCoordinates(x, y) {
   document.getElementById('xcoord').value = x;
-  document.getElementById('ycoord').value = x; 
+  document.getElementById('ycoord').value = x;
 }
 {% endhighlight %}
 
@@ -801,11 +799,11 @@ function showXYCoordinates(x, y) {
 
 {% highlight java linenos %}
 interface JavaScript {
-  void showXYCoordinates(int x, int y); 
+  void showXYCoordinates(int x, int y);
 }
 
 void bindJavascript(JavaScript js) {
-  javascript = js; 
+  javascript = js;
 }
 
 JavaScript javascript;
@@ -815,13 +813,13 @@ void draw() { ... }
 void mouseMoved() {
   ...
   if(javascript!=null){
-    javascript.showXYCoordinates(mouseX, mouseY); 
+    javascript.showXYCoordinates(mouseX, mouseY);
   }
 }
 {% endhighlight %}
 
-<p>What we've done is we've told Processing: <i>"There are things that follow the JavaScript interface. This means that whatever else they can do, they'll have a function called "showXYCoordinates" and that function takes two arguments, both of type int."</i> 
-- of course, the sketch will not magically know our on-page javascript, so we also define a function that lets us tell the sketch what actually counts as javascript, 
+<p>What we've done is we've told Processing: <i>"There are things that follow the JavaScript interface. This means that whatever else they can do, they'll have a function called "showXYCoordinates" and that function takes two arguments, both of type int."</i>
+- of course, the sketch will not magically know our on-page javascript, so we also define a function that lets us tell the sketch what actually counts as javascript,
 which is what the bindJavascript(...) function is for.</p>
 
 <p>This leaves us with needing to make sure that we really do tell the sketch what javascript is, which we'll do as follows on the page:</p>
@@ -833,27 +831,28 @@ function bindJavascript() {
 var pjs = Processing.getInstanceById('mysketch3');
 if(pjs!=null) {
 pjs.bindJavascript(this);
-bound = true; 
+bound = true;
 }
-if(!bound) setTimeout(bindJavascript, 250); 
+if(!bound) setTimeout(bindJavascript, 250);
 }
 
 bindJavascript();
 {% endhighlight %}
 
-<p>This defines a function that checks whether processing.js has loaded our sketch yet. If not, it tries again 250ms later. If the sketch is loaded, the reference to 
-the sketch is used to tell it what "javascript" should be. This is achieved by virtue of processing.js trusting that you wrote valid code. As such, as long as you're on 
-the javascript side of things, you can pass the sketch whatever you like, and the sketch will trust that it conforms to what the method says the type should be. In this 
-case we pass the javascript "this" value (which refers to the global javascript environment for the current window), and tell processing <i>"this thing conforms to your JavaScript interface, s
-o it has loads of things but the only thing you need to be concerned about is whether or not it has a showXYCoordinates(int, int) function, which it does."</i></p>
+<p>This defines a function that checks whether processing.js has loaded our sketch yet. If not, it tries again 250ms later. If the sketch is loaded, the reference to
+the sketch is used to tell it what "javascript" should be. This is achieved by virtue of processing.js trusting that you wrote valid code. As such, as long as you're on
+the javascript side of things, you can pass the sketch whatever you like, and the sketch will trust that it conforms to what the method says the type should be. In this
+case we pass the javascript "this" value (which refers to the global javascript environment for the current window), and tell processing <i>"this thing conforms to your
+JavaScript interface, so it has loads of things but the only thing you need to be concerned about is whether or not it has a showXYCoordinates(int, int) function, which
+it does."</i></p>
 
 <p>So, our final sketch behaves like the sketch below, and our final page source looks like the following:</p>
 
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 
 <script type="text/javascript" src="processing.js"></script>
@@ -865,21 +864,21 @@ var pjs = Processing.getInstanceById('mysketch3');
 if(pjs!=null) {
 pjs.bindJavascript(this);
 bound = true; }
-if(!bound) setTimeout(bindJavascript, 250); 
+if(!bound) setTimeout(bindJavascript, 250);
 }
 bindJavascript();
 
 function showXYCoordinates(x, y) {
 document.getElementById('xcoord').value = x;
-document.getElementById('ycoord').value = y; 
+document.getElementById('ycoord').value = y;
 }
 </script>
 </head>
 <body>
 
-<canvas id="mysketch3" data-processing-sources="mysketch3.pde"/></canvas>
+<canvas id="mysketch3" data-processing-sources="mysketch3.pde"></canvas>
 <div id="coordinates">
-x/y: <input type="textfield" id="xcoord"/>/<input type="textfield" id="ycoord"/>
+x/y: <input type="textfield" id="xcoord">/<input type="textfield" id="ycoord">
 </div>
 </body>
 
@@ -888,9 +887,9 @@ x/y: <input type="textfield" id="xcoord"/>/<input type="textfield" id="ycoord"/>
 
 <canvas id="mysketch3" data-processing-sources="/sketches/mysketch3.pde"></canvas>
 <div>
-x/y coordinates: <input type="textfield" id="xcoord" style="width: 3em;"/>/<input type="textfield" id="ycoord" style="width: 3em;"/>
+x/y coordinates: <input type="textfield" id="xcoord" style="width: 3em;">/<input type="textfield" id="ycoord" style="width: 3em;">
 </div>
-<br />
+<br>
 <a name="jsobj"></a>
 <h3 onclick="toggleContent('jsobj')">Passing complex objects from javascript to your sketch</h3>
 
@@ -899,7 +898,7 @@ x/y coordinates: <input type="textfield" id="xcoord" style="width: 3em;"/>/<inpu
 
 <a name="pobj"></a>
 <h3 onclick="toggleContent('pobj')">Actually using Processing objects</h3>
-<p>One interesting thing that processing.js allows us to do is to create objects as we defined them in our sketch, in javascript, 
+<p>One interesting thing that processing.js allows us to do is to create objects as we defined them in our sketch, in javascript,
 and then hand them over to the sketch to deal with. To give an example, let's use the following sketch, which lets you draw points by clicking with the mouse, and links up all the points with lines:</p>
 
 {% highlight java linenos %}
@@ -909,10 +908,10 @@ ArrayList getPoints() { return points; }
 
 void setup() {
 size(200,200);
-points = new ArrayList(); 
+points = new ArrayList();
 noLoop();
 stroke(255,0,0);
-fill(255); 
+fill(255);
 }
 
 void draw() {
@@ -927,7 +926,7 @@ pt.draw(); }
 
 void mouseClicked() {
 points.add(new Point(mouseX,mouseY));
-redraw(); 
+redraw();
 }
 
 class Point {
@@ -939,7 +938,7 @@ void draw() { ellipse(x,y,10,10); }
 
 <canvas id="mysketch4" data-processing-sources="/sketches/mysketch4.pde" style="border: 1px solid black;"></canvas>
 <div>click to place points</div>
-<br />	
+<br>
 
 
 <p>We can also make javascript place some points for us, automatically, by using the following javascript:</p>
@@ -957,9 +956,9 @@ function loadPoints(id, button) {
 }
 {% endhighlight %}
 <canvas id="mysketch5" data-processing-sources="/sketches/mysketch5.pde" style="border: 1px solid black;"></canvas>
-<div>load points: <button id="loadPoints" onclick="loadPointsJS('mysketch5', this)">load</button></div>
+<div>load points: <button type="button" id="loadPoints" onclick="loadPointsJS('mysketch5', this)">load</button></div>
 
-<br />
+<br>
 <p>Because processing.js turns the sketch into actual javascript, every class we defined in it can be created using <em>new pjs.ClassName(arguments,...)</em>.</p>
 
 
@@ -972,7 +971,7 @@ function loadPoints(id, button) {
 ArrayList points;
 void setup() {
 size(200,200);
-points = new ArrayList(); 
+points = new ArrayList();
 }
 void draw() {
 background(200,200,255);
@@ -985,13 +984,13 @@ pt.draw(); }
 }
 
 void mouseClicked() {
-addPoint(mouseX,mouseY); 
+addPoint(mouseX,mouseY);
 }
 
 Point addPoint(int x, int y) {
 Point pt = new Point(x,y);
 points.add(pt);
-return pt; 
+return pt;
 }
 
 class Point {
@@ -1000,18 +999,18 @@ Point(int x, int y) { this.x=x; this.y=y; }
 void draw() {
 stroke(255,0,0);
 fill(255);
-ellipse(x,y,10,10); 
+ellipse(x,y,10,10);
 }
 }
 {% endhighlight %}
 
-<p>Now what if -- instead of using mouse clicks, or predetermined javascript -- we want to load points based on some data on a remote server? We change our web page so 
+<p>Now what if -- instead of using mouse clicks, or predetermined javascript -- we want to load points based on some data on a remote server? We change our web page so
 that it can deal with JSON data from a remote server, and then make our javascript tell the sketch what to do:</p>
 {% highlight html linenos %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
 <title>My Processing Page</title>
 <script type="text/javascript" src="jquery.js"></script>
 
@@ -1025,22 +1024,22 @@ if(data) {
 // we know the JSON is an array of points, called "points"
 for(p=0, end=data.points.length; p<end; p++) {
 var point = data.points[p];
-pjs.addPoint(point.x, point.y); 
+pjs.addPoint(point.x, point.y);
 }
 }
-}         
+}
 </script>
 </head>
 <body>
-<canvas id="mysketch5" data-processing-sources="mysketch5.pde"/></canvas>
-<div id="controller"><button id="loadPoints" onclick="loadPoints('mysketch5')"/></div>
+<canvas id="mysketch5" data-processing-sources="mysketch5.pde"></canvas>
+<div id="controller"><button type="button" id="loadPoints" onclick="loadPoints('mysketch5')"></div>
 </body>
 </html>
 {% endhighlight %}
 
 <canvas id="mysketch6" data-processing-sources="/sketches/mysketch6.pde" style="border: 1px solid black;"></canvas>
-<div>load points: <button id="loadPoints" onclick="loadPointsJSON('mysketch6', this)">load</button></div>
-<br />
+<div>load points: <button type="button" id="loadPoints" onclick="loadPointsJSON('mysketch6', this)">load</button></div>
+<br>
 
 <p>The JSON that gets loaded in the example sketch in this section is the following:</p>
 
@@ -1055,7 +1054,7 @@ pjs.addPoint(point.x, point.y);
 
 
 <canvas id="mysketch7" data-processing-sources="/sketches/mysketch7.pde" style="border: 1px solid black;"></canvas>
-<div>load points: <button id="loadPoints" onclick="loadPointsXML('mysketch7', this)">load</button></div>
+<div>load points: <button type="button" id="loadPoints" onclick="loadPointsXML('mysketch7', this)">load</button></div>
 
 
 {% highlight javascript linenos %}
@@ -1063,7 +1062,7 @@ function loadPoints(id, button) {
 button.disabled = "disabled";
 var pjs = Processing.getInstanceById(id);
 var xml = $.get("http://thatfunkysite.com/serving/getxml.php");
-pjs.buildFromXML(xml); 
+pjs.buildFromXML(xml);
 }
 {% endhighlight %}
 
@@ -1076,10 +1075,10 @@ XMLElement[] xmlpoints = data.getChildren();
 for(int p=0, end=xmlpoints.length; p<end; p++) {
 XMLElement xmlpoint = xmlpoints[p];
 int x = xmlpoint.getIntAttribute("x");
-int y = xmlpoint.getIntAttribute("y");   
-points.add(new Point(x, y)); 
+int y = xmlpoint.getIntAttribute("y");
+points.add(new Point(x, y));
 }
-redraw(); 
+redraw();
 }
 {% endhighlight %}
 
@@ -1106,7 +1105,7 @@ redraw();
 
 <canvas id="mysketch8" data-processing-sources="/sketches/mysketch8.pde"></canvas>
 <div>drawing with SVG</div>
-<br />
+<br>
 
 {% highlight java linenos %}
 XMLElement svgxml;
@@ -1119,8 +1118,8 @@ int xmark=0;
 int ymark=0;
 void setup() {
 size(200,200);
-noLoop(); 
-}	
+noLoop();
+}
 void draw() {
 background(255);
 stroke(0);
@@ -1132,40 +1131,40 @@ if(ps!=null) { shape(ps,x-xoffset,y-yoffset,200,200); }
 }
 void mousePressed() {
 xmark = mouseX;
-ymark = mouseY; 
+ymark = mouseY;
 }
 void mouseDragged() {
 xoffset = xmark-mouseX;
-yoffset = ymark-mouseY; 
-redraw(); 
+yoffset = ymark-mouseY;
+redraw();
 }
 void mouseReleased() {
 if(xoffset!=0 || yoffset!=0) {
 x -= xoffset;
 y -= yoffset;
 xoffset=0;
-yoffset=0; 
+yoffset=0;
 }
 else {
 XMLElement path = svgxml.getChild(0);
 path.setAttribute("fill",getNextColor());
-bindSVG(svgxml); 
+bindSVG(svgxml);
 }
-}	
+}
 String[] colors = {"#f0f8ff","#faebd7","#00ffff","...", ..., ... };
-int color_len = colors.length; 
-int current_color = 0;	
+int color_len = colors.length;
+int current_color = 0;
 String getNextColor() {
 current_color = (current_color+1)%color_len;
-return colors[current_color]; 
-}	
+return colors[current_color];
+}
 void buildFromSVG(String svg) {
 svgxml = new XMLElement(svg);
-bindSVG(svgxml); 
-}	
+bindSVG(svgxml);
+}
 void bindSVG(XMLElement svg) {
 ps = new PShapeSVG(svgxml);
-redraw(); 
+redraw();
 }
 {% endhighlight %}
 
@@ -1180,10 +1179,10 @@ redraw();
 
 <a name="jobjs"></a>
 <h3 onclick="toggleContent('jobjs')">Javascript Objects</h3>
-<p>One last thing you may want to pass to a sketch is a real javascript object. Say we have a physics library that we want to take advantage of in our 
-sketch, and for Processing it's a .jar file, but there's a javascript version too. This thing lets us create a javascript "Physics" object that we can 
-call functions on for computing momentum and force transfer when we make two things hit each other. Since processing.js does not support .jar libraries 
-(because it's precompiled binary java class code, and pjs cannot unpack a jar file, reverse engineer the .java source, transform it to Processing API 
+<p>One last thing you may want to pass to a sketch is a real javascript object. Say we have a physics library that we want to take advantage of in our
+sketch, and for Processing it's a .jar file, but there's a javascript version too. This thing lets us create a javascript "Physics" object that we can
+call functions on for computing momentum and force transfer when we make two things hit each other. Since processing.js does not support .jar libraries
+(because it's precompiled binary java class code, and pjs cannot unpack a jar file, reverse engineer the .java source, transform it to Processing API
 calls, then confirm all calls are supported) we'll use this convenient javascript library. But how to do this cleanly? </p>
 <p>We have to do three things:</p>
 <ol>
@@ -1191,9 +1190,9 @@ calls, then confirm all calls are supported) we'll use this convenient javascrip
 <li>use a javascript binding so that we can ask javascript to make these objects for us, and</li>
 <li>write a javascript function to make these objects for us.</li>
 </ol>
-<p>So let's get cracking! First we determine which functions in the javascript Physics object we actually make use of. We could write an interface that 
-has correct method signatures for every function in the library, but this would be overkill. After reviewing our code we see that we actually only 
-make use of three of the objects functions: collide_objects(forcevector1, forcevector2, collisionangle), get_force_vector(startpoint, distancevector, 
+<p>So let's get cracking! First we determine which functions in the javascript Physics object we actually make use of. We could write an interface that
+has correct method signatures for every function in the library, but this would be overkill. After reviewing our code we see that we actually only
+make use of three of the objects functions: collide_objects(forcevector1, forcevector2, collisionangle), get_force_vector(startpoint, distancevector,
 accelleration) and get_trajectory(startpoint, objectmass, initialvector, gravityvector, gravitystrength). Let's build our interface:</p>
 
 {% highlight java linenos %}
@@ -1210,7 +1209,7 @@ float[][] get_trajectory(float[] startpoint, float objectmass, float[] initialve
 }
 {% endhighlight %}
 
-<p>First job done. Now to bind javascript. We've already looked at how to do this, so just follow the standard procedure and job's a good'n. 
+<p>First job done. Now to bind javascript. We've already looked at how to do this, so just follow the standard procedure and job's a good'n.
 In addition to whatever javascript functions you want to expose, however, we must add one more:</p>
 
 {% highlight java linenos %}
@@ -1230,9 +1229,9 @@ return new Physics(x,y,someothervar);
 }
 {% endhighlight %}
 
-<p>This last step seems silly, but we have to delegate the task of building a javascript object to javascript. If we tried to do this inside our sketch, 
+<p>This last step seems silly, but we have to delegate the task of building a javascript object to javascript. If we tried to do this inside our sketch,
 processing.js will not complain, but Processing will. To make matters worse, it also obscures the point of failure: if something goes wrong in the sketch,
-did it go wrong because processing.js has a bug, or because you were sloppy with javascript inside a Processing sketch? Golden rule: keep the different 
+did it go wrong because processing.js has a bug, or because you were sloppy with javascript inside a Processing sketch? Golden rule: keep the different
 languages separated as much as possible.</p>
 <p>We're almost set to use our javascript library for Processing purposes now. The only thing left is to create these objects and then use them in our sketch:</p>
 
@@ -1258,7 +1257,7 @@ MassBody body2 = new MassBody(...);
 Phsyics physicsObject
 
 void bindJavascript(JavaScript js) {
-javascript = js; 
+javascript = js;
 int x = 0;
 float y = 9;
 String[] somevalues = {"scalar", "vector", "tensor"};
@@ -1267,7 +1266,7 @@ physicsObject = javascript.buildPhysicsObject(x,y,somevalues);
 void setup()
 {
 ...
-}     
+}
 void draw()
 {
 // if the two bodies collide, compute the resultant forces
@@ -1288,9 +1287,9 @@ body2.draw();
 <a name="graphic"></a>
 
 <h3 onclick="toggleContent('graphic')">Processing.js as javascript graphics library</h3>
-<p>As last point of business, you can of course also use Processing.js as a pure graphics library, by invoking it for some canvas and then calling 
-Processing API calls directly. Let's jump right in! The following code is what you would write on-page, although of course as ever it's far better 
-practice to link to your source files, so you should really place what's in the script tags in a file myPjsSketch.js and link to it using src="..." 
+<p>As last point of business, you can of course also use Processing.js as a pure graphics library, by invoking it for some canvas and then calling
+Processing API calls directly. Let's jump right in! The following code is what you would write on-page, although of course as ever it's far better
+practice to link to your source files, so you should really place what's in the script tags in a file myPjsSketch.js and link to it using src="..."
 instead.</p>
 <p>The following code is split up into multiple (numbered) sections.</p>
 <ol>
@@ -1316,13 +1315,13 @@ instead.</p>
     pjs.size(200,200);
     // we want to turn off animation, because this is a demo page and it
     // would use cpu while not being looked at. Only draw on mousemoves
-    pjs.noLoop(); 
+    pjs.noLoop();
   }
 {% endhighlight %}
 </li>
 
 <li>
-<p>The draw() function defines the main draw function, which is called whenever a frame update is requested (either because the sketch is looping, or 
+<p>The draw() function defines the main draw function, which is called whenever a frame update is requested (either because the sketch is looping, or
 because redraw() is called manually)</p>
 {% highlight javascript linenos %}
   // Draw a "sine wave" using two bezier curves, with an undulating amplitude.
@@ -1342,12 +1341,12 @@ because redraw() is called manually)</p>
 </li>
 
 <li>
-<p>The mouseMoved() function is a Processing event handler that is triggered by the mouse moving around over the canvas. It is far more convenient to 
+<p>The mouseMoved() function is a Processing event handler that is triggered by the mouse moving around over the canvas. It is far more convenient to
 use the built-in event handler than to write our own.</p>
 {% highlight javascript linenos %}
-  pjs.mouseMoved = function() { 
+  pjs.mouseMoved = function() {
     value = ( pjs.mouseY-100);
-    pjs.redraw(); 
+    pjs.redraw();
   }
 {% endhighlight %}
 </li>
@@ -1364,7 +1363,7 @@ use the built-in event handler than to write our own.</p>
 
 </ol>
 
-<p>So let's see that in action - the code that we just ran through is supposed to draw a sinewave, 
+<p>So let's see that in action - the code that we just ran through is supposed to draw a sinewave,
 with an amplitude that depends on where the mouse is on the canvas. If all went well, it will look like this:</p>
 <canvas id="glibcanvas" style="border: 1px solid black;"></canvas>
 <script type="text/javascript">
@@ -1380,7 +1379,7 @@ with an amplitude that depends on where the mouse is on the canvas. If all went 
    pjs.size(200,200);
    // we want to turn off animation, because this is a demo page and it
    // would use cpu while not being looked at. Only draw on mousemoves
-   pjs.noLoop(); 
+   pjs.noLoop();
    pjs.background(255);
    pjs.fill(0,150);
    var s = "mouseOver to make things happen";
@@ -1402,9 +1401,9 @@ with an amplitude that depends on where the mouse is on the canvas. If all went 
      pjs.endDraw();
    }
 
-   pjs.mouseMoved = function() { 
+   pjs.mouseMoved = function() {
      value = (pjs.mouseY-100);
-     pjs.redraw(); 
+     pjs.redraw();
    }
 
    // Finally, calling setup() will kickstart the sketch
