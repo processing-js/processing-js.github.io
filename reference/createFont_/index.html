@@ -9,13 +9,13 @@ layout: default
 	</tr>
   <tr class="pjs">
 		<th scope="row">Processing.js Behavior</th>
-		<td>Font support for the Canvas element varies across browsers. See also: <a href="http://jim.studt.net/canvastext/">Canvas Text</a>, <a href="http://canvas.burnttoys.net/bauhaus.html">BurntToys Bauhaus</a>.
-		<br /><br /><p><b>Please use the following demos to learn how fonts can be rendered in Firefox with Processing.js: <a href="http://processingjs.org/learning/basic/letters">Letters</a>, <a href="http://processingjs.org/learning/basic/words">Words</a>, <a href="http://processingjs.org/source/text-width/text-width.html">width()</a></b></p>
+		<td>Font support for the Canvas element varies across browsers. See <a href="http://jim.studt.net/canvastext/">Canvas Text</a>, <a href="http://canvas.burnttoys.net/bauhaus.html">BurntToys Bauhaus</a>.
+		<br /><br /><p><b>Please use the following demos to learn how fonts can be rendered in Firefox with Processing.js: <a href="http://processingjs.org/learning/basic/letters">Letters</a>, <a href="http://processingjs.org/learning/basic/words">Words</a>, <a href="http://processingjs.org/reference/textWidth_/">width()</a></b></p>
     </td>
 	</tr>
 	<tr class="">
 		<th scope="row">Examples</th>
-		<td><div class="example"><pre class="">PFont myFont;
+		<td><div class="example"><pre>PFont myFont;
 void setup() {
   size(200, 200);
   // Uncomment the following two lines to see the available fonts 
@@ -30,20 +30,14 @@ void setup() {
 	<tr class="">
 		<th scope="row">Description</th>
 
-		<td><p>Dynamically converts a font to the format used by Processing from either a font name that's installed on the computer, or from a .ttf or .otf file inside the sketches "data" folder. 
-		This function is an advanced feature for precise control. On most occasions you should create fonts through selecting "Create Font..." from the Tools menu. </p>
+		<td><p>Use a font that's installed on the computer, or from a .ttf or .otf file inside current folder.</p>
 		<p>Use the <b>PFont.list()</b> method to first determine the names for the fonts recognized by the computer and are compatible with this function. 
-		Because of limitations in Java, not all fonts can be used and some might work with one operating system and not others. When sharing a sketch with other people or 
-		posting it on the web, you may need to include a .ttf or .otf version of your font in the data directory of the sketch because other people might not have the font 
+		Not all fonts can be used and some might work with one operating system and not others. When sharing a sketch with other people or 
+		posting it on the web, you may need to include a .ttf or .otf version of your font in the sketch directory because other people might not have the font 
 		installed on their computer. Only fonts that can legally be distributed should be included with a sketch. </p>
+		<p>If you have a @font-face rule in your CSS, you can use it by passing the @font-face name into the name parameter</p>
 		<p>The <b>size</b> parameter states the font size you want to generate. The <b>smooth</b> parameter specifies if the font should be antialiased or not, 
-		and the <b>charset</b> parameter is an array of chars that specifies the characters to generate. </p>
-		<p>This function creates a bitmapped version of a font in the same manner as the Create Font tool. It loads a font by name, and converts it to a 
-		series of images based on the size of the font. When possible, the text() function will use a native font rather than the bitmapped version created 
-		behind the scenes with createFont(). For instance, when using the default renderer setting (JAVA2D), the actual native version of the font will be employed 
-		by the sketch, improving drawing quality and performance. With the P2D, P3D, and OPENGL renderer settings, the bitmapped version will be used. While this can 
-		drastically improve speed and appearance, results are poor when exporting if the sketch does not include the .otf or .ttf file, and the requested font is not 
-		available on the machine running the sketch.</p></td>
+		and the <b>charset</b> parameter is an array of chars that specifies the characters to generate. All three parameters are ignored in Processing.js.</p></td>
 	</tr>
 
 	<tr class="">
@@ -65,17 +59,17 @@ void setup() {
 
 	<tr class="">
 		<th scope="row">size</th>
-		<td>float: point size of the font</td>
+		<td>float: point size of the font. Ignored by PJS</td>
 	</tr>
 
 	<tr class="">
 		<th scope="row">smooth</th>
-		<td>boolean: true for an antialiased font, false for aliased</td>
+		<td>boolean: true for an antialiased font, false for aliased. Ignored by PJS</td>
 	</tr>
 
 	<tr class="">
 		<th scope="row">charset</th>
-		<td>char[]: array containing characters to be generated</td>
+		<td>char[]: array containing characters to be generated. Ignored by PJS</td>
 	</tr>
 </table></td>
 
