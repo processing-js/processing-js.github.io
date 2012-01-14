@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>blendColor()</h3></td>
+
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><img src="/reference/blend_color.gif" alt="example pic" /><pre class="margin">color orange = color(204, 102, 0);
+color blue = color(0, 102, 153);
+color orangeblueadd = blendColor(orange, blue, ADD);
+background(51);
+noStroke();
+fill(orange);
+rect(14, 20, 20, 60);
+fill(orangeblueadd);
+rect(40, 20, 20, 60);
+fill(blue);
+rect(66, 20, 20, 60);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>			
+
+		<td><p>Blends two color values together based on the blending mode given as the <b>MODE</b> parameter. 
+		The possible modes are described in the reference for the <b>blend()</b> function.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td>
+		<pre>blendColor(<kbd>c1</kbd>,<kbd>c2</kbd>,<kbd>MODE</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			
+			<tr class="">
+				<th scope="row">c1</th>
+				<td>color: the first color to blend</td>
+			</tr>
+			<tr class="">
+				<th scope="row">c2</th>
+				<td>color: the second color to blend</td>
+			</tr>
+			<tr class="">
+				<th scope="row">MODE</th>
+				<td>Either BLEND, ADD, SUBTRACT, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, MULTIPLY, SCREEN, OVERLAY, HARD_LIGHT, SOFT_LIGHT, DODGE, or BURN</td>
+			</tr>
+			
+			
+</table></td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>float</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="/reference/blend_">blend()</a><br />
+		<a href="/reference/color_">color()</a><br /></td>
+	</tr>
+</table>

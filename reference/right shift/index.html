@@ -1,0 +1,131 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>>> (right shift)</h3></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>int m = 8 >> 3;    // In binary: 1000 to 1
+
+println(m);  // Prints "1"
+
+int n = 256 >> 6;  // In binary: 100000000 to 100 
+
+println(n);  // Prints "4"
+
+int o = 16 >> 3;   // In binary: 10000 to 10 
+
+println(o);  // Prints "2"
+
+int p = 26 >> 1;   // In binary: 11010 to 1101 
+
+println(p);  // Prints "13"</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>color argb = color(204, 204, 51, 255);
+
+int a = argb >> 24 & 0xFF;
+
+int r = argb >> 16 & 0xFF;  // Faster way of getting red(argb)
+
+int g = argb >> 8 & 0xFF;   // Faster way of getting green(argb)
+
+int b = argb & 0xFF;        // Faster way of getting blue(argb)
+
+fill(r, g, b, a);
+
+rect(30, 20, 55, 55);</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Shifts bits to the right. The number to the left of the operator is shifted the number of places specified by the number to the right. Each shift to the right halves the number, therefore each left shift divides the original number by 2. Use the right shift for fast divisions or to extract an individual number from a packed number. Right shifting only works with integers or numbers which automatically convert to an integer such at byte and char.</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+
+
+		<td><pre><kbd>value</kbd> >> <kbd>n</kbd></pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+
+
+		<th scope="row">value</th>
+
+		<td>int: the value to shift</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">n</th>
+
+		<td>int: the number of places to shift right</td>
+
+
+
+	</tr>
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td><a href="/reference/left shift"><< (left shift)</a><br /></td>
+
+	</tr>
+
+</table>
+
+
+

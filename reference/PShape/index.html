@@ -1,0 +1,122 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>PShape</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/reference/svg.jpg" alt="example pic" /><pre class="margin">PShape s;
+s = loadShape("bot.svg");
+smooth();
+shape(s, 10, 10, 80, 80);</pre></div></td>
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Description</th>
+		
+		<td><p>Datatype for storing shapes. Processing can currently load and display SVG (Scalable Vector Graphics) shapes.
+		Before a shape is used, it must be loaded with the <b>loadShape()</b> function. The shape() function is used to draw the shape to the display window. 
+		The <b>PShape</b> object contain a group of methods, linked below, that can operate on the shape data. </p>
+		<p>The <b>loadShape()</b> method supports SVG files created with Inkscape and Adobe Illustrator. 
+		It is not a full SVG implementation, but offers some straightforward support for handling vector data.</p></td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Fields</th>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row"><a href="/reference/PShape_width">width</a></th>
+				<td>Shape document width</td>		
+			</tr>
+			<tr class="">
+				<th scope="row"><a href="/reference/PShape_height">height</a></th>
+				<td>Shape document width</td>
+		
+			</tr>
+			</table>
+			</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Methods</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_isVisible_">isVisible()</a></th>
+		<td>Returns a boolean value "true" if the image is set to be visible, "false" if not</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_setVisible_">setVisible()</a></th>
+		<td>Sets the shape to be visible or invisible</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_disableStyle_">disableStyle()</a></th>
+
+		<td>Disables the shape's style data and uses Processing styles</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_enableStyle_">enableStyle()</a></th>
+		<td>Enables the shape's style data and ignores the Processing styles</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_getChild_">getChild()</a></th>
+		<td>Returns a child element of a shape as a PShape object</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_translate_">translate()</a></th>
+		<td>Displaces the shape</td>
+	</tr>
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_rotate_">rotate()</a></th>
+		<td>Rotates the shape</td>
+	</tr>
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_rotateX_">rotateX()</a></th>
+		<td>Rotates the shape around the x-axis</td>
+	</tr>
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_rotateY_">rotateY()</a></th>
+		<td>Rotates the shape around the y-axis</td>
+	</tr>
+	<tr class="">
+		<th scope="row"><a href="/reference/PShape_rotateZ_">rotateZ()</a></th>
+		<td>Rotates the shape around the z-axis</td>
+	</tr>
+		<tr class="">
+		<th scope="row"><a href="/reference/PShape_scale_">scale()</a></th>
+		<td>Increases and decreases the size of a shape</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row"><!--*-->Constructor<!--*--></th>
+		<td><pre>PShape()</pre></td>
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="/reference/shape_">shape()</a><br />
+		<a href="/reference/loadShape_">loadShape()</a><br />
+		<a href="/reference/shapeMode_">shapeMode()</a></td>
+	</tr>
+</table>

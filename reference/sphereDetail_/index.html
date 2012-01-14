@@ -1,0 +1,81 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>sphereDetail()</h3></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre class="">	
+void setup() {
+  size(100, 100, P3D); 
+}
+
+void draw() {
+  background(200);
+  stroke(255, 50);
+  translate(50, 50, 0);
+  rotateX(mouseY * 0.05);
+  rotateY(mouseX * 0.05);
+  fill(mouseX * 2, 0, 160);
+  sphereDetail(mouseX / 4);
+  sphere(40);
+}</pre>
+</div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+
+		<td>Controls the detail used to render a sphere by adjusting the number of vertices of the sphere mesh. 
+		The default resolution is 30, which creates a fairly detailed sphere definition with vertices every 360/30 = 12 degrees. 
+		If you're going to render a great number of spheres per frame, it is advised to reduce the level of detail using this function. 
+		The setting stays active until <b>sphereDetail()</b> is called again with a new parameter and so should not be called prior to every <b>sphere()</b> statement, unless you wish to render spheres with different settings, e.g. using less detail for smaller spheres or ones further away from the camera. 
+		To control the detail of the horizontal and vertical resolution independently, use the version of the functions with two parameters.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>sphereDetail(<kbd>res</kbd>)</pre><br />
+		<pre>sphereDetail(<kbd>ures</kbd>,<kbd>vres</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">res</th>
+				<td>int: number of segments (minimum of 3) used per full circle revolution</td>
+			</tr>
+			<tr class="">
+				<th scope="row">ures</th>
+				<td>int: number of segments used longitudinally per full circle revolution</td>
+			</tr>
+			<tr class="">
+				<th scope="row">vres</th>
+				<td>int: number of segments used latitudinally from top to bottom</td>
+			</tr>
+			</table></td>
+	</tr>
+<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>None</td>
+	</tr>
+	<tr class="">
+
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="/reference/sphere_">sphere()</a><br /></td>
+
+	</tr>
+</table>

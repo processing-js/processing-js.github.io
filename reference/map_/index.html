@@ -1,0 +1,75 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>map()</h3></td>
+
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre class="">size(400, 400);
+float value = 25;
+float m = map(value, 0, 100, 0, width);
+ellipse(m, 200, 10, 10);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>			
+
+		<td><p>Re-maps a number from one range to another. In the example above, the number '25' is converted from a value in the range 0..100 into a 
+		value that ranges from the left edge (0) to the right edge (width) of the screen. </p>
+		<p>Numbers outside the range are not clamped to 0 and 1, because out-of-range values are often intentional and useful.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td>
+		<pre>map(<kbd>value</kbd>,<kbd>low1</kbd>,<kbd>high1</kbd>,<kbd>low2</kbd>,<kbd>high2</kbd>)</pre><br /></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">value</th>
+				<td>float: The incoming value to be converted</td>
+			</tr>
+			<tr class="">
+				<th scope="row">low1</th>
+				<td>float: Lower bound of the value's current range</td>
+			</tr>
+			<tr class="">
+				<th scope="row">high1</th>
+				<td>float: Upper bound of the value's current range</td>
+			</tr>
+			<tr class="">
+				<th scope="row">low2</th>
+				<td>float: Lower bound of the value's target range</td>
+			</tr>
+			<tr class="">
+				<th scope="row">high2</th>
+				<td>float: Upper bound of the value's target range</td>
+			</tr>
+				</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>float</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+		<td><a href="/reference/norm_">norm()</a><br />
+		<a href="/reference/lerp_">lerp()</a><br /></td>
+	</tr>
+</table>

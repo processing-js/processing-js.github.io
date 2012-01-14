@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>textAscent()</h3></td>
+
+	</tr>
+
+  
+  <tr class="pjs">
+		<th scope="row">Processing.js Behavior</th>
+		<td>Font support for the Canvas element varies across browsers. FireFox currently has the best support, but still uses a pre-defined set of fonts. (Documentation to follow soon.) Good alternatives to the browser's Canvas-font functions are available: such as the <a href="http://bocoup.com/processing-js/docs/index.php?page=Cross-Browser%20Canvas%20Fonts">Glyph method</a>. See also: <a href="http://jim.studt.net/canvastext/">Canvas Text</a>, <a href="http://canvas.burnttoys.net/bauhaus.html">BurntToys Bauhaus</a>.
+		<br /><br /><p><b>Please use the following demos to learn how fonts can be rendered in Firefox with Processing.js: <a href="http://processingjs.org/learning/basic/letters">Letters</a>, <a href="http://processingjs.org/learning/basic/words">Words</a>, <a href="http://processingjs.org/source/text-width/text-width.html">width()</a></b></p>
+    </td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><img src="/reference/textAscent_.gif" alt="example pic" /><pre class="margin">PFont font;
+font = loadFont("FFScala-32.vlw"); 
+textFont(font);
+
+textSize(32); 
+float ascent = textAscent();
+text("dp", 0, 70);
+line(0, 70-ascent, 100, 70-ascent); 
+
+textSize(64);
+ascent = textAscent();
+text("dp", 35, 70);
+line(35, 70-ascent, 100, 70-ascent);</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+
+		<td><p>Returns ascent of the current font at its current size. This information is useful for determining the height of the font above the baseline. 
+		For example, adding the <b>textAscent()</b> and <b>textDescent()</b> values will give you the total height of the line.</p>
+		</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>textAscent()</pre></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>Float</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+
+		<td>    <a href="/reference/textDescent_">textDescent()</a></td>
+	</tr>
+</table>
+

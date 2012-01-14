@@ -1,0 +1,111 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>updatePixels()</h3></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/reference/updatePixels_.jpg" alt="example pic" /><pre class="margin">int halfImage = width*height/2;
+
+PImage myImage = loadImage("topanga.jpg");
+
+image(myImage, 0, 0);
+
+
+
+loadPixels();
+
+for (int i = 0; i < halfImage; i++) {
+
+  pixels[i+halfImage] = pixels[i];
+
+}
+
+updatePixels();</pre></div><div class="example"><img src="/reference/updatePixels_2.jpg" alt="example pic" /><pre class="margin">int halfImage = width*height/2;
+
+PImage myImage = loadImage("towerFlip.jpg");
+
+image(myImage, 0, 0);
+
+
+
+loadPixels();
+
+for (int i = 0; i < halfImage; i++) {
+
+  pixels[i+halfImage] = pixels[i];
+
+}
+
+updatePixels(50, 0, 50, 100);</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Updates the display window (or an image) when data in the <b>pixels[]</b> array has been modified. Use in conjunction with <b>loadPixels()</b>. If you're only reading pixels from the array, there's no need to call <b>updatePixels()</b> unless there are changes.
+
+<br /><br />
+
+Certain renderers may or may not seem to require <b>loadPixels()</b> or <b>updatePixels()</b>. However, the rule is that any time you want to manipulate the <b>pixels[]</b> array, you must first call <b>loadPixels()</b>, and after changes have been made, call <b>updatePixels()</b>. Even if the renderer may not seem to use this function in the current Processing release, this will always be subject to change.</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>updatePixels()</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td><a href="/reference/pixels">pixels[]</a>
+
+        <br /><a href="/reference/loadPixels_">loadPixels()</a><br /></td>
+
+	</tr>
+
+
+
+</table>
+

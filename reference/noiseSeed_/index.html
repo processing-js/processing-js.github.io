@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>noiseSeed()</h3></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre class="">float xoff = 0.0;
+
+void setup() {
+  noiseSeed(0);
+  stroke(0, 10);
+}
+
+void draw() 
+{
+  xoff = xoff + .01;
+  float n = noise(xoff) * width;
+  line(n, 0, n, height);
+}</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>Sets the seed value for <b>noise()</b>. By default, <b>noise()</b> produces different results each time the program is run. 
+		Set the <b>value</b> parameter to a constant to return the same pseudo-random numbers each time the software is run.</p></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>noiseSeed(<kbd>value</kbd>);</pre></td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">value</th>
+		<td>int: </td>
+	</tr>
+</table></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>float</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+
+		<td><a href="/reference/noise_">noise() </a><br />
+		<a href="/reference/noiseDetail_">noiseDetail() </a><br />
+		<a href="/reference/random_">random() </a><br /></td>
+	</tr>
+</table>
+

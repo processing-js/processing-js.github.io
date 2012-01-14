@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>split()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>String men = "Chernenko,Andropov,Brezhnev";
+String[] list = split(men, ',');
+// list[0] is now Chernenko, list[1] is Andropov, ...</pre><hr />
+<pre>String numbers = "8 67 5 309";
+int[] nums = int(split(numbers, ' '));
+// nums[0] is now 8, nums[1] is now 67, ...</pre><hr /><pre>String men = "Chernenko ] Andropov ] Brezhnev";
+String[] list = split(men, " ] ");
+// list[0] is now Chernenko, list[1] is Andropov, ...</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>The split() function breaks a string into pieces using a character or string as the divider. The <b>delim</b> parameter specifies the character or 
+		characters that mark the boundaries between each piece. A String[] array is returned that contains each of the pieces.</p>
+		<p>If the result is a set of numbers, you can convert the String[] array to to a float[] or int[] array using the datatype conversion functions <b>int()</b> and <b>float()</b> (see example above). </p>
+		<p>The <b>splitTokens()</b> function works in a similar fashion, except that it splits using a range of characters instead of a specific character or sequence.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>split(<kbd>str</kbd>,<kbd>delim</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">str</th>
+		<td>the String to be split</td>
+	</tr>
+		<tr class="">
+		<th scope="row">delim</th>
+		<td>the character or String used to separate the data
+</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>String[]</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="/reference/splitToken_">splitToken()</a><br />
+    <a href="/reference/trim_">trim()</a><br />
+    <a href="/reference/join_">join()</a></td>
+	</tr>
+</table>

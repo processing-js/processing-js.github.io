@@ -1,0 +1,145 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>keyPressed()</h3></td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>// Click on the image to give it focus,
+
+// and then press any key
+
+
+
+int value = 0;
+
+
+
+void draw() {
+
+  fill(value);
+
+  rect(25, 25, 50, 50);
+
+}
+
+
+
+void keyPressed() 
+
+{
+
+  if(value == 0) {
+
+    value = 255;
+
+  } else {
+
+    value = 0;
+
+  }
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+
+
+		<td>The <b>keyPressed()</b> function is called once every time a key is pressed. Because of how operating systems handle key repeats, holding down a key will cause multiple calls to keyPressed(), the rate is set by the operating system and how each computer is configured.</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>void keyPressed() { 
+
+  <kbd>statements</kbd>
+
+
+
+}</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+		<th scope="row"></th>
+
+		<td></td>
+
+
+
+	</tr>
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td>
+
+    <a href="/reference/key">key</a><br />
+
+    <a href="/reference/keyCode">keyCode</a><br />
+
+    <a href="/reference/keyPressed">keyPressed</a><br />
+
+    
+
+    <a href="/reference/keyReleased_">keyReleased()</a><br />
+
+    </td>
+
+	</tr>
+
+</table>
+
+
+

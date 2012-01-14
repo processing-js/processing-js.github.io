@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>PFont</h3></td>
+	</tr>
+  <tr class="pjs">
+		<th scope="row">Processing.js Behavior</th>
+		<td>Font support for the Canvas element varies across browsers. FireFox currently has the best support, but still uses a pre-defined set of fonts. (Documentation to follow soon.) Good alternatives to the browser's Canvas-font functions are available: such as the <a href="http://bocoup.com/processing-js/docs/index.php?page=Cross-Browser%20Canvas%20Fonts">Glyph method</a>. See also: <a href="http://jim.studt.net/canvastext/">Canvas Text</a>, <a href="http://canvas.burnttoys.net/bauhaus.html">BurntToys Bauhaus</a>.
+		<br /><br /><p><b>Please use the following demos to learn how fonts can be rendered in Firefox with Processing.js: <a href="http://processingjs.org/learning/basic/letters">Letters</a>, <a href="http://processingjs.org/learning/basic/words">Words</a>, <a href="http://processingjs.org/source/text-width/text-width.html">width()</a></b></p>
+    </td>
+	</tr>
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><img src="/reference/PFont.gif" alt="example pic" /><pre class="margin">PFont font;
+// The font must be located in the sketch's 
+// "data" directory to load successfully
+font = loadFont("FFScala-32.vlw"); 
+textFont(font, 32); 
+text("word", 15, 50);</pre></div></td>
+	</tr>
+
+
+	<tr class="">
+		<th scope="row">Description</th>
+		
+		<td><p>PFont is the font class for Processing. To create a font to use with Processing, select "Create Font..." from the Tools menu. This will create a font in the format Processing requires and also adds it to the current sketch's data directory. 
+		Processing displays fonts using the .vlw font format, which uses images for each letter, rather than defining them through vector data. The <b>loadFont()</b>
+		function constructs a new font and <b>textFont()</b> makes a font active. The <b>list()</b> method creates a list of the fonts installed on the computer, 
+		which is useful information to use with the <b>createFont()</b> function for dynamically converting fonts into a format to use with Processing.</p></td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Methods</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row"><a href="/reference/PFont_list_">PFont_list()</a></th>
+				<td>Gets a list of the fonts installed on the system.
+				</td>
+		
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row"><!--*-->Constructor<!--*--></th>
+		<td><pre>PFont()</pre><br />
+		<pre>PFont(<kbd>input</kbd>)</pre><br /></td>
+	</tr>
+	<tr class="">
+			<th scope="row">Parameters</th>
+	
+			<td><table cellpadding="0" cellspacing="0" border="0">
+		<tr class="">
+			<th scope="row">input</th>
+			<td>InputStream</td>
+		</tr>
+	</table></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="/reference/loadFont_">loadFont()</a><br/>
+		<a href="/reference/textFont_">textFont()</a><br />
+		<a href="/reference/createGraphics_">createGraphics()</a></td>
+	</tr>
+</table>

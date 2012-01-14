@@ -1,0 +1,94 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr>
+		<th scope="row">Class</th>
+		<td>XMLElement</td>
+	</tr>
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>getChild()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>// The following short XML file called "sites.xml" is parsed 
+// in the code below. It must be in the project's "data" directory
+// &lt;?xml version="1.0"?&gt;
+// &lt;websites&gt;
+//   &lt;site id="0" url="processing.org"&gt;Processing&lt;/site&gt;
+//   &lt;site id="1" url="mobile.processing.org"&gt;Processing Mobile&lt;/site&gt;
+// &lt;/websites&gt;
+
+XMLElement xml;
+
+void setup() {
+  size(200, 200);
+  xml = new XMLElement(this, "sites.xml");
+  XMLElement kid = xml.getChild(0);
+  String site = kid.getContent();
+  println(site);    
+}</pre><hr /><pre>void setup() {
+  // Download RSS feed of news stories from yahoo.com
+  String url = "http://rss.news.yahoo.com/rss/topstories";
+  XMLElement rss = new XMLElement(this, url);
+  // Get the <description> element from inside <channel>
+  XMLElement desc = rss.getChild("channel/description");
+  println(desc.getContent());
+}</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td>Returns the child XMLElement as specified by the <b>index</b> parameter. The value of the <b>index</b> parameter must be less than the total number of children to avoid going out of 
+		the array storing the child elements. When the <p>path</p> parameter is specified, then it will return all children that match that path.
+		The path is a series of elements and sub-elements, separated by slashes.
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre><kbd>xml</kbd>.getChild(<kbd>index</kbd>)</pre><br />
+		<pre><kbd>xml</kbd>.getChild(<kbd>path</kbd>)</pre>
+		</td>
+
+	</tr>
+	
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td>
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="">
+				<th scope="row">xml</th>
+				<td>any variable of type XMLElement</td>
+			</tr>
+			<tr class="">
+				<th scope="row">index</th>
+				<td>int: the element</td>
+			</tr>
+			<tr class="">
+				<th scope="row">path</th>
+				<td>String: path to a particular element</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>XMLElement</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href ="/reference/XMLElement_getChildCount_">XMLElement_getChildCount()</a><br />
+    <a href="/reference/XMLElement_getChildren_">XMLElement_getChildren()</a></td>
+
+	</tr>
+
+</table>

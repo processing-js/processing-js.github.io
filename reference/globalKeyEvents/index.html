@@ -1,0 +1,125 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>/* @pjs globalKeyEvents  */ directive</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre><u>bypass.pde:</u>
+	
+/* @pjs globalKeyEvents="true"; */
+
+<u>sketch.pde:</u>
+     
+int linepos;
+
+void setup()
+{
+  size(200,200);
+  noLoop();
+  linepos = height/2;
+}
+
+void draw()
+{
+  line(0,linepos,width,linepos);
+}
+    
+interface Javascript {}
+Javascript javascript=null;
+void bindJavascript(Javascript js) { javascript=js; }
+
+// due to every browser implementing key events differently,
+// proper keyhandling requires knowing whether this
+// sketch is running under Processing or under Processing.js
+void keyPressed()
+{
+  if( (javascript==null && key=='+' && keyCode==61) ||
+      (javascript!=null && (key==187 || key==119))) {
+    // if someone types a "+", draw the line lower
+    linepos++; 
+    redraw(); 
+  }
+  else if( (javascript==null && key=='-' && keyCode==45)
+      || (javascript!=null && (key==189 || key==115))) {
+    // if someone types a "-", draw the line higher
+    linepos--; 
+    redraw(); 
+  }
+}
+
+<u>sketch.html:</u>
+
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript" src="processing.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+  // bind javascript to all Processing instances
+  function bindJavascript() {
+    canvaslist = document.getElementsByTagName("canvas");
+    for(c=0; c&lt;canvaslist.length; c++) { 
+      pjs = Processing.getInstanceById(canvaslist[c]);
+      try { pjs.bindJavascript(this); }
+      catch(e) { setTimeout(bindJavascript, 250); }
+    }
+  }
+  bindJavascript();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;canvas id="first" data-processing-sources="sketch.pde"&gt;&lt;/canvas&gt;
+  &lt;canvas id="second" data-processing-sources="bypass.pde sketch.pde"&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div></td>
+	</tr>
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>By default sketches loaded using Processing.js will only accept keyboard events when they have focus (i.e. after having tab-navigated to them, 
+    or having clicked on them). Using this directive will allow a sketch to receive any keyboard event sent to the page, regardless of whether the canvas 
+    it is loaded in has focus or not. Using this directive means that people who visit your page will not need to explicitly click on your sketch to 
+    interact with it, but it also means that if you have multiple sketches on a page, any sketch that uses this directive will receive input that may not 
+    have been intended for it.</p>
+    </td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td>
+      <pre>
+        <kbd> /* @pjs globalKeyEvents="true"; */</kbd>  
+    </td>
+
+	</tr>
+ 
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	
+  <tr class="">
+		<th scope="row">globalKeyEvents</th>
+		<td>"true"  (implicitly false for any other value)</td>
+	</tr>
+  
+</table></td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application, Processing.js compatibility</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td>
+      <a href="/reference/pjs directive">@pjs directives</a> 
+    </td>
+	</tr>
+</table>

@@ -1,0 +1,73 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>splitTokens()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+
+		<td><div class="example"><pre>String t = "a b";
+String[] q = splitTokens(t);
+println(q[0]); // Prints "a"
+println(q[1]); // Prints "b"</pre><hr /><pre>// Despite the bad formatting, the data is parsed correctly.
+// The ", " as delimiter means to break whenever a comma *or*
+// a space is found in the String. Unlike the split() function, 
+// multiple adjacent delimiters are treated as a single break.
+String s = "a, b c ,,d "; 
+String[] p = splitTokens(s, ", ");
+println(p[0]); // Prints "a"
+println(p[1]); // Prints "b"
+println(p[2]); // Prints "c"
+println(p[3]); // Prints "d"</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td><p>	The splitTokens() function splits a String at one or many character "tokens." The <b>tokens</b> parameter specifies the character or characters to be used as a boundary. </p>
+		<p>If no <b>tokens</b> character is specified, any whitespace character is used to split. Whitespace characters include tab (\t), line feed (\n), carriage return (\r), form feed (\f), and space. To convert a String to an array of integers or 
+		floats, use the datatype conversion functions <b>int()</b> and <b>float()</b> to convert the array of Strings.</p></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>splitTokens(<kbd>str</kbd>)</pre><br /><pre>splitTokens(<kbd>str</kbd>,<kbd>tokens</kbd>)</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">str</th>
+		<td>the String to be split</td>
+	</tr>
+		<tr class="">
+		<th scope="row">tokens</th>
+		<td>list of individual characters that will be used as separators</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+		<td>String[]</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Web & Application</td>
+
+	</tr>
+
+	<tr class="">
+		<th scope="row">Related</th>
+		<td><a href="/reference/split_">split()</a><br />
+    <a href="/reference/trim_">trim()</a><br />
+    <a href="/reference/join_">join()</a></td>
+	</tr>
+</table>

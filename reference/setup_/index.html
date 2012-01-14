@@ -1,0 +1,131 @@
+---
+layout: default
+---
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+
+	<tr class="name-row">
+
+		<th scope="row">Name</th>
+
+		<td><h3>setup()</h3></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Examples</th>
+
+
+
+		<td><div class="example"><pre>void setup() {
+
+  size(200, 200);
+
+  background(0);
+
+  noStroke();
+
+  fill(102);
+
+}
+
+
+
+int a = 0;
+
+
+
+void draw() {
+
+  rect(a++%width, 10, 2, 80); 
+
+}</pre></div></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Description</th>
+
+		<td>Called once when the program is started. Used to define initial enviroment properties such as screen size, background color, loading images, etc. before the <b>draw()</b> begins executing. Variables declared within <b>setup()</b> are not accessible within other functions, including<b>draw()</b>. There can only be one <b>setup()</b> function for each program and it should not be called again after it's initial execution.</td>
+
+
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Syntax</th>
+
+		<td><pre>void setup() {
+
+  <kbd>statements</kbd>
+
+}</pre></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Parameters</th>
+
+		<td><table cellpadding="0" cellspacing="0" border="0">
+
+	<tr class="">
+
+		<th scope="row">statements</th>
+
+		<td>any valid statements</td>
+
+	</tr>
+
+
+
+</table></td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Returns</th>
+
+		<td>None</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+
+
+		<th scope="row">Usage</th>
+
+		<td>Web & Application</td>
+
+	</tr>
+
+
+
+	<tr class="">
+
+		<th scope="row">Related</th>
+
+		<td><a href="/reference/loop_">loop()</a>
+
+        <br /><a href="/reference/size_">size()</a><br /></td>
+
+	</tr>
+
+</table>
+
