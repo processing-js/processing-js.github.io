@@ -24,7 +24,9 @@ permalink: /articles/RenderingModes.html
     A renderer is chosen through the use of Processing's <a href="http://processingjs.org/reference/size_">
         size()</a> function. For example, to create a 2D sketch that is 200 by 200 pixels
     in size:
-    <pre name="code">size(200, 200, P2D);</pre>
+{% highlight java linenos %}
+size(200, 200, P2D);
+{% endhighlight %}
 </p>
 <h4>
     The 2D Rendering Context</h4>
@@ -35,13 +37,19 @@ permalink: /articles/RenderingModes.html
     details on canvas). You can create a 2D Processing.js sketch using any of the following:
     <ol>
         <li>
-            <pre name="code">size(200, 200, P2D);</pre>
+{% highlight java linenos %}
+size(200, 200, P2D);
+{% endhighlight %}
         </li>
         <li>
-            <pre name="code">size(200, 200, JAVA2D);</pre>
+{% highlight java linenos %}
+size(200, 200, JAVA2D);
+{% endhighlight %}
         </li>
         <li>
-            <pre name="code">size(200, 200); // default is 2D
+{% highlight java linenos %}
+size(200, 200); // default is 2D
+{% endhighlight %}
 </pre>
         </li>
     </ol>
@@ -52,7 +60,8 @@ permalink: /articles/RenderingModes.html
     <br />
     <canvas data-processing-sources="/sketches/2d1.pde" width="200"
         height="200"></canvas>
-    <pre name="code" class="processing">
+
+{% highlight java linenos %}
 int i = 0; 
 void setup() {
     size(200, 200); 
@@ -70,7 +79,8 @@ void draw() {
         i = 0; 
     }
 }
-</pre>
+{% endhighlight %}
+
 </p>
 <h4>
     The WebGL (3D) Rendering Context</h4>
@@ -91,11 +101,13 @@ void draw() {
 <p>
     In order to create a 3D OpenGL sketch in Processing, two things are necessary. First,
     the OpenGL library must be imported. Second, the OpenGL rendered must be specified:
-    <pre name="code" class="processing">
+
+{% highlight java linenos %}
 import processing.opengl.*
 ...
 size(200, 200, OPENGL);
-</pre>
+{% endhighlight %}
+
 </p>
 <p>
     Since Processing.js is actually JavaScript, it does not support importing Java-based
@@ -116,7 +128,8 @@ size(200, 200, OPENGL);
     <br />
     <canvas data-processing-sources="/sketches/webgl1.pde" width="200"
         height="200"></canvas>
-    <pre name="code" class="processing">
+
+{% highlight java linenos %}
 size(200, 200, OPENGL);
 noStroke();
 background(50);
@@ -127,7 +140,8 @@ rotateY(PI/3 + 210/float(height) * PI);
 box(45);
 translate(0, 0, -50);
 box(30);
-</pre>
+{% endhighlight %}
+
 </p>
 <p>
     <br />
@@ -135,16 +149,19 @@ box(30);
     <br />
     <canvas data-processing-sources="/sketches/webgl2.pde" width="200"
         height="200"></canvas>
-    <pre name="code" class="processing">
+
+{% highlight java linenos %}
 float ang = 0, ang2 = 0, ang3 = 0, ang4 = 0;
 float px = 0, py = 0, pz = 0;
 float flapSpeed = 0.2;
-void setup(){
+
+void setup() {
   size(200, 200, OPENGL);
   frameRate(50);
   noStroke();
 }
-void draw(){
+
+void draw() {
   background(0);
   camera();
   // Flight
@@ -183,8 +200,8 @@ void draw(){
   ang3 += 2.0;
   ang4 += 0.75;
 }
+{% endhighlight %}
 
-</pre>
 </p>
 <p><br />
     Once you have a 3D enabled browser installed you can try out some example 2D and
@@ -238,20 +255,24 @@ void draw(){
 </p>
 <p>
     From JavaScript, these can be accessed via a Processing.js sketch's instance:
-    <pre name="code" class="processing">
+
+{% highlight javascript linenos %}
 var p = Processing.instances[0];
 var context = p.externals.context;
 var p2 = Processing.getInstanceById('canvas-id');
 var p2Canvas = p2.externals.canvas;
-</pre>
+{% endhighlight %}
+
 </p>
 <p>
     The same thing can be done from within Processing code, where the externals object
     is available as a global variable:
-    <pre name="code" class="processing">
+
+{% highlight javascript linenos %}
 // Processing.js allows you to mix JavaScript, so using var is fine here:
 var currentContext = externals.context;
-</pre>
+{% endhighlight %}
+
 </p>
 Once you have a reference to the context, you can use any valid canvas API call,
 including raw WebGL functions if using a 3D sketch. 
