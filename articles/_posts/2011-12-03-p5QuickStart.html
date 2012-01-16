@@ -53,12 +53,12 @@ permalink: /articles/p5QuickStart.html
             about where to get your sketch file (you can specify multiple *.pde files, separating
             them with spaces):</li>
     </ol>
-    <div class="code">
-        <pre name="code" class="processing">
-&lt;script src="processing-1.0.0.min.js"&gt;&lt/script&gt;
-&lt;canvas data-processing-sources="hello-web.pde"&gt;&lt/canvas&gt;
-</pre>
-    </div>
+
+{% highlight html linenos %}
+<script src="processing-1.0.0.min.js"></script>
+<canvas data-processing-sources="hello-web.pde"></canvas>
+{% endhighlight %}
+
     <p>
         Load your web page, and it will parse, translate, and run your sketch in the browser.</p>
     <h3 id="whyprocessingjs">Why Processing.js?</h3>
@@ -129,8 +129,8 @@ permalink: /articles/p5QuickStart.html
     <p>
         Let's make a simple sketch that is 200 by 200 in size, sets the background to gray,
         draws a small white circle, and prints a message to the debug console:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight java linenos %}
 void setup() {
   size(200, 200);
   background(100);
@@ -138,8 +138,8 @@ void setup() {
   ellipse(50, 50, 25, 25);
   println("hello web!");
 }
-</pre>
-    </div>
+{% endhighlight %}
+
     <p>
         I'll assume below that you saved this to a file called hello-web.pde
     </p>
@@ -170,12 +170,12 @@ void setup() {
         more later as you have time and interest. Unlike compilers or programming languages,
         web browsers are designed to accept almost any input you throw at them, whether
         valid or not, whether complete or not. Here's your first Processing.js web page:</p>
-    <div class="code">
-        <pre name="code" class="processing">
-&lt;script src="processing-1.0.0.min.js"&gt;&lt;/script&gt;
-&lt;canvas data-processing-sources="hello-web.pde"&gt;&lt;/canvas&gt;
-</pre>
-    </div>
+
+{% highlight html linenos %}
+<script src="processing-1.0.0.min.js"></script>
+<canvas data-processing-sources="hello-web.pde"></canvas>
+{% endhighlight %}
+
     <p>
         That's it! No &lt;html&gt; or &lt;body&gt; tags, no title, no CSS, just the processing.js
         script, and a canvas. While there isn't much here, it's important to understand
@@ -200,24 +200,22 @@ void setup() {
     <p>
         If you're the kind of person who doesn't like taking shortcuts, here's what a more
         complete web page might look like:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight html linenos %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Hello Web - Processing.js Test</title>
-    &lt;script src="processing-1.0.0.min.js"&gt;&lt;/script&gt;
+    <script src="processing-1.0.0.min.js"></script>
 </head>
 <body>
-    <h1>
-        Processing.js Test</h1>
-    <p>
-        This is my first Processing.js web-based sketch:</p>
-    &lt;canvas data-processing-sources="hello-web.pde"&gt;&lt;/canvas&gt;
+    <h1>Processing.js Test</h1>
+    <p>This is my first Processing.js web-based sketch:</p>
+    <canvas data-processing-sources="hello-web.pde"></canvas>
 </body>
 </html>
-</pre>
-    </div>
+{% endhighlight %}
+
     <p>
         Both ways work, and you shouldn't let yourself get burdened by HTML and other web
         syntax until you feel you want to do other things with your web pages.</p>
@@ -259,15 +257,15 @@ void setup() {
         in Processing code, when converted to Processing.js, can sometimes become problematic,
         as numbers become doubles, and introduce a fractional part. The fix is to explicitly
         cast any division to an integer that exhibits this behaviour:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight java linenos %}
 // before
 int g = mouseX / i;
 
 // after
 int g = (int)(mouseX / i);
-</pre>
-    </div>
+{% endhighlight %}
+
     <p>
         See <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/532-drawing-artifacts-in-processingjs-not-in-processing-with-this-code">
             lighthouse bug</a></p>
@@ -287,23 +285,23 @@ int g = (int)(mouseX / i);
         The Processing.js Directives are hints to the browser that are written in comments
         rather than in the Processing code itself. Here's a typical Processing sketch that
         loads an image synchronously and then draws it:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight java linenos %}
 PImage img;
 
 void setup() {
   img = loadImage("picture.jpg");
   image(img, 0, 0);
 }
-</pre>
-    </div>
+{% endhighlight %}
+
     <p>
         This code will not work in the browser with Processing.js, because the call to <b>image()</b>
         will happen before the file <b>picture.jpg</b> has been downloaded. The fix is to
         ask Processing.js to download the image before the sketch starts, and cache it--a
         technique known as preloading. Here is the modified code:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight java linenos %}
 /* @pjs preload="picture.jpg"; */
 PImage img;
 
@@ -311,19 +309,19 @@ void setup() {
   img = loadImage("picture.jpg");
   image(img, 0, 0);
 }
-</pre>
-    </div>
+{% endhighlight %}
+
     <p>
         Notice the extra comment line at the top of the code. The <b>@pjs</b> directive
         is for Processing.js, and not the developer. Think of it as an extra line of code
         that will be executed before the program begins.</p>
     <p>
         If you have multiple images to load, use a list like so:</p>
-    <div class="code">
-        <pre name="code" class="processing">
+
+{% highlight java linenos%}
 /* @pjs preload="picture.jpg,picture2.jpg,picture3.png"; */
-</pre>
-    </div>
+{% endhighlight %}
+
     <h4 id="variablenamingcare"><b>Processing.js requires more care with variable naming than Processing</b></h4>
     <p>
         One of the powerful features of JavaScript is its dynamic, typeless nature. Where
@@ -344,7 +342,8 @@ void setup() {
         the integer vs. floating point issues with JavaScript, Processing.js does not perform any capping,
         and so even though the following code will show a black and a white line in Processing, it will
         show a yellow line, and an "invisible" line in Processing.js instead.</p>
-    <div class="code"><pre name="code" class="processing">
+
+{% highlight java linenos %}
 void setup()
 {
   size(100,100);
@@ -359,7 +358,8 @@ void draw()
   stroke(600.0);
   line(0,75,width,75);
 }
-    </pre></div>
+{% endhighlight %}
+
     <p>We recommend you always sanitize your inputs for color if you need colors to be "in range", and only use hex colors, using color(#RRGGBB), or rgb/rgba colors, using color(r,g,b) and color(r,g,b,a)</p>
     <h3 id="processingcodeinwebpage"><b>It is possible to put Processing code directly in your web page</b></h3>
     <p>
@@ -369,49 +369,10 @@ void draw()
     <p>
         A few changes are necessary to make the example above work with inline Processing
         code:</p>
-    <div class="code">
-        <pre name="code" class="processing">
-&lt;script src="processing-1.0.0.min.js"&gt;&lt;/script&gt;
-&lt;script type="application/javascript"&gt;
-/*
- * This code searches for all the &lt;script type="application/processing" target="canvasid"&gt;
- * in your page and loads each script in the target canvas with the proper id.
- * It is useful to smooth the process of adding Processing code in your page and starting
- * the Processing.js engine.
- */
 
-if (window.addEventListener) {
-  window.addEventListener("load", function() {
-    var scripts = document.getElementsByTagName("script");
-    var canvasArray = Array.prototype.slice.call(document.getElementsByTagName("canvas"));
-    var canvas;
-    for (var i = 0, j = 0; i < scripts.length; i++) {
-      if (scripts[i].type == "application/processing") {
-        var src = scripts[i].getAttribute("target");
-        if (src && src.indexOf("#") > -1) {
-          canvas = document.getElementById(src.substr(src.indexOf("#") + 1));
-          if (canvas) {
-            new Processing(canvas, scripts[i].text);
-            for (var k = 0; k< canvasArray.length; k++)
-            {
-              if (canvasArray[k] === canvas) {
-                // remove the canvas from the array so we dont override it in the else
-                canvasArray.splice(k,1);
-              }
-            }
-          }
-        } else {
-          if (canvasArray.length >= j) {
-            new Processing(canvasArray[j], scripts[i].text);
-          }
-          j++;
-        }
-      }
-    }
-  }, false);
-}
-&lt;/script&gt;
-&lt;script type="application/processing" target="processing-canvas"&gt;
+{% highlight html linenos %}
+<script src="processing-1.3.6.min.js"></script>
+<script type="text/processing" target="processing-canvas">
 void setup() {
   size(200, 200);
   background(100);
@@ -419,10 +380,10 @@ void setup() {
   ellipse(50, 50, 25, 25);
   println('hello web!');
 }
-&lt;/script&gt;
-&lt;canvas id="processing-canvas"&gt; &lt;/canvas&gt;
-</pre>
-    </div>
+</script>
+<canvas id="processing-canvas"> </canvas>
+{% endhighlight %}
+
     <p>
         This code is more complex because it has to figure out which canvas goes with which
         script (i.e., you can have multiple Processing sketches living in the same page,
@@ -430,11 +391,6 @@ void setup() {
         attribute, which distinguishes between JavaScript and Processing code (the browser
         will ignore Processing scripts). Finally, note the use of the <b>id</b> and <b>target</b>
         attributes to connect the Processing script with the associated canvas.</p>
-    <p>
-        Portions of the code above are from the Processing.js project's <b>init.js</b> file,
-        see <a href="http://github.com/annasob/processing-js/blob/0.9.8/examples/init.js">the
-            file on git</a>. This file will likely be going away in the future, and happen
-        automatically as part of Processing.js initialization.</p>
     <h3 id="whateveryoucandowiththeweb"><b>Whatever you can do with the web, you can do with Processing.js</b></h3>
     <p>
         Now that your sketch is working, and you have a basic web page, you'll probably
