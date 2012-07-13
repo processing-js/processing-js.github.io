@@ -35,6 +35,7 @@ permalink: /articles/p5QuickStart.html
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
+                <li style="margin-bottom: 0px;"><a href="#methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></li>
                 <li style="margin-bottom: 0px;"><a href="#colorrange">Calling color() with out-of-range values produces unpredictable colors</a></li>
             </ol>
         </li>
@@ -331,6 +332,48 @@ void setup() {
         not use function/class/etc. names from Processing as variable names. For example,
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
         the similarly named <b>line()</b> function built-into Processing and Processing.js.</p>
+
+    <h4 id="methodoverriding"><b>Processing.js needs your help when overriding overloaded superclass methods</b></h4>
+    <p>
+        If your code uses subclasses that override one or more overloaded methods in the superclass, you
+        will need "dummy" overrides for every method signature that you'd normally leave untouched:</p>
+
+{% highlight java linenos %}
+class X
+{
+  void doSomething()
+  {
+    ...
+  }
+  
+  void doSomething(float x, float y)
+  {
+    ...
+  }
+}
+
+class Y extends X
+{
+  void doSomething()
+  {
+    // different code from compared to the super class
+  }
+  
+  // even though we don't override this method,
+  // its signature must be added to prevent Pjs
+  // from getting the method chain wrong:
+  void doSomething(float x, float y)
+  {
+    super.doSomething(x,y);
+  }
+}
+{% endhighlight %}
+
+    <p>
+        Even though in Processing you will not need to implement the fallthrough method for doSomethign with a
+        (float,float) signature, doing so is almost always necessary to make sure Processing.js doesn't get
+        confused about which class's method to call.</p>
+
     <h4 id="colorrange"><b>Calling color() with out-of-range values produces unpredictable colors</b></h4>
     <p>
         Also in the class of integer vs. floating point issues, color(number) and color(number, number)
