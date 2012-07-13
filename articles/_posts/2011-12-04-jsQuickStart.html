@@ -44,6 +44,7 @@ permalink: /articles/jsQuickStart.html
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
+                <li style="margin-bottom: 0px;"><a href="#methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></li>
                 <li style="margin-bottom: 0px;"><a href="#processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></li>
             </ol>
         </li>
@@ -504,6 +505,49 @@ void setup() {
         not use function/class/etc. names from Processing as variable names. For example,
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
         the similarly named <b>line()</b> function built-into Processing and Processing.js.</p>
+
+    <h4>
+      <b><a name="methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></b></h4>
+    <p>
+        If your code uses subclasses that override one or more overloaded methods in the superclass, you
+        will need "dummy" overrides for every method signature that you'd normally leave untouched:</p>
+
+{% highlight java linenos %}
+class X
+{
+  void doSomething()
+  {
+    ...
+  }
+  
+  void doSomething(float x, float y)
+  {
+    ...
+  }
+}
+
+class Y extends X
+{
+  void doSomething()
+  {
+    // different code from compared to the super class
+  }
+  
+  // even though we don't override this method,
+  // its signature must be added to prevent Pjs
+  // from getting the method chain wrong:
+  void doSomething(float x, float y)
+  {
+    super.doSomething(x,y);
+  }
+}
+{% endhighlight %}
+
+    <p>
+        Even though in Processing you will not need to implement the fallthrough method for doSomethign with a
+        (float,float) signature, doing so is almost always necessary to make sure Processing.js doesn't get
+        confused about which class's method to call.</p>
+
     <h4>
         <b><a name="processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></b></h4>
     <p>
