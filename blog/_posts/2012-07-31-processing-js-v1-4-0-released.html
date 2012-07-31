@@ -1,0 +1,77 @@
+--- 
+layout: post
+title: Processing.js v1.4.0 released
+---
+<p>Processing.js 1.4.0! Yes, it's finally here, and it's a doozy. Many of the dev team have
+been working on other projects over the last year, with some people wondering whether Processing.js
+was a dead project, so just to reassure you: it is very much alive. However, we've had to make some
+changes to the way we do releases now that we no longer have any developers dedicating all their time
+to the project. So, let's start with the biggest change: a release! You can find the full list of
+things that were added or fixed in the <a href="/blog">changelog</a>, but to give you a taste of
+what's changed: SVG drawing to buffers now works, method overloading has been made far more robust,
+XML with CDATA no longer breaks and the Processing 2.0 XML API is supported, IE9 no longer crashes
+without the debug tools turned one, and we even managed to slip variable argument syntax (Type...
+varname) into the parser. There's even a new extension to play with.<p>
+
+<p>The second change is also relatively big: we're changing from spaced out, big releases to
+relatively frequent, but small releases. This benefits everyone: you get more frequent updates
+to Processing.js, and issues that you report (or contribute code for!) make it into the public
+version much faster, and the people who work on Processing.js (a number of formerly full-time
+devs are still involved with the project on a part time basis) can simply focus on getting two
+or three important tickets out of the way each release, rather than spending time trying to work
+through twenty or thirty. This makes things much more managable.</p>
+
+<p>The <strong>tl;dr</strong> version; Processing 1.4.0 is out! Go <a href="/download/">download</a>
+it! And to keep your coming back for more, expect 1.4.1 at the end of August!</p>
+
+<p>As always: if you run into any problems with Processing.js, please file a
+<a href="https://processing-js.lighthouseapp.com/projects/41284-processingjs/tickets/new">
+bug</a> or talk to us on <a href="irc://irc.mozilla.org/processing.js">IRC</a> 
+(irc://irc.mozilla.org/processing.js).</p>
+
+<h3><a name="Changelog"></a>Changelog</h3>
+
+<ul>
+  <li>Added a PJS object inspector <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1867">[#1867]</a></li>
+  <li>Added ArrayList.lastIndexOf() <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1837">[#1837]</a></li>
+  <li>Added ArrayList.removeAll() <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1001">[#1001]</a></li>
+  <li>Added CDATA support to XML <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1788">[#1788]</a></li>
+  <li>Added check for IE9 non-HTML5 doctype <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1606">[#1606]</a></li>
+  <li>Added online global variable <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1743">[#1743]</a></li>
+  <li>Added option to stop ref test suite on failures <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1681">[#1681]</a></li>
+  <li>Added PFont cache limits <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1741">[#1741]</a></li>
+  <li>Added PImage.get() ref tests <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1601">[#1601]</a></li>
+  <li>Added point smoothing in 3D <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/602">[#602]</a></li>
+  <li>Added Processing.reload() <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1133">[#1133]</a></li>
+  <li>Added shearX() and shearX() to 2D mode <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1640">[#1640]</a></li>
+  <li>Added shearX() and shearY() in 3D mode <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1773">[#1773]</a></li>
+  <li>Added support for Processing 2.0 XML support <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1806">[#1806]</a></li>
+  <li>Added support for variable arguments <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1842">[#1842]</a></li>
+  <li>Added tinyLogLite license and author to LICENSE <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1731">[#1731]</a></li>
+  <li>Enabled preserveDrawingBuffer when context is acquired <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1651">[#1651]</a></li>
+  <li>Fixed array initialization code <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1817">[#1817]</a></li>
+  <li>Fixed ArrayList(int) constructor <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1829">[#1829]</a></li>
+  <li>Fixed data-processing-sources to seperate files or ids by whitespace, not just spaces <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1818">[#1818]</a></li>
+  <li>Fixed handling of namespaces in XMLElement.getChild <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1382">[#1382]</a></li>
+  <li>Fixed HashMap iterator.remove() bug <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1871">[#1871]</a></li>
+  <li>Fixed I-bar cursor appearing on click-dragging <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1755">[#1755]</a></li>
+  <li>Fixed IE9 hanging on exception without debugger <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1789">[#1789]</a></li>
+  <li>Fixed init to cache &lt;script&gt; elements <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1740">[#1740]</a></li>
+  <li>Fixed lazy loading height calculation <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1846">[#1846]</a></li>
+  <li>Fixed naming convention in shaders <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1279">[#1279]</a></li>
+  <li>Fixed off-by-one error in arc startLUT calculations <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1802">[#1802]</a></li>
+  <li>Fixed overloaded method calls <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1810">[#1810]</a></li>
+  <li>Fixed parser to allow $ in names <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1688">[#1688]</a></li>
+  <li>Fixed PGraphics initially not transparent <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1813">[#1813]</a></li>
+  <li>Fixed PImage.toImageData using cached image data <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1768">[#1768]</a></li>
+  <li>Fixed popStyle() setting rectMode() to undefined <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1771">[#1771]</a></li>
+  <li>Fixed PShape to work with PGraphics <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1778">[#1778]</a></li>
+  <li>Fixed PShape.shape() changing rectMode() and ellipseMode() <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1753">[#1753]</a></li>
+  <li>Fixed right-click context menu appearing in 3D sketches <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1779">[#1779]</a></li>
+  <li>Fixed splitTokens() to work with special characters <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1799">[#1799]</a></li>
+  <li>Fixed textSize() not resetting font metrics <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1687">[#1687]</a></li>
+  <li>Removed duplicate curElement assigned code <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1763">[#1763]</a></li>
+  <li>Set animated ref tests to run at 1000 FPS <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1830">[#1830]</a></li>
+  <li>Unmarked ref tests as known fails due to FF9 JIT bugs <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1700">[#1700]</a></li>
+  <li>Updated the generics regexp for array notation <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/1812">[#1812]</a></li>
+</ul>
