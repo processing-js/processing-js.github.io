@@ -34,9 +34,14 @@ public void draw() {
         backgroundBubbles.add(new Bubble( color(int(random(100, 255)), 100)));
     }
 
-    for (Bubble aBubble : backgroundBubbles) {
-        aBubble.update();
-        aBubble.render();
+    for(int i = backgroundBubbles.size()-1; i >= 0; i--) {
+        Bubble bubble = backgroundBubbles.get(i);
+        if (bubble.getLocation().y < -50)
+            backgroundBubbles.remove(i);
+        else {
+            bubble.update();
+            bubble.render();
+        }
     }
      
     myFish.update();
@@ -45,9 +50,14 @@ public void draw() {
         myFish.explode();
     }
 
-    for (Bubble aBubble : foregroundBubbles) {
-        aBubble.update();
-        aBubble.render();
+    for(int i = foregroundBubbles.size()-1; i >= 0; i--) {
+        Bubble bubble = foregroundBubbles.get(i);
+        if (bubble.getLocation().y < -50)
+            foregroundBubbles.remove(i);
+        else {
+            bubble.update();
+            bubble.render();
+        }
     }
 
     if(randomNumber <= 6) {
