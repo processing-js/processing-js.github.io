@@ -1,3 +1,16 @@
+/**
+ *  koi designed by nardove http://nardove.com/
+ *  interactive aquarium by David Leibovic https://twitter.com/davidleibovic
+ *  and Sunah Suh https://twitter.com/sunahsuh
+ *
+ *  view the rest of the source files at: 
+ *  http://processingjs.org/sketches/my-life-aquatic/Boid.pde
+ *  http://processingjs.org/sketches/my-life-aquatic/Bubble.pde
+ *  http://processingjs.org/sketches/my-life-aquatic/Fish.pde
+ *  http://processingjs.org/sketches/my-life-aquatic/Flagellum.pde
+ *  http://processingjs.org/sketches/my-life-aquatic/Food.pde
+ */
+
 ArrayList<Bubble> foregroundBubbles;
 ArrayList<Bubble> backgroundBubbles; 
 ArrayList<Food> foods;
@@ -5,7 +18,7 @@ Fish myFish;
 
 public void setup() {
     int pondWidth = $(window).width();
-    int pondHeight = 400;
+    int pondHeight = 200;
 
 	size(pondWidth, pondHeight);
 
