@@ -19,21 +19,16 @@ layout: default
   </span>
 </div>
 
-<h2>Processing.js 1.4.0 released!</h2>
+<h2>Processing.js 1.4.1 released!</h2>
 
-<p>Processing.js 1.4.0! Yes, it's finally here, and it's a doozy. Many of the dev team have
-been working on other projects over the last year, with some people wondering whether Processing.js
-was a dead project, so just to reassure you: it is very much alive. This release comes with a
-fairly big changelog (read the blog post about that <a href="/blog">here</a>), and a release
-model change: we're changing from spaced out, big releases to relatively frequent, but small
-releases. This will benefit everyone: you get more frequent updates to Processing.js, and
-issues that you report (or contribute code for!) make it into the public version much faster,
-and the people who work on Processing.js can simply focus on getting a small number of 
-important tickets out of the way each release, rather than spending time trying to work
-through twenty or thirty. This makes things much more managable!</p>
-
-<p>The <strong>tl;dr</strong> version; Processing 1.4.0 is out! Go <a href="/blog">download</a>
-it! And to keep you coming back for more, expect 1.4.1 at the end of August!</p>
+<p>Processing.js 1.4.0! And then Processing 1.4.1! Because there was a really silly but
+ruinous regression introduced by 1.4.0! All joking aside, 1.4.1 is a hotfix for 1.4.0,
+fixing a bug that prevents sketches from focussing on mouse clicks. That's pretty severe,
+because without the globalKeyEvents instruction, Processing.js sketches only receive key
+events when they have focus. No focus, no key events. No key events, very limited interaction.
+So if you grabbed <a href="/blog">v1.4.0</a>, quickly <a href="/download">grab yourself
+a new v1.4.1</a> and enjoy all the goodness that 1.4.0 introduced, without the lack of
+key events this time.</p>
 
 <h2>About Processing.js</h2>
 
