@@ -1,7 +1,7 @@
 The Processing.js website
 =========================
 
-This is our website, in all it's glory.
+This is our website, in all its glory.
 
 Testing the website locally
 ---------------------------
@@ -48,7 +48,7 @@ Updating the exhibitions
 ------------------------
 
 The exhibitions index is `/exhibition/index.html`, and all of the individual exhibitions are
-located in `/exhibition/_posts/`. I've create a template exhibition in
+located in `/exhibition/_posts/`. I've created a template exhibition in
 `/exhibition/_posts/template.html`, but it's here too:
 
     <span>
@@ -71,7 +71,7 @@ Updating the articles
 ---------------------
 
 The articles index is `/articles/index.html`, and all of the individual articles are located
-in `/articles/_posts/`. The template is at `/articles/_posts/template.html`, but lets look
+in `/articles/_posts/`. The template is at `/articles/_posts/template.html`, but let's look
 at it anyways:
 
     ---
