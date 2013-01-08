@@ -10,7 +10,9 @@ Install [Jekyll](https://github.com/mojombo/jekyll/wiki/Install) on your compute
 clone this repository, and run `jekyll` inside the root of the repository. 
 
 To match Github Pages, you'll need to install Jekyll v0.11.0, uninstall Liquid v2.3.0
-(`gem uninstall liquid`), then install Liquid v2.2.2 (`gem install liquid -v 2.2.2`).
+(`gem uninstall liquid`), then install Liquid v2.2.2 (`gem install liquid -v 2.2.2`).  For this
+combination to work, you'll need to be running ruby 1.8.7; ruby 1.9.x fails with an "invalid byte 
+sequence in UTF-8" ArgumentError. 
 
 Jekyll will compile (yes, seriously) the website into the _site directory, and start a
 localhost web server running on port 4000. Jekyll will automatically recompile the site
