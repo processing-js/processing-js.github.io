@@ -5,27 +5,27 @@ title: JavaScript Quick Start
 permalink: /articles/jsQuickStart.html
 ---
 <div>
-    <h3>
-        Processing.js Quick Start - JavaScript Developer Edition</h3>
-    <h4>
-        Introduction</h4>
+    <h3>Processing.js Quick Start - JavaScript Developer Edition</h3>
+
+    <h4>Introduction</h4>
+
     <p>
         This quick start guide is written from the standpoint of a JavaScript developer.
         The document assumes you know JavaScript and web programming, but only very basic
         Processing knowledge is assumed.</p>
-    <h4>
-        Index</h4>
+
+    <h4>Index</h4>
     <ol>
         <li style="margin-bottom: 0px;"><a href="#quickstart">For the Impatient</a></li>
         <li style="margin-bottom: 0px;"><a href="#whyprocessingjs">Why Processing.js?</a>
-            <ol>                
+            <ol>
                 <li style="margin-bottom: 0px;"><a href="#whatisprocessing">What is Processing?</a></li>
                 <li style="margin-bottom: 0px;"><a href="#whatdoesprocessingbrintotheweb">What does Processing bring to the web?</a></li>
                 <li style="margin-bottom: 0px;"><a href="#learnprocessing">How much work is it to learn Processing?</a></li>
             </ol>
         </li>
         <li style="margin-bottom: 0px;"><a href="#waystouseprocessingjs">Ways to use Processing.js</a>
-            <ol>                
+            <ol>
                 <li style="margin-bottom: 0px;"><a href="#writingpureprocessingcode">Writing Pure Processing Code</a></li>
                 <li style="margin-bottom: 0px;"><a href="#processingcodetojavascript">Pre-compiling Processing code to JavaScript</a></li>
                 <li style="margin-bottom: 0px;"><a href="#javascriptonlyprocessingcode">Writing JavaScript-only Processing.js code</a></li>
@@ -42,6 +42,7 @@ permalink: /articles/jsQuickStart.html
             <ol>
                 <li style="margin-bottom: 0px;"><a href="#externalsproperty">Processing.js provides access to various DOM/JavaScript objects via the externals property</a></li>
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
+                <li style="margin-bottom: 0px;"><a href="#explicitcharintention">Char data is treated as number or string depending on how you compare</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
                 <li style="margin-bottom: 0px;"><a href="#methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></li>
@@ -49,8 +50,8 @@ permalink: /articles/jsQuickStart.html
             </ol>
         </li>
     </ol>
-    <h4>
-        <b><a name="quickstart">For the Impatient</a></b></h4>
+
+    <h4><b><a name="quickstart">For the Impatient</a></b></h4>
     <p>
         If you're in a rush, here's what you need to know:</p>
     <ol>
@@ -71,10 +72,10 @@ permalink: /articles/jsQuickStart.html
 
     <p>
         Load your web page, and it will parse, translate, and run your sketch in the browser.</p>
-    <h3>
-        <a name="whyprocessingjs">Why Processing.js?</a></h3>
-    <h4>
-        <b><a name="whatisprocessing">What is Processing?</a></b></h4>
+
+    <h3><a name="whyprocessingjs">Why Processing.js?</a></h3>
+
+    <h4><b><a name="whatisprocessing">What is Processing?</a></b></h4>
     <p>
         The Processing language was originally created at MIT as part of the Media lab and
         Aesthetics and Computation group. They needed a way to bridge the gap between software
@@ -82,8 +83,8 @@ permalink: /articles/jsQuickStart.html
         new programmers (or non-programmers) to do complex visual work easily. Processing
         was built using Java, and can be thought of as a simplified Java, with a simplified
         Java API for drawing and graphics.</p>
-    <h4>
-        <b><a name="whatdoesprocessingbrintotheweb">What does Processing bring to the web?</a></b></h4>
+
+    <h4><b><a name="whatdoesprocessingbrintotheweb">What does Processing bring to the web?</a></b></h4>
     <p>
         Processing has a large and vibrant community, who are good at creating 2D and 3D
         graphics, visualizing data sets, audio, video, etc. With HTML5 the web gained canvas,
@@ -98,8 +99,8 @@ permalink: /articles/jsQuickStart.html
         element is too low-level for most developers to use directly--JavaScript libraries
         are necessary. Processing.js can be thought of as just such a library, simplifying
         the use of the 2D and 3D canvas operations.</p>
-    <h4>
-        <b><a name="learnprocessing">How much work is it to learn Processing?</a></b></h4>
+
+    <h4><b><a name="learnprocessing">How much work is it to learn Processing?</a></b></h4>
     <p>
         The Processing language was designed to be small but complete, and easy to learn.
         This document does not attempt to teach you Processing, and you are encouraged to
@@ -107,8 +108,8 @@ permalink: /articles/jsQuickStart.html
         or concepts should map to Processing.js (the exceptions are listed below). You can
         also use pure JavaScript to work with the Processing drawing API, skipping the Java
         syntax of Processing in favour of JavaScript.</p>
-    <h3>
-        <a name="waystouseprocessingjs">Ways to Use Processing.js</a></h3>
+
+    <h3><a name="waystouseprocessingjs">Ways to Use Processing.js</a></h3>
     <p>
         Processing.js was originally created in order to allow existing Processing developers
         and existing Processing code (often referred to as <i>sketches</i>) to work unmodified
@@ -125,8 +126,8 @@ permalink: /articles/jsQuickStart.html
         for canvas.</p>
     <p>
         Below we discuss the various methods for using Processing.js in your web pages.</p>
-    <h4>
-        <b><a name="writingpureprocessingcode">Writing Pure Processing Code</a></b></h4>
+
+    <h4><b><a name="writingpureprocessingcode">Writing Pure Processing Code</a></b></h4>
     <p>
         This is the preferred method for using Processing.js, and has been dealt with at
         length in the <a href="http://processingjs.org/reference/articles/p5QuickStart">Processing.js
@@ -160,8 +161,8 @@ permalink: /articles/jsQuickStart.html
         elements with <b>data-processing-sources</b> attributes, download the files using
         XMLHTTPRequest, and feed them to the Processing-to-JavaScript translator. The resulting
         JavaScript is run using eval.</p>
-    <h4>
-        <b><a name="processingcodetojavascript">Pre-compiling Processing code to JavaScript</a></b></h4>
+
+    <h4><b><a name="processingcodetojavascript">Pre-compiling Processing code to JavaScript</a></b></h4>
     <p>
         Processing.js automatically downloads and converts any Processing code to JavaScript.
         It does this using the Processing.compile() method, and those interested in building
@@ -172,7 +173,7 @@ permalink: /articles/jsQuickStart.html
 
 {% highlight javascript linenos %}
 // hard-coded Processing code, text from an HTML widget, downloaded text, etc.
-var processingCode = "..."; 
+var processingCode = "...";
 var jsCode = Processing.compile(processingCode).sourceCode;
 {% endhighlight %}
 
@@ -204,8 +205,8 @@ void setup() {
 })
 {% endhighlight %}
 
-    <h4>
-        <b><a name="javascriptonlyprocessingcode">Writing JavaScript-only Processing.js code</a></b></h4>
+
+    <h4><b><a name="javascriptonlyprocessingcode">Writing JavaScript-only Processing.js code</a></b></h4>
     <p>
         The previous method produced JavaScript code from Processing, but you can also write
         JavaScript on its own. The Processing.js parser turns Processing code into a JavaScript
@@ -260,8 +261,8 @@ var processingInstance = new Processing(canvas, sketchProc);
     <p>
         Once that function is complete, pass it, along with a reference to a canvas, to
         the Processing constructor (remember to use <i>new</i>).</p>
-    <h4>
-        <b><a name="combineprocessingandjavascript">Writing Documents that Combine Processing and JavaScript Code</a></b></h4>
+
+    <h4><b><a name="combineprocessingandjavascript">Writing Documents that Combine Processing and JavaScript Code</a></b></h4>
     <p>
         One of the first questions people ask with Processing.js is whether they can read
         values from the document in which the Processing sketch is running, or vice versa.
@@ -270,8 +271,8 @@ var processingInstance = new Processing(canvas, sketchProc);
         Processing.js converts Processing code into JavaScript contained in a function closure.
         The variables and functions you create are not attached to the global object (i.e.,
         window). However, you can still get access to them.</p>
-    <h4>
-        <a name="accessingjsobjectsfrompjs">Accessing JavaScript Objects from Processing</a></h4>
+
+    <h4><a name="accessingjsobjectsfrompjs">Accessing JavaScript Objects from Processing</a></h4>
     <p>
         Since Processing code gets converted to JavaScript and run like any other function,
         all Processing code has access to the global object. This means that if you create
@@ -315,8 +316,8 @@ void setup() {
     <p>
         Here Processing.js allows the use of a variable and function declared outside the
         Processing code.</p>
-    <h4>
-        <a name="mixingjsandprocessing">Mixing JavaScript and Processing</a></h4>
+
+    <h4><a name="mixingjsandprocessing">Mixing JavaScript and Processing</a></h4>
     <p>
         The previous example kept a clean separation between the JavaScript and Processing
         code, while loosening the boundary between the two. Because Processing.js converts
@@ -342,8 +343,8 @@ void setup() {
         There is some JavaScript syntax that can't be easily mixed this way (e.g., regex
         literals). In those cases you can simply move your pure JavaScript to a &lt;script&gt;
         block and access it using the method described above.</p>
-    <h4>
-        <a name="accessingprocessingfromjs">Accessing Processing from JavaScript</a></h4>
+
+    <h4><a name="accessingprocessingfromjs">Accessing Processing from JavaScript</a></h4>
     <p>
         Reaching out from the Processing code to JavaScript is easier than going the other
         way, since the JavaScript created by the Processing.js parser is not exposed directly
@@ -402,15 +403,15 @@ void setup() {
         Processing sketch. They control the Processing instance (you might have several
         in a page, or hidden in divs) directly from JavaScript, calling Processing functions:
         loop() and noLoop(). The Processing functions are well documented elsewhere.</p>
-    <h3>
-        <a name="thingstoknowusingpjs">Things to Know as a JavaScript Developer using Processing.js</a></h3>
+
+    <h3><a name="thingstoknowusingpjs">Things to Know as a JavaScript Developer using Processing.js</a></h3>
     <p>
         While Processing.js tries to be fully compatible with Processing, there are some
         things which are different or require workarounds. We have also added some web-specific
         features to make Processing.js easier to use. Here are some tricks and tips as you
         start working on more complex sketches in Processing.js.</p>
-    <h4>
-        <b><a name="externalsproperty">Processing.js provides access to various DOM/JavaScript objects via the externals
+
+    <h4><b><a name="externalsproperty">Processing.js provides access to various DOM/JavaScript objects via the externals
             property</a></b></h4>
     <p>
         Each Processing instance (i.e., Processing.instances) has an <b>externals</b> property,
@@ -421,8 +422,8 @@ void setup() {
         <li>context - the canvas' context</li>
         <li>onblur and onfocus - event handlers</li>
     </ul>
-    <h4>
-        <b><a name="explicitcasting">Division which is expected to produce an integer might need explicit casting</a></b></h4>
+
+    <h4><b><a name="explicitcasting">Division which is expected to produce an integer might need explicit casting</a></b></h4>
     <p>
         There are a class of bugs that arise when converting Processing code to Processing.js
         that involve integer vs. floating point division. What was straight-up integer division
@@ -441,8 +442,41 @@ int g = (int)(mouseX / i);
     <p>
         See <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/532-drawing-artifacts-in-processingjs-not-in-processing-with-this-code">
             lighthouse bug</a></p>
-    <h4>
-        <b><a name="synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></b></h4>
+
+    <h4 id="explicitcharintention"><b>Char data is treated as number or string depending on how you compare</b></h4>
+    <p>
+        As JavaScript has no "char" datatype, there is no adequate counterpart to the Java char. This
+        was solved by making the parser treat char data as strings in virtually all cases, except when
+        used as primitive value using single letters surrounded by single quotes. Functions
+        returning chars or arrays of chars will also return strings (or arrays of string). If you are
+        using single quoted values to compare key input, you will need to be stricter in your intensions:</p>
+
+{% highlight java linenos %}
+void keyPressed() {
+  if (key == 'A') {
+    // this will work in Java mode, but fail in JS mode,
+    // because in JS, key is a string, but 'a' is a number.
+  }
+  if (keyCode == 'A') {
+    // this will work in JS mode, but fail in Java mode,
+    // because in Java keyCode is a number, but 'a' is a char.
+  }
+  if (keyCode == 65) {
+    // this will work in both JS and Java mode
+  }
+  if ((int)key == 65) {
+    // this will also work in both JS and Java mode
+  }
+  if (key == "A".charAt(0)) {
+    // and this, but it's a bit silly
+  }
+  if ((""+key).equals("A")) {
+    // and this, but now we're being *reall* silly
+  }
+}
+{% endhighlight %}
+
+    <h4><b><a name="synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></b></h4>
     <p>
         Processing uses a synchronous I/O model, which means that functions like <b>loadImage()</b>
         take time to execute, and while they are running, nothing else happens: the program
@@ -495,8 +529,7 @@ void setup() {
 /* @pjs preload="picture.jpg,picture2.jpg,picture3.png"; */
 {% endhighlight %}
 
-    <h4>
-        <b><a name="variablenamingcare">Processing.js requires more care with variable naming than Processing</a></b></h4>
+    <h4><b><a name="variablenamingcare">Processing.js requires more care with variable naming than Processing</a></b></h4>
     <p>
         One of the powerful features of JavaScript is its dynamic, typeless nature. Where
         typed languages like Java, and therefore Processing, can reuse names without fear
@@ -506,8 +539,7 @@ void setup() {
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
         the similarly named <b>line()</b> function built-into Processing and Processing.js.</p>
 
-    <h4>
-      <b><a name="methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></b></h4>
+    <h4><b><a name="methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></b></h4>
     <p>
         If your code uses subclasses that override one or more overloaded methods in the superclass, you
         will need "dummy" overrides for every method signature that you'd normally leave untouched:</p>
@@ -519,7 +551,7 @@ class X
   {
     ...
   }
-  
+
   void doSomething(float x, float y)
   {
     ...
@@ -532,7 +564,7 @@ class Y extends X
   {
     // different code from compared to the super class
   }
-  
+
   // even though we don't override this method,
   // its signature must be added to prevent Pjs
   // from getting the method chain wrong:
@@ -548,8 +580,7 @@ class Y extends X
         (float,float) signature, doing so is almost always necessary to make sure Processing.js doesn't get
         confused about which class's method to call.</p>
 
-    <h4>
-        <b><a name="processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></b></h4>
+    <h4><b><a name="processingcodeinwebpage">It is possible to put Processing code directly in your web page</a></b></h4>
     <p>
         Using the data-processing-sources attribute on the canvas, and having Processing.js
         load an external file is the preferred and recommended way to include scripts in
