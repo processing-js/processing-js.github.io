@@ -331,7 +331,10 @@ void setup() {
         the inner-workings of JavaScript, the best advice for Processing developers is to
         not use function/class/etc. names from Processing as variable names. For example,
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
-        the similarly named <b>line()</b> function built-into Processing and Processing.js.</p>
+        the similarly named <b>line()</b> function built-into Processing and Processing.js.
+        This is equally true for built-in functions and functions you create. A good rule-
+        of-thumb is: avoid having a variable <b>foo</b> in the same sketch as a function 
+        <b>foo();</b>.</p>
 
     <h4 id="methodoverriding"><b>Processing.js needs your help when overriding overloaded superclass methods</b></h4>
     <p>
