@@ -18,14 +18,14 @@ permalink: /articles/jsQuickStart.html
     <ol>
         <li style="margin-bottom: 0px;"><a href="#quickstart">For the Impatient</a></li>
         <li style="margin-bottom: 0px;"><a href="#whyprocessingjs">Why Processing.js?</a>
-            <ol>                
+            <ol>
                 <li style="margin-bottom: 0px;"><a href="#whatisprocessing">What is Processing?</a></li>
                 <li style="margin-bottom: 0px;"><a href="#whatdoesprocessingbrintotheweb">What does Processing bring to the web?</a></li>
                 <li style="margin-bottom: 0px;"><a href="#learnprocessing">How much work is it to learn Processing?</a></li>
             </ol>
         </li>
         <li style="margin-bottom: 0px;"><a href="#waystouseprocessingjs">Ways to use Processing.js</a>
-            <ol>                
+            <ol>
                 <li style="margin-bottom: 0px;"><a href="#writingpureprocessingcode">Writing Pure Processing Code</a></li>
                 <li style="margin-bottom: 0px;"><a href="#processingcodetojavascript">Pre-compiling Processing code to JavaScript</a></li>
                 <li style="margin-bottom: 0px;"><a href="#javascriptonlyprocessingcode">Writing JavaScript-only Processing.js code</a></li>
@@ -42,6 +42,7 @@ permalink: /articles/jsQuickStart.html
             <ol>
                 <li style="margin-bottom: 0px;"><a href="#externalsproperty">Processing.js provides access to various DOM/JavaScript objects via the externals property</a></li>
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
+                <li style="margin-bottom: 0px;"><a href="#nochartype">JavaScript, and as such Processing.js, has no "char" datatype</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
                 <li style="margin-bottom: 0px;"><a href="#methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></li>
@@ -172,7 +173,7 @@ permalink: /articles/jsQuickStart.html
 
 {% highlight javascript linenos %}
 // hard-coded Processing code, text from an HTML widget, downloaded text, etc.
-var processingCode = "..."; 
+var processingCode = "...";
 var jsCode = Processing.compile(processingCode).sourceCode;
 {% endhighlight %}
 
@@ -441,8 +442,20 @@ int g = (int)(mouseX / i);
     <p>
         See <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/532-drawing-artifacts-in-processingjs-not-in-processing-with-this-code">
             lighthouse bug</a></p>
-    <h4>
-        <b><a name="synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></b></h4>
+
+
+    <h4 id="nochartype"><b>JavaScript, and as such Processing.js, has no "char" datatype</b></h4>
+    <p> JavaScript only knows about numbers, and strings, unlike Java, which also knows about "char"
+        data types. The char is a 16 bit unsigned integer value, that can also pretend to be a letter
+        (from the ISO8859-1 codepage for the first 256 numbers, and basically magic after that).
+        Unfortunately, as JavaScript has no equivalent, relying on char comparisons to be either numbers
+        or letters is quite likely to cause problems. If you have Processing code where you're comparing
+        chars, you will either have to perform int casting, or string casting, using the <b>int()</b>
+        and <b>str()</b> functions, so that you know you're explicitly comparing datatypes that
+        JavaScript can deal with.</p>
+
+
+    <h4><b><a name="synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></b></h4>
     <p>
         Processing uses a synchronous I/O model, which means that functions like <b>loadImage()</b>
         take time to execute, and while they are running, nothing else happens: the program
@@ -519,7 +532,7 @@ class X
   {
     ...
   }
-  
+
   void doSomething(float x, float y)
   {
     ...
@@ -532,7 +545,7 @@ class Y extends X
   {
     // different code from compared to the super class
   }
-  
+
   // even though we don't override this method,
   // its signature must be added to prevent Pjs
   // from getting the method chain wrong:
