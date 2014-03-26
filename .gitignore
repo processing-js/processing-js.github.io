@@ -3,3 +3,4 @@
 
 # Jekyll ignores
 _site
+Gemfile.lock
