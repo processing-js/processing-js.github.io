@@ -33,6 +33,7 @@ permalink: /articles/p5QuickStart.html
                 <li style="margin-bottom: 0px;"><a href="#implementationofjava">Processing.js implements Processing, but not all of Java</a></li>
                 <li style="margin-bottom: 0px;"><a href="#renderingmodes">Processing.js only has two rendering modes</a></li>
                 <li style="margin-bottom: 0px;"><a href="#explicitcasting">Division which is expected to produce an integer might need explicit casting</a></li>
+                <li style="margin-bottom: 0px;"><a href="#nochartype">JavaScript, and as such Processing.js, has no "char" datatype</a></li>
                 <li style="margin-bottom: 0px;"><a href="#synchronousIO">Processing.js has to cheat to simulate Processing's synchronous I/O</a></li>
                 <li style="margin-bottom: 0px;"><a href="#variablenamingcare">Processing.js requires more care with variable naming than Processing</a></li>
                 <li style="margin-bottom: 0px;"><a href="#methodoverriding">Processing.js needs your help when overriding overloaded superclass methods</a></li>
@@ -270,6 +271,17 @@ int g = (int)(mouseX / i);
     <p>
         See <a href="https://processing-js.lighthouseapp.com/projects/41284/tickets/532-drawing-artifacts-in-processingjs-not-in-processing-with-this-code">
             lighthouse bug</a></p>
+
+    <h4 id="nochartype"><b>JavaScript, and as such Processing.js, has no "char" datatype</b></h4>
+    <p> JavaScript only knows about numbers, and strings, unlike Java, which also knows about "char"
+        data types. The char is a 16 bit unsigned integer value, that can also pretend to be a letter
+        (from the ISO8859-1 codepage for the first 256 numbers, and basically magic after that).
+        Unfortunately, as JavaScript has no equivalent, relying on char comparisons to be either numbers
+        or letters is quite likely to cause problems. If you have Processing code where you're comparing
+        chars, you will either have to perform int casting, or string casting, using the <b>int()</b>
+        and <b>str()</b> functions, so that you know you're explicitly comparing datatypes that
+        JavaScript can deal with.</p>
+
     <h4 id="synchronousIO"><b>Processing.js has to cheat to simulate Processing's synchronous I/O</b></h4>
     <p>
         Processing uses a synchronous I/O model, which means that functions like <b>loadImage()</b>
@@ -333,7 +345,7 @@ void setup() {
         a variable named <b>line</b> might seem reasonable, but it will cause issues with
         the similarly named <b>line()</b> function built-into Processing and Processing.js.
         This is equally true for built-in functions and functions you create. A good rule-
-        of-thumb is: avoid having a variable <b>foo</b> in the same sketch as a function 
+        of-thumb is: avoid having a variable <b>foo</b> in the same sketch as a function
         <b>foo();</b>.</p>
 
     <h4 id="methodoverriding"><b>Processing.js needs your help when overriding overloaded superclass methods</b></h4>
@@ -348,7 +360,7 @@ class X
   {
     ...
   }
-  
+
   void doSomething(float x, float y)
   {
     ...
@@ -361,7 +373,7 @@ class Y extends X
   {
     // different code from compared to the super class
   }
-  
+
   // even though we don't override this method,
   // its signature must be added to prevent Pjs
   // from getting the method chain wrong:
