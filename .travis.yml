@@ -8,5 +8,5 @@ after_success:
 - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then echo "Deployments are only done for branches. "; exit 0; fi
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then echo "Deployments are only done for the gh-pages branch. "; exit 0; fi
 - echo "Deploying commit $TRAVIS_COMMIT"
-- echo "ftp.processingjs.org,66.33.221.248 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeGEiJ87RtUCZHAy3iJloLvcIJZnCA0k0naJJl9wYYr9wcIp9hqtsTK5SBKb/2omWYaOaIrlfKP2K2kI76BgIYydxlnyYrDTmeNiPiipR7KbSQeQQ6PUzlJfOjcxfSWBTQJUp5O+fSIW3y+P/iqzlaY5q9HRyyP47QrpwLV1C0eBpRJgaYj/WJ2nzR5JTXV2aPXPupygk5oyZq22TLkmrIEb+u+q+0iuKLZpMgUFeHcuMJF/XofZBoS/L5c2CpW/FsVMZr1GUXhFM7U8oGeQAmL0mrY2UwbwOz8cy4wlUbshFuPKEOHT29q2z5ZqpR2Svzhu4ljLl1cIJMk1L2FjCx" >> .ssh/known_hosts
+- echo "ftp.processingjs.org,66.33.221.248 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeGEiJ87RtUCZHAy3iJloLvcIJZnCA0k0naJJl9wYYr9wcIp9hqtsTK5SBKb/2omWYaOaIrlfKP2K2kI76BgIYydxlnyYrDTmeNiPiipR7KbSQeQQ6PUzlJfOjcxfSWBTQJUp5O+fSIW3y+P/iqzlaY5q9HRyyP47QrpwLV1C0eBpRJgaYj/WJ2nzR5JTXV2aPXPupygk5oyZq22TLkmrIEb+u+q+0iuKLZpMgUFeHcuMJF/XofZBoS/L5c2CpW/FsVMZr1GUXhFM7U8oGeQAmL0mrY2UwbwOz8cy4wlUbshFuPKEOHT29q2z5ZqpR2Svzhu4ljLl1cIJMk1L2FjCx" >> ~/.ssh/known_hosts
 - rsync -vaz _site/ -e ssh processingjs@ftp.processingjs.org:~/processingjs.org
