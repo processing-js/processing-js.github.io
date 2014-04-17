@@ -3,3 +3,9 @@ rvm:
 - 2.1.0
 install: bundle install
 script: bundle exec jekyll build
+script: bundle exec jekyll build
+after_success:
+- if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then echo "Deployments are only done for branches. "; exit 0; fi
+- if [[ "$TRAVIS_BRANCH" != "master" ]]; then echo "Deployments are only done for the gh-pages branch. "; exit 0; fi
+- echo "Deploying commit $TRAVIS_COMMIT"
+- rsync -vaz _site/ -e ssh processingjs@ftp.processingjs.org:~/processingjs.org
