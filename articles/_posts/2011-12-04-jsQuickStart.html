@@ -348,12 +348,12 @@ void setup() {
     <p>
         Reaching out from the Processing code to JavaScript is easier than going the other
         way, since the JavaScript created by the Processing.js parser is not exposed directly
-        on the global object. Instead, you gain access using the Processing.instances property.</p>
+        on the global object. Instead, you gain access using the Processing.processingInstances property.</p>
     <p>
         The Processing constructor keeps track of instances it creates, and makes them available
         using the getInstanceById() method. By default, when a &lt;canvas&gt; has a data-processing-sources
         attribute, its id is used as a unique identifier for the Processing instance. If
-        no id attribute is provided, you can use Processing.instances[0].</p>
+        no id attribute is provided, you can use Processing.processingInstances[0].</p>
     <p>
         After you have a reference to the appropriate Processing instance, you can call
         into it like so:</p>
@@ -414,7 +414,7 @@ void setup() {
         <b><a name="externalsproperty">Processing.js provides access to various DOM/JavaScript objects via the externals
             property</a></b></h4>
     <p>
-        Each Processing instance (i.e., Processing.instances) has an <b>externals</b> property,
+        Each Processing instance (i.e., Processing.processingInstances) has an <b>externals</b> property,
         which is an object containing references to various non-Processing DOM/JavaScript
         objects that can be useful. For example:</p>
     <ul>
