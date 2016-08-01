@@ -1,4 +1,4 @@
 # Github defaults
 safe: true
 lsi: false
-highlighter: true
+highlighter: rouge
