@@ -4,8 +4,10 @@ layout: default
 {% assign current = site.categories.download.first %}
 <h2>Download {{ current.title }}</h2>
 
-<p>Download the latest Processing.js, including full and minified versions, examples,
-an API-only version without the Processing parser, or a complete zip file of everything.
+<p>Download the latest Processing.js from <a href="https://www.npmjs.com/package/processing-js">NPM</a>.</p>
+
+<p>Alternatively, download it directly from the <a href="https://github.com/processing-js/processing-js">Github</a> code repository.</p>
+
 Released {{ current.date | date_to_long_string }}</p>
 
 {{ current.content }}
