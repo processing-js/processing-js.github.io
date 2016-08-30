@@ -208,6 +208,10 @@ void setup() {
     <h4>
         <b><a name="javascriptonlyprocessingcode">Writing JavaScript-only Processing.js code</a></b></h4>
     <p>
+        Since 1.4.9, this is not supported any more. <br>
+        To write Javascript code, you can use 1.4.8 or other libraries like <a href="http://p5js.org/" target="_blank">p5js</a>.</p>
+    <del>
+    <p>
         The previous method produced JavaScript code from Processing, but you can also write
         JavaScript on its own. The Processing.js parser turns Processing code into a JavaScript
         function, then runs it. As a result, it's possible to skip the Processing code altogether,
@@ -260,7 +264,7 @@ var processingInstance = new Processing(canvas, sketchProc);
         or objects are accessible as properties of this object.</p>
     <p>
         Once that function is complete, pass it, along with a reference to a canvas, to
-        the Processing constructor (remember to use <i>new</i>).</p>
+        the Processing constructor (remember to use <i>new</i>).</p></del>
     <h4>
         <b><a name="combineprocessingandjavascript">Writing Documents that Combine Processing and JavaScript Code</a></b></h4>
     <p>
