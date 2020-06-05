@@ -1,6 +1,0 @@
-# OS X ignores
-.DS_Store
-
-# Jekyll ignores
-_site
-Gemfile.lock
